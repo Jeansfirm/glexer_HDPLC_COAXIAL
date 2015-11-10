@@ -1,0 +1,17 @@
+.\Obj\udp_demo.o: ..\..\Source\src\udp_demo.c
+.\Obj\udp_demo.o: D:\Keil4\ARM\RV31\INC\stdlib.h
+.\Obj\udp_demo.o: D:\Keil4\ARM\RV31\INC\stdio.h
+.\Obj\udp_demo.o: D:\Keil4\ARM\RV31\INC\string.h
+.\Obj\udp_demo.o: ..\..\Libraries\uIP-1.0\uip\uip.h
+.\Obj\udp_demo.o: ..\..\Libraries\uIP-1.0\uip\uipopt.h
+.\Obj\udp_demo.o: ..\..\Source\src\uIP_DM9000\uip-conf.h
+.\Obj\udp_demo.o: D:\Keil4\ARM\RV31\INC\inttypes.h
+.\Obj\udp_demo.o: D:\Keil4\ARM\RV31\INC\stdint.h
+.\Obj\udp_demo.o: ..\..\Libraries\uIP-1.0\apps\hello-world\hello-world.h
+.\Obj\udp_demo.o: ..\..\Libraries\uIP-1.0\uip\uipopt.h
+.\Obj\udp_demo.o: ..\..\Libraries\uIP-1.0\uip\psock.h
+.\Obj\udp_demo.o: ..\..\Libraries\uIP-1.0\uip\pt.h
+.\Obj\udp_demo.o: ..\..\Libraries\uIP-1.0\uip\lc.h
+.\Obj\udp_demo.o: ..\..\Libraries\uIP-1.0\uip\lc-switch.h
+.\Obj\udp_demo.o: ..\..\Source\inc\udp_demo.h
+.\Obj\udp_demo.o: ..\..\Source\inc\hdplc_struct.h
