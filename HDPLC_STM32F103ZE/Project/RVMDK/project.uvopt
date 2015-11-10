@@ -513,8 +513,8 @@
       <Focus>0</Focus>
       <ColumnNumber>32</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>450</TopLine>
+      <CurrentLine>450</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\Source\src\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -921,7 +921,33 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\用户目录\Pictures\硬件检测相关201509\PROGRAM\HDPLC_STM32F103ZE\Source\inc\udp_demo.h</PathWithFilename>
+    <PathWithFilename>F:\temp\02.安富莱STM32例程（原创）\uip-hello_word\Ex011-TCP通信_uIP\Libraries\uIP-1.0\uip\uipopt.h</PathWithFilename>
+    <TopLine>91</TopLine>
+    <CurrentLine>91</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>F:\temp\02.安富莱STM32例程（原创）\uip-hello_word\Ex011-TCP通信_uIP\Source\inc\usart_printf.h</PathWithFilename>
     <TopLine>1</TopLine>
     <CurrentLine>17</CurrentLine>
     <Constant>0</Constant>
@@ -947,7 +973,33 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\用户目录\Pictures\硬件检测相关201509\PROGRAM\HDPLC_STM32F103ZE\Libraries\uIP-1.0\uip\uiplib.h</PathWithFilename>
+    <PathWithFilename>F:\temp\02.安富莱STM32例程（原创）\uip-hello_word\Ex011-TCP通信_uIP\Source\inc\udp_demo.h</PathWithFilename>
+    <TopLine>1</TopLine>
+    <CurrentLine>17</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>F:\temp\02.安富莱STM32例程（原创）\uip-hello_word\Ex011-TCP通信_uIP\Libraries\uIP-1.0\uip\uiplib.h</PathWithFilename>
     <TopLine>30</TopLine>
     <CurrentLine>41</CurrentLine>
     <Constant>0</Constant>
@@ -973,7 +1025,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\用户目录\Pictures\硬件检测相关201509\PROGRAM\HDPLC_STM32F103ZE\Libraries\uIP-1.0\uip\uip.h</PathWithFilename>
+    <PathWithFilename>F:\temp\02.安富莱STM32例程（原创）\uip-hello_word\Ex011-TCP通信_uIP\Libraries\uIP-1.0\uip\uip.h</PathWithFilename>
     <TopLine>34</TopLine>
     <CurrentLine>57</CurrentLine>
     <Constant>0</Constant>
@@ -999,7 +1051,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\用户目录\Pictures\硬件检测相关201509\PROGRAM\HDPLC_STM32F103ZE\Source\src\uIP_DM9000\uip-conf.h</PathWithFilename>
+    <PathWithFilename>F:\temp\02.安富莱STM32例程（原创）\uip-hello_word\Ex011-TCP通信_uIP\Source\src\uIP_DM9000\uip-conf.h</PathWithFilename>
     <TopLine>111</TopLine>
     <CurrentLine>133</CurrentLine>
     <Constant>0</Constant>
@@ -1025,59 +1077,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\用户目录\Pictures\硬件检测相关201509\PROGRAM\HDPLC_STM32F103ZE\Libraries\uIP-1.0\uip\uipopt.h</PathWithFilename>
-    <TopLine>64</TopLine>
-    <CurrentLine>91</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\用户目录\Pictures\硬件检测相关201509\PROGRAM\HDPLC_STM32F103ZE\Source\inc\usart_printf.h</PathWithFilename>
-    <TopLine>1</TopLine>
-    <CurrentLine>17</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>D:\用户目录\Pictures\硬件检测相关201509\PROGRAM\HDPLC_STM32F103ZE\Source\inc\hdplc_struct.h</PathWithFilename>
+    <PathWithFilename>F:\temp\02.安富莱STM32例程（原创）\uip-hello_word\Ex011-TCP通信_uIP\Source\inc\hdplc_struct.h</PathWithFilename>
     <TopLine>179</TopLine>
     <CurrentLine>179</CurrentLine>
     <Constant>0</Constant>
@@ -1106,38 +1106,20 @@
     <Orientation>3</Orientation>
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
-      <Size>51</Size>
-      <ActiveTab>0</ActiveTab>
+      <Size>54</Size>
+      <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>..\..\Libraries\uIP-1.0\uip\uipopt.h</Name>
           <ColumnNumber>28</ColumnNumber>
-          <TopLine>64</TopLine>
+          <TopLine>91</TopLine>
           <CurrentLine>91</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\Libraries\uIP-1.0\apps\hello-world\hello-world.c</Name>
-          <ColumnNumber>29</ColumnNumber>
-          <TopLine>16</TopLine>
-          <CurrentLine>16</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\Source\inc\usart_printf.h</Name>
-          <ColumnNumber>16</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>17</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>..\..\Source\src\usart_printf.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>86</TopLine>
-          <CurrentLine>86</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\Source\src\main.c</Name>
           <ColumnNumber>32</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <TopLine>450</TopLine>
+          <CurrentLine>450</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\..\Source\src\udp_demo.c</Name>
@@ -1175,10 +1157,28 @@
           <TopLine>1</TopLine>
           <CurrentLine>17</CurrentLine>
         </Doc>
+        <Doc>
+          <Name>..\..\Libraries\uIP-1.0\apps\hello-world\hello-world.c</Name>
+          <ColumnNumber>29</ColumnNumber>
+          <TopLine>16</TopLine>
+          <CurrentLine>16</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\Source\inc\usart_printf.h</Name>
+          <ColumnNumber>16</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>17</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\..\Source\src\usart_printf.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>86</TopLine>
+          <CurrentLine>86</CurrentLine>
+        </Doc>
       </Documents>
     </MDIGroup>
     <MDIGroup>
-      <Size>49</Size>
+      <Size>46</Size>
       <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>

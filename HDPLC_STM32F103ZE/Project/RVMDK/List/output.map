@@ -1706,30 +1706,30 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       674         82          0          0        150       6550   button.o
-         4          0          0          0          0        457   clock-arch.o
-       946         78          0          8          0      10484   dm9k_uip.o
-      3150       1546          0          0        120      14773   hdplc_struct.o
-       256         72          0          0          0       2184   hello-world.o
-      1264        486          0         40        100     262155   main.o
-       510         34          0          0          0       5129   psock.o
-        48         12        304          0       1024        924   startup_stm32f10x_hd.o
-       220          4          0          0          0       2005   stm32f10x_fsmc.o
-       182          0          0          0          0       3151   stm32f10x_gpio.o
-        20          0          0          0          0       3818   stm32f10x_it.o
-       200         28          0         20          0       4569   stm32f10x_rcc.o
-       196          6          0          0          0       5198   stm32f10x_usart.o
-       212         22          4          0          0       2049   system_stm32f10x.o
-       116         16          0          8         32       6649   systick.o
-        40         14          0          0          0       1342   tapdev.o
-        50          0          0          0          0       1886   timer.o
-      2092       1426          0         12       4100      10943   udp_demo.o
-      3564        440          0         58       9112      17898   uip.o
-       808         80          6          8         96       4082   uip_arp.o
-       524        262          0          0          0       2315   usart_printf.o
+       674         82          0          0        150       6870   button.o
+         4          0          0          0          0        481   clock-arch.o
+       946         78          0          8          0      10848   dm9k_uip.o
+      3150       1546          0          0        120      15293   hdplc_struct.o
+       256         72          0          0          0       2276   hello-world.o
+      1264        486          0         40        100     262799   main.o
+       510         34          0          0          0       5289   psock.o
+        48         12        304          0       1024        948   startup_stm32f10x_hd.o
+       220          4          0          0          0       2077   stm32f10x_fsmc.o
+       182          0          0          0          0       3243   stm32f10x_gpio.o
+        20          0          0          0          0       4022   stm32f10x_it.o
+       200         28          0         20          0       4685   stm32f10x_rcc.o
+       196          6          0          0          0       5358   stm32f10x_usart.o
+       212         22          4          0          0       2137   system_stm32f10x.o
+       116         16          0          8         32       6761   systick.o
+        40         14          0          0          0       1402   tapdev.o
+        50          0          0          0          0       1974   timer.o
+      2092       1426          0         12       4100      11131   udp_demo.o
+      3564        440          0         58       9112      18258   uip.o
+       808         80          6          8         96       4218   uip_arp.o
+       524        262          0          0          0       2403   usart_printf.o
 
     ----------------------------------------------------------------------
-     15108       4608        346        156      14740     368561   Object Totals
+     15108       4608        346        156      14740     372473   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         32          0          0          2          6          3   (incl. Padding)
 
@@ -1790,8 +1790,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     18224       4722        480        172      14740     363392   Grand Totals
-     18224       4722        480        172      14740     363392   ELF Image Totals
+     18224       4722        480        172      14740     367304   Grand Totals
+     18224       4722        480        172      14740     367304   ELF Image Totals
      18224       4722        480        172          0          0   ROM Totals
 
 ==============================================================================

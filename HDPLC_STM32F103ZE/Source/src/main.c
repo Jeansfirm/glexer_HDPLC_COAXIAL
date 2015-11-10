@@ -1,66 +1,12 @@
 /****************************************************************************
-* Copyright (C), 2010 °²¸»À³µç×Ó www.armfly.com
-*
-* ¡¾±¾Àý³ÌÔÚ°²¸»À³STM32F103ZE-EK¿ª·¢°åÉÏµ÷ÊÔÍ¨¹ý             ¡¿
-* ¡¾QQ: 1295744630, ÍúÍú£ºarmfly, Email: armfly@qq.com       ¡¿
+
+* ¡¾±¾Àý³ÌÔÚ°²¸»À³STM32F103ZE-EK¿ª·¢°åÉÏµ÷ÊÔÍ¨¹ý ¡¿
 *
 * ÎÄ¼þÃû: main.c
 * ÄÚÈÝ¼òÊö:
-*		±¾Àý³ÌÒÆÖ²uIP-1.0Ð­ÒéÕ»£¬ÑÝÊ¾¿ª·¢°åºÍPC¼äµÄTCPÍ¨ÐÅ¡£×Ô¶¨ÒåÁËÒ»¸ö¼òµ¥µÄÓ¦ÓÃ²ã
-*	Í¨ÐÅÐ­Òé¡£±¾Àý³ÌÊµÏÖµÄ¹¦ÄÜÓÐ£º
-*		£¨1£©Í¨¹ýPC»ú¿ØÖÆ°å×ÓÉÏµÄLED£»
-*		£¨2£©²âÊÔTCPÉÏ´«ËÙ¶ÈºÍTCPÏÂ´«ËÙ¶È¡£
-*		£¨3£©ÔÚ²»Ó°ÏìÍ¨ÐÅµÄÌõ¼þÏÂÊµÏÖÁË°´¼üµÄ¼ì²âºÍ´òÓ¡¼üÖµ¹¦ÄÜ¡£
-*
+*		±¾Àý³ÌÒÆÖ²uIP-1.0Ð­ÒéÕ»
 *	    °²¸»À³STM32F103ZE-EK¿ª·¢°åÑ¡ÓÃµÄÍø¿¨Ð¾Æ¬DM9000AE£¬¸ÃÐ¾Æ¬¿É×ÔÊÊÓ¦10M/100M
-*	Á¬½Ó£¬×Ô¶¯Ê¶±ðÖ±Á¬ÍøÏßºÍ½»²æÍøÏß¡£
-*		±¾Àý³ÌÉèÖÃµÄÈ±Ê¡IPµØÖ·ÊÇ 192.168.1.10£¬Ä¬ÈÏµÄTCP¼àÌý¶Ë¿ÚÊÇ1000¡£
-*		¿ª·¢°å¹¤×÷ÔÚTCP·þÎñÆ÷Ä£Ê½¡£PC»ú¹¤×÷ÔÚTCP¿Í»§¶ËÄ£Ê½¡£
-*	 	PC»úÉÏÐèÒªÔËÐÐTcpTestÈí¼þ£¬C++ Builder 6.0(sp4)¿ª·¢£¬Ìá¹©Ô´Âë¡£
-*	ÓÃ»§¿ÉÒÔ×öÈçÏÂ²âÊÔ£º
-*	£¨1£©ping ÊÔÑé
-*		µã»÷windows ¿ªÊ¼-ÔËÐÐ£¬Ö´ÐÐcmdÃüÁî£¬È»ºóÔÚdos´°¿ÚÊäÈë ping 192.168.1.10
-*		Ó¦¸Ã¿´µ½ÈçÏÂ½á¹û£º
-*			Reply from 192.168.1.10: bytes=32 time<1ms TTL=128
-*			Reply from 192.168.1.10: bytes=32 time<1ms TTL=128
-*			Reply from 192.168.1.10: bytes=32 time<1ms TTL=128
-*			Reply from 192.168.1.10: bytes=32 time<1ms TTL=128
-*
-*	£¨2£©PC»ú¿ØÖÆ¿ª·¢°åÉÏµÄLEDÊÔÑé
-*		ÔËÐÐTcpTestÈí¼þ£¬ÔÚÃüÁîÊäÈë´°¿ÚÊäÈë¿ØÖÆLEDµÄÃüÁî×Ö·û´®£¬È»ºóµã»÷·¢ËÍ£¬¿ª·¢°å
-*	ÉÏ¶ÔÓ¦µÄLEDµÆ»á·¢Éú±ä»¯¡£TcpTestÈí¼þÓÐ8¸ö°´Å¥£¬µã»÷ºó¿ÉÒÔÖ±½Ó·¢ËÍLedµÄ¿ØÖÆ
-*	ÃüÁî¡£
-*		ÃüÁî´úÂëÈçÏÂ£º (Ä©Î²ÎÞ0x00ºÍ»Ø³µ×Ö·û)
-*		ledon 1     ----- µãÁÁLED1
-*		ledoff 1    ----- ¹Ø±ÕLED1
-*		ledon 2     ----- µãÁÁLED2
-*		ledoff 2    ----- ¹Ø±ÕLED2
-*		ledon 3     ----- µãÁÁLED3
-*		ledoff 3    ----- ¹Ø±ÕLED3
-*		ledon 4     ----- µãÁÁLED4
-*		ledoff 4    ----- ¹Ø±ÕLED4
-*		txtest      ----- Í¨ÖªÄ¿±ê°å½øÈëÉÏ´«²âÊÔ×´Ì¬¡£
-*		rxtest      ----- Í¨ÖªÄ¿±ê°å½øÈë´«²âÊÔ×´Ì¬¡£
-*		stop		----- ÍË³öÉÏ´«»òÏÂ´«²âÊÔ×´Ì¬£¬½øÈëÃüÁî×´Ì¬
-*
-*	£¨3£©²âÊÔÄ¿±ê°åÁ¬ÐøÉÏ´«Êý¾Ý°üµÄÍ¨ÐÅËÙ¶È
-*		·¢ËÍ txtest ÃüÁî£¬»òÕßµã»÷¡°ÉÏ´«²âÊÔ¡±°´Å¥¡£Ä¿±ê°å½ÓÊÕµ½´ËÃüÁîºó»áÁ¬Ðø·¢ËÍÊý¾Ý°ü£¬
-*	Ã¿¸ö°üµÄ´óÐ¡Îª1400×Ö½Ú¡£TcpTestÈí¼þ»áÏÔÊ¾Í¨ÐÅËÙ¶È¡£
-*		×¢£ºÓÉÓÚÈ±Ê¡Ê±windows¶ÔTCP°ü»áÑÓ³Ù200msÔÙÈ·ÈÏ£¬µ¼ÖÂÃ¿ÃëÖ»ÄÜÉÏ´«5°ü¡£Êµ²âÉÏ´«ËÙ¶È
-*	Îª7000×Ö½Ú/Ãë¡£
-*		Èç¹û¹´Ñ¡ÁË¡°ÊÕµ½Êý¾ÝºóÁ¢¼´Ó¦´ð¡±£¬ÔòTcpTestÊÕµ½Êý¾Ýºó»á·¢ËÍ1¸ö×Ö·û¡®A'£¬ÕâÑù¾Í¿ÉÒÔÊµÏÖ
-*	¼°Ê±Ó¦´ð¡£Êµ²âÉÏ´«ËÙ¶ÈÎª 1.2M×Ö½Ú/Ãë¡£
-
-*	£¨4£©²âÊÔÄ¿±ê°åÁ¬ÐøÉÏ´«Êý¾Ý°üµÄÍ¨ÐÅËÙ¶È
-*		·¢ËÍ extest ÃüÁî£¬»òÕßµã»÷¡°ÏÂ´«²âÊÔ¡±°´Å¥¡£ PC»ú»áÁ¬Ðø·¢ËÍÊý¾Ý°ü¸øÄ¿±ê°å£¬
-*	Ã¿¸ö°üµÄ´óÐ¡Îª1400×Ö½Ú¡£TcpTestÈí¼þ»áÏÔÊ¾Í¨ÐÅËÙ¶È¡£Êµ²âÏÂ´«ËÙ¶ÈÎª 1.4M×Ö½Ú/Ãë¡£
-*
-*	£¨5£©Í¨ÐÅÖÐ°´¼üÊÔÑé
-*		ËæÊ±²Ù×÷¿ª·¢°åÉÏµÄ3¸ö°´Å¥»òÒ¡¸Ë£¬´®¿Ú1»á´òÓ¡³ö¼üÖµ¡£ÐèÒªÁ¬ÉÏ´®¿ÚÏß£¬´ò¿ª´®¿Ú¹¤¾ß½øÐÐ¹Û²ì¡£
-*
-* ÎÄ¼þÀúÊ·:
-* °æ±¾ºÅ  ÈÕÆÚ       ×÷Õß    ËµÃ÷
-* v0.1    2010-02-01 armfly  ´´½¨¸ÃÎÄ¼þ
+*	Á¬½Ó£¬×Ô¶¯Ê¶±ðÖ±Á¬ÍøÏßºÍ½»²æÍøÏß¡		
 *
 */
 

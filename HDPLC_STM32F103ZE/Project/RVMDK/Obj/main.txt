@@ -5,85 +5,85 @@
                           AREA ||i.GPIO_Configuration||, CODE, READONLY, ALIGN=2
 
                   GPIO_Configuration PROC
-;;;388    */
-;;;389    void GPIO_Configuration(void)
+;;;334    */
+;;;335    void GPIO_Configuration(void)
 000000  b5f8              PUSH     {r3-r7,lr}
-;;;390    {
-;;;391    	GPIO_InitTypeDef GPIO_InitStructure;
-;;;392    
-;;;393    	/* 第1步：打开GPIOA GPIOC GPIOD GPIOF GPIOG的时钟
-;;;394    	   注意：这个地方可以一次性全打开
-;;;395    	*/
-;;;396    	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOC
+;;;336    {
+;;;337    	GPIO_InitTypeDef GPIO_InitStructure;
+;;;338    
+;;;339    	/* 第1步：打开GPIOA GPIOC GPIOD GPIOF GPIOG的时钟
+;;;340    	   注意：这个地方可以一次性全打开
+;;;341    	*/
+;;;342    	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOC
 000002  2101              MOVS     r1,#1
 000004  f44f70da          MOV      r0,#0x1b4
 000008  f7fffffe          BL       RCC_APB2PeriphClockCmd
-;;;397    			| RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOF | RCC_APB2Periph_GPIOG,
-;;;398    				ENABLE);
-;;;399    
-;;;400    	/* 第2步：配置所有的按键GPIO为浮动输入模式(实际上CPUf复位后就是输入状态) */
-;;;401    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+;;;343    			| RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOF | RCC_APB2Periph_GPIOG,
+;;;344    				ENABLE);
+;;;345    
+;;;346    	/* 第2步：配置所有的按键GPIO为浮动输入模式(实际上CPUf复位后就是输入状态) */
+;;;347    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
 00000c  2001              MOVS     r0,#1
 00000e  f8ad0000          STRH     r0,[sp,#0]
-;;;402    	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+;;;348    	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
 000012  2004              MOVS     r0,#4
 000014  f88d0003          STRB     r0,[sp,#3]
-;;;403    	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+;;;349    	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 000018  2403              MOVS     r4,#3
 00001a  f88d4002          STRB     r4,[sp,#2]
-;;;404    	GPIO_Init(GPIOA, &GPIO_InitStructure);	/* PA0 */
+;;;350    	GPIO_Init(GPIOA, &GPIO_InitStructure);	/* PA0 */
 00001e  4669              MOV      r1,sp
 000020  4816              LDR      r0,|L1.124|
 000022  f7fffffe          BL       GPIO_Init
-;;;405    
-;;;406    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+;;;351    
+;;;352    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
 000026  f44f5000          MOV      r0,#0x2000
 00002a  f8ad0000          STRH     r0,[sp,#0]
-;;;407    	GPIO_Init(GPIOC, &GPIO_InitStructure);	/* PC13 */
+;;;353    	GPIO_Init(GPIOC, &GPIO_InitStructure);	/* PC13 */
 00002e  4669              MOV      r1,sp
 000030  4813              LDR      r0,|L1.128|
 000032  f7fffffe          BL       GPIO_Init
-;;;408    
-;;;409    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
+;;;354    
+;;;355    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
 000036  2008              MOVS     r0,#8
 000038  f8ad0000          STRH     r0,[sp,#0]
-;;;410    	GPIO_Init(GPIOD, &GPIO_InitStructure);	/* PD3 */
+;;;356    	GPIO_Init(GPIOD, &GPIO_InitStructure);	/* PD3 */
 00003c  4669              MOV      r1,sp
 00003e  4811              LDR      r0,|L1.132|
 000040  f7fffffe          BL       GPIO_Init
-;;;411    
-;;;412    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_13
+;;;357    
+;;;358    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_13
 000044  f24e1080          MOV      r0,#0xe180
 000048  f8ad0000          STRH     r0,[sp,#0]
-;;;413    					  | GPIO_Pin_14 | GPIO_Pin_15;
-;;;414    	GPIO_Init(GPIOG, &GPIO_InitStructure);	/* PG7,8,13,14,15 */
+;;;359    					  | GPIO_Pin_14 | GPIO_Pin_15;
+;;;360    	GPIO_Init(GPIOG, &GPIO_InitStructure);	/* PG7,8,13,14,15 */
 00004c  4669              MOV      r1,sp
 00004e  480e              LDR      r0,|L1.136|
 000050  f7fffffe          BL       GPIO_Init
-;;;415    
-;;;416    	/* 第3步：配置所有的LED指示灯GPIO为推挽输出模式 */
-;;;417    	/* 由于将GPIO设置为输出时，GPIO输出寄存器的值缺省是0，因此会驱动LED点亮
-;;;418    		这是我不希望的，因此在改变GPIO为输出前，先修改输出寄存器的值为1 */
-;;;419    	GPIO_SetBits(GPIOF,  GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9);
+;;;361    
+;;;362    	/* 第3步：配置所有的LED指示灯GPIO为推挽输出模式 */
+;;;363    	/* 由于将GPIO设置为输出时，GPIO输出寄存器的值缺省是0，因此会驱动LED点亮
+;;;364    		这是我不希望的，因此在改变GPIO为输出前，先修改输出寄存器的值为1 */
+;;;365    	GPIO_SetBits(GPIOF,  GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9);
 000054  4e0d              LDR      r6,|L1.140|
 000056  f44f7570          MOV      r5,#0x3c0
 00005a  4629              MOV      r1,r5
 00005c  4630              MOV      r0,r6
 00005e  f7fffffe          BL       GPIO_SetBits
-;;;420    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9;
+;;;366    	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9;
 000062  f8ad5000          STRH     r5,[sp,#0]
-;;;421    	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+;;;367    	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 000066  2010              MOVS     r0,#0x10
 000068  f88d0003          STRB     r0,[sp,#3]
-;;;422    	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+;;;368    	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 00006c  f88d4002          STRB     r4,[sp,#2]
-;;;423    	GPIO_Init(GPIOF, &GPIO_InitStructure);
+;;;369    	GPIO_Init(GPIOF, &GPIO_InitStructure);
 000070  4669              MOV      r1,sp
 000072  4630              MOV      r0,r6
 000074  f7fffffe          BL       GPIO_Init
-;;;424    }
+;;;370    }
 000078  bdf8              POP      {r3-r7,pc}
-;;;425    
+;;;371    
                           ENDP
 
 00007a  0000              DCW      0x0000
@@ -101,35 +101,35 @@
                           AREA ||i.InitBoard||, CODE, READONLY, ALIGN=2
 
                   InitBoard PROC
-;;;431    */
-;;;432    static void InitBoard(void)
+;;;377    */
+;;;378    static void InitBoard(void)
 000000  b510              PUSH     {r4,lr}
-;;;433    {
-;;;434    	/*
-;;;435    		这个函数是ST库中的函数，函数实体在
-;;;436    		Libraries\CMSIS\Core\CM3\system_stm32f10x.c
-;;;437    
-;;;438    		配置内部Flash接口，初始化PLL，配置系统频率
-;;;439    		系统时钟缺省配置为72MHz，你如果需要更改，则需要去修改相关的头文件中的宏定义
-;;;440    	 */
-;;;441    	SystemInit();
+;;;379    {
+;;;380    	/*
+;;;381    		这个函数是ST库中的函数，函数实体在
+;;;382    		Libraries\CMSIS\Core\CM3\system_stm32f10x.c
+;;;383    
+;;;384    		配置内部Flash接口，初始化PLL，配置系统频率
+;;;385    		系统时钟缺省配置为72MHz，你如果需要更改，则需要去修改相关的头文件中的宏定义
+;;;386    	 */
+;;;387    	SystemInit();
 000002  f7fffffe          BL       SystemInit
-;;;442    
-;;;443    	/* 配置按键GPIO和LED GPIO */
-;;;444    	GPIO_Configuration();
+;;;388    
+;;;389    	/* 配置按键GPIO和LED GPIO */
+;;;390    	GPIO_Configuration();
 000006  f7fffffe          BL       GPIO_Configuration
-;;;445    
-;;;446    	/* 配置串口 */
-;;;447    	USART_Configuration();
+;;;391    
+;;;392    	/* 配置串口 */
+;;;393    	USART_Configuration();
 00000a  f7fffffe          BL       USART_Configuration
-;;;448    
-;;;449    	/* 在 SysTick_Config()前，必须先调用 */
-;;;450    	InitButtonVar();
+;;;394    
+;;;395    	/* 在 SysTick_Config()前，必须先调用 */
+;;;396    	InitButtonVar();
 00000e  f7fffffe          BL       InitButtonVar
-;;;451    
-;;;452    	/* 配置systic作为1ms中断,这个函数在
-;;;453    	\Libraries\CMSIS\Core\CM3\core_cm3.h */
-;;;454    	SysTick_Config(SystemFrequency / 1000);
+;;;397    
+;;;398    	/* 配置systic作为1ms中断,这个函数在
+;;;399    	\Libraries\CMSIS\Core\CM3\core_cm3.h */
+;;;400    	SysTick_Config(SystemFrequency / 1000);
 000012  480c              LDR      r0,|L2.68|
 000014  f44f717a          MOV      r1,#0x3e8
 000018  6800              LDR      r0,[r0,#0]  ; SystemFrequency
@@ -148,9 +148,9 @@
 00003c  f04f0107          MOV      r1,#7
 000040  6101              STR      r1,[r0,#0x10]
                   |L2.66|
-;;;455    }
+;;;401    }
 000042  bd10              POP      {r4,pc}
-;;;456    
+;;;402    
                           ENDP
 
                   |L2.68|
@@ -161,63 +161,63 @@
                           AREA ||i.InitNet||, CODE, READONLY, ALIGN=2
 
                   InitNet PROC
-;;;296    */
-;;;297    void InitNet(void)
+;;;242    */
+;;;243    void InitNet(void)
 000000  b510              PUSH     {r4,lr}
-;;;298    {
-;;;299    	uip_ipaddr_t ipaddr;
-;;;300    
-;;;301    	/* 检测网卡芯片 */
-;;;302    	{
-;;;303    		uint32_t vid;
-;;;304    
-;;;305    		vid = dm9k_ReadID();
+;;;244    {
+;;;245    	uip_ipaddr_t ipaddr;
+;;;246    
+;;;247    	/* 检测网卡芯片 */
+;;;248    	{
+;;;249    		uint32_t vid;
+;;;250    
+;;;251    		vid = dm9k_ReadID();
 000002  f7fffffe          BL       dm9k_ReadID
-;;;306    		if (vid == DM9000A_ID_OK)
-;;;307    		{
-;;;308    			//printf("DM9000AE Detect Ok, vid&pid = %08X\n\r", vid);
-;;;309    		}
-;;;310    		else
-;;;311    		{
-;;;312    			//printf("DM9000AE Detect Failed, vid&pid = %08X, Expected = %08X\n\r", vid, DM9000A_ID_OK);
-;;;313    		}
-;;;314    	}
-;;;315    
-;;;316    	tapdev_init();
+;;;252    		if (vid == DM9000A_ID_OK)
+;;;253    		{
+;;;254    			//printf("DM9000AE Detect Ok, vid&pid = %08X\n\r", vid);
+;;;255    		}
+;;;256    		else
+;;;257    		{
+;;;258    			//printf("DM9000AE Detect Failed, vid&pid = %08X, Expected = %08X\n\r", vid, DM9000A_ID_OK);
+;;;259    		}
+;;;260    	}
+;;;261    
+;;;262    	tapdev_init();
 000006  f7fffffe          BL       tapdev_init
-;;;317    
-;;;318    	//printf("uip_init\n\r");
-;;;319    	uip_init();
+;;;263    
+;;;264    	//printf("uip_init\n\r");
+;;;265    	uip_init();
 00000a  f7fffffe          BL       uip_init
-;;;320    
-;;;321    	//printf("uip ip address : 192,168,20,11\n\r");
-;;;322    	uip_ipaddr(ipaddr, 192,168,20,11);
-;;;323    	uip_sethostaddr(ipaddr);
+;;;266    
+;;;267    	//printf("uip ip address : 192,168,20,11\n\r");
+;;;268    	uip_ipaddr(ipaddr, 192,168,20,11);
+;;;269    	uip_sethostaddr(ipaddr);
 00000e  4909              LDR      r1,|L3.52|
-000010  f64a00c0          MOV      r0,#0xa8c0            ;322
-000014  f6403214          MOV      r2,#0xb14             ;322
+000010  f64a00c0          MOV      r0,#0xa8c0            ;268
+000014  f6403214          MOV      r2,#0xb14             ;268
 000018  8008              STRH     r0,[r1,#0]
 00001a  804a              STRH     r2,[r1,#2]
-;;;324    
-;;;325    	//printf("uip route address : 192,168,20,1\n\r");
-;;;326    	uip_ipaddr(ipaddr, 192,168,20,1);
-;;;327    	uip_setdraddr(ipaddr);
+;;;270    
+;;;271    	//printf("uip route address : 192,168,20,1\n\r");
+;;;272    	uip_ipaddr(ipaddr, 192,168,20,1);
+;;;273    	uip_setdraddr(ipaddr);
 00001c  4906              LDR      r1,|L3.56|
-00001e  f44f728a          MOV      r2,#0x114             ;326
+00001e  f44f728a          MOV      r2,#0x114             ;272
 000022  8008              STRH     r0,[r1,#0]
 000024  804a              STRH     r2,[r1,#2]
-;;;328    
-;;;329    	//printf("uip net mask : 255,255,255,0\n\r");
-;;;330    	uip_ipaddr(ipaddr, 255,255,255,0);
-;;;331    	uip_setnetmask(ipaddr);
+;;;274    
+;;;275    	//printf("uip net mask : 255,255,255,0\n\r");
+;;;276    	uip_ipaddr(ipaddr, 255,255,255,0);
+;;;277    	uip_setnetmask(ipaddr);
 000026  4805              LDR      r0,|L3.60|
-000028  f64f72ff          MOV      r2,#0xffff            ;330
-00002c  21ff              MOVS     r1,#0xff              ;330
+000028  f64f72ff          MOV      r2,#0xffff            ;276
+00002c  21ff              MOVS     r1,#0xff              ;276
 00002e  8002              STRH     r2,[r0,#0]
 000030  8041              STRH     r1,[r0,#2]
-;;;332    }
+;;;278    }
 000032  bd10              POP      {r4,pc}
-;;;333    
+;;;279    
                           ENDP
 
                   |L3.52|
@@ -230,45 +230,45 @@
                           AREA ||i.SetIP1||, CODE, READONLY, ALIGN=2
 
                   SetIP1 PROC
-;;;334    
-;;;335    void SetIP1(void)
+;;;280    
+;;;281    void SetIP1(void)
 000000  b510              PUSH     {r4,lr}
-;;;336    {
-;;;337    	uip_ipaddr_t ipaddr;
-;;;338    
-;;;339    	tapdev_init();
+;;;282    {
+;;;283    	uip_ipaddr_t ipaddr;
+;;;284    
+;;;285    	tapdev_init();
 000002  f7fffffe          BL       tapdev_init
-;;;340    	uip_init();
+;;;286    	uip_init();
 000006  f7fffffe          BL       uip_init
-;;;341    
-;;;342    	//printf("uip ip address : 192,168,20,11\n\r");
-;;;343    	uip_ipaddr(ipaddr, 192,168,20,11);
-;;;344    	uip_sethostaddr(ipaddr);
+;;;287    
+;;;288    	//printf("uip ip address : 192,168,20,11\n\r");
+;;;289    	uip_ipaddr(ipaddr, 192,168,20,11);
+;;;290    	uip_sethostaddr(ipaddr);
 00000a  4909              LDR      r1,|L4.48|
-00000c  f64a00c0          MOV      r0,#0xa8c0            ;343
-000010  f6403214          MOV      r2,#0xb14             ;343
+00000c  f64a00c0          MOV      r0,#0xa8c0            ;289
+000010  f6403214          MOV      r2,#0xb14             ;289
 000014  8008              STRH     r0,[r1,#0]
 000016  804a              STRH     r2,[r1,#2]
-;;;345    
-;;;346    	//printf("uip route address : 192,168,20,1\n\r");
-;;;347    	uip_ipaddr(ipaddr, 192,168,20,1);
-;;;348    	uip_setdraddr(ipaddr);
+;;;291    
+;;;292    	//printf("uip route address : 192,168,20,1\n\r");
+;;;293    	uip_ipaddr(ipaddr, 192,168,20,1);
+;;;294    	uip_setdraddr(ipaddr);
 000018  4906              LDR      r1,|L4.52|
-00001a  f44f728a          MOV      r2,#0x114             ;347
+00001a  f44f728a          MOV      r2,#0x114             ;293
 00001e  8008              STRH     r0,[r1,#0]
 000020  804a              STRH     r2,[r1,#2]
-;;;349    
-;;;350    	//printf("uip net mask : 255,255,255,0\n\r");
-;;;351    	uip_ipaddr(ipaddr, 255,255,255,0);
-;;;352    	uip_setnetmask(ipaddr);
+;;;295    
+;;;296    	//printf("uip net mask : 255,255,255,0\n\r");
+;;;297    	uip_ipaddr(ipaddr, 255,255,255,0);
+;;;298    	uip_setnetmask(ipaddr);
 000022  4805              LDR      r0,|L4.56|
-000024  f64f72ff          MOV      r2,#0xffff            ;351
-000028  21ff              MOVS     r1,#0xff              ;351
+000024  f64f72ff          MOV      r2,#0xffff            ;297
+000028  21ff              MOVS     r1,#0xff              ;297
 00002a  8002              STRH     r2,[r0,#0]
 00002c  8041              STRH     r1,[r0,#2]
-;;;353    }
+;;;299    }
 00002e  bd10              POP      {r4,pc}
-;;;354    
+;;;300    
                           ENDP
 
                   |L4.48|
@@ -281,45 +281,45 @@
                           AREA ||i.SetIP2||, CODE, READONLY, ALIGN=2
 
                   SetIP2 PROC
-;;;354    
-;;;355    void SetIP2(void)
+;;;300    
+;;;301    void SetIP2(void)
 000000  b510              PUSH     {r4,lr}
-;;;356    {
-;;;357    	uip_ipaddr_t ipaddr;
-;;;358    
-;;;359    	tapdev_init();
+;;;302    {
+;;;303    	uip_ipaddr_t ipaddr;
+;;;304    
+;;;305    	tapdev_init();
 000002  f7fffffe          BL       tapdev_init
-;;;360    	uip_init();
+;;;306    	uip_init();
 000006  f7fffffe          BL       uip_init
-;;;361    
-;;;362    	//printf("uip ip address : 192,168,20,11\n\r");
-;;;363    	uip_ipaddr(ipaddr, 192,168,20,12);
-;;;364    	uip_sethostaddr(ipaddr);
+;;;307    
+;;;308    	//printf("uip ip address : 192,168,20,11\n\r");
+;;;309    	uip_ipaddr(ipaddr, 192,168,20,12);
+;;;310    	uip_sethostaddr(ipaddr);
 00000a  4909              LDR      r1,|L5.48|
-00000c  f64a00c0          MOV      r0,#0xa8c0            ;363
-000010  f6404214          MOV      r2,#0xc14             ;363
+00000c  f64a00c0          MOV      r0,#0xa8c0            ;309
+000010  f6404214          MOV      r2,#0xc14             ;309
 000014  8008              STRH     r0,[r1,#0]
 000016  804a              STRH     r2,[r1,#2]
-;;;365    
-;;;366    	//printf("uip route address : 192,168,20,1\n\r");
-;;;367    	uip_ipaddr(ipaddr, 192,168,20,1);
-;;;368    	uip_setdraddr(ipaddr);
+;;;311    
+;;;312    	//printf("uip route address : 192,168,20,1\n\r");
+;;;313    	uip_ipaddr(ipaddr, 192,168,20,1);
+;;;314    	uip_setdraddr(ipaddr);
 000018  4906              LDR      r1,|L5.52|
-00001a  f44f728a          MOV      r2,#0x114             ;367
+00001a  f44f728a          MOV      r2,#0x114             ;313
 00001e  8008              STRH     r0,[r1,#0]
 000020  804a              STRH     r2,[r1,#2]
-;;;369    
-;;;370    	//printf("uip net mask : 255,255,255,0\n\r");
-;;;371    	uip_ipaddr(ipaddr, 255,255,255,0);
-;;;372    	uip_setnetmask(ipaddr);
+;;;315    
+;;;316    	//printf("uip net mask : 255,255,255,0\n\r");
+;;;317    	uip_ipaddr(ipaddr, 255,255,255,0);
+;;;318    	uip_setnetmask(ipaddr);
 000022  4805              LDR      r0,|L5.56|
-000024  f64f72ff          MOV      r2,#0xffff            ;371
-000028  21ff              MOVS     r1,#0xff              ;371
+000024  f64f72ff          MOV      r2,#0xffff            ;317
+000028  21ff              MOVS     r1,#0xff              ;317
 00002a  8002              STRH     r2,[r0,#0]
 00002c  8041              STRH     r1,[r0,#2]
-;;;373    }
+;;;319    }
 00002e  bd10              POP      {r4,pc}
-;;;374    
+;;;320    
                           ENDP
 
                   |L5.48|
@@ -332,121 +332,121 @@
                           AREA ||i.UipPro||, CODE, READONLY, ALIGN=2
 
                   UipPro PROC
-;;;196    */
-;;;197    void UipPro(void)
+;;;142    */
+;;;143    void UipPro(void)
 000000  e92d41f0          PUSH     {r4-r8,lr}
-;;;198    {
-;;;199    	uint8_t i;
-;;;200    	static struct timer periodic_timer, arp_timer;
-;;;201    	static char timer_ok = 0;	/* armfly */
-;;;202    
-;;;203    	/* 创建2个定时器，只用执行1次 */
-;;;204    	if (timer_ok == 0)
+;;;144    {
+;;;145    	uint8_t i;
+;;;146    	static struct timer periodic_timer, arp_timer;
+;;;147    	static char timer_ok = 0;	/* armfly */
+;;;148    
+;;;149    	/* 创建2个定时器，只用执行1次 */
+;;;150    	if (timer_ok == 0)
 000004  483d              LDR      r0,|L6.252|
 000006  7801              LDRB     r1,[r0,#0]  ; timer_ok
 000008  b959              CBNZ     r1,|L6.34|
-;;;205    	{
-;;;206    		timer_ok = 1;
+;;;151    	{
+;;;152    		timer_ok = 1;
 00000a  2101              MOVS     r1,#1
 00000c  7001              STRB     r1,[r0,#0]
-;;;207    		timer_set(&periodic_timer, CLOCK_SECOND / 2);  /* 创建1个0.5秒的定时器 */
+;;;153    		timer_set(&periodic_timer, CLOCK_SECOND / 2);  /* 创建1个0.5秒的定时器 */
 00000e  2132              MOVS     r1,#0x32
 000010  3018              ADDS     r0,r0,#0x18
 000012  f7fffffe          BL       timer_set
-;;;208    		timer_set(&arp_timer, CLOCK_SECOND * 10);	   /* 创建1个10秒的定时器 */
+;;;154    		timer_set(&arp_timer, CLOCK_SECOND * 10);	   /* 创建1个10秒的定时器 */
 000016  4839              LDR      r0,|L6.252|
 000018  f44f717a          MOV      r1,#0x3e8
 00001c  3020              ADDS     r0,r0,#0x20
 00001e  f7fffffe          BL       timer_set
                   |L6.34|
-;;;209    	}
-;;;210    
-;;;211    	/*
-;;;212    		从网络设备读取一个IP包,返回数据长度 (非阻塞)
-;;;213    		这个地方没有使用DM9000AEP的中断功能，采用的是查询方式
-;;;214    	*/
-;;;215    	uip_len = tapdev_read();	/* uip_len 是在uip中定义的全局变量 */
+;;;155    	}
+;;;156    
+;;;157    	/*
+;;;158    		从网络设备读取一个IP包,返回数据长度 (非阻塞)
+;;;159    		这个地方没有使用DM9000AEP的中断功能，采用的是查询方式
+;;;160    	*/
+;;;161    	uip_len = tapdev_read();	/* uip_len 是在uip中定义的全局变量 */
 000022  f7fffffe          BL       tapdev_read
 000026  4c36              LDR      r4,|L6.256|
 000028  8020              STRH     r0,[r4,#0]
-;;;216    	if(uip_len > 0)
+;;;162    	if(uip_len > 0)
 00002a  b300              CBZ      r0,|L6.110|
-;;;217    	{
-;;;218    		/* 处理IP数据包(只有校验通过的IP包才会被接收) */
-;;;219    		if(BUF->type == htons(UIP_ETHTYPE_IP))
+;;;163    	{
+;;;164    		/* 处理IP数据包(只有校验通过的IP包才会被接收) */
+;;;165    		if(BUF->type == htons(UIP_ETHTYPE_IP))
 00002c  f44f6000          MOV      r0,#0x800
 000030  f7fffffe          BL       htons
 000034  4d33              LDR      r5,|L6.260|
 000036  89a9              LDRH     r1,[r5,#0xc]  ; uip_buf
 000038  4288              CMP      r0,r1
 00003a  d108              BNE      |L6.78|
-;;;220    		{
-;;;221    			uip_arp_ipin();
-;;;222    			uip_input();
+;;;166    		{
+;;;167    			uip_arp_ipin();
+;;;168    			uip_input();
 00003c  2001              MOVS     r0,#1
 00003e  f7fffffe          BL       uip_process
-;;;223    			/*
-;;;224    				当上面的函数执行后，如果需要发送数据，则全局变量 uip_len > 0
-;;;225    				需要发送的数据在uip_buf, 长度是uip_len  (这是2个全局变量)
-;;;226    			*/
-;;;227    			if (uip_len > 0)
+;;;169    			/*
+;;;170    				当上面的函数执行后，如果需要发送数据，则全局变量 uip_len > 0
+;;;171    				需要发送的数据在uip_buf, 长度是uip_len  (这是2个全局变量)
+;;;172    			*/
+;;;173    			if (uip_len > 0)
 000042  8820              LDRH     r0,[r4,#0]  ; uip_len
 000044  2800              CMP      r0,#0
 000046  d057              BEQ      |L6.248|
-;;;228    			{
-;;;229    				uip_arp_out();
+;;;174    			{
+;;;175    				uip_arp_out();
 000048  f7fffffe          BL       uip_arp_out
-;;;230    				tapdev_send();
+;;;176    				tapdev_send();
 00004c  e00b              B        |L6.102|
                   |L6.78|
-;;;231    			}
-;;;232    		}
-;;;233    		/* 处理arp报文 */
-;;;234    		else if (BUF->type == htons(UIP_ETHTYPE_ARP))
+;;;177    			}
+;;;178    		}
+;;;179    		/* 处理arp报文 */
+;;;180    		else if (BUF->type == htons(UIP_ETHTYPE_ARP))
 00004e  f6400006          MOV      r0,#0x806
 000052  f7fffffe          BL       htons
 000056  89a9              LDRH     r1,[r5,#0xc]  ; uip_buf
 000058  4288              CMP      r0,r1
 00005a  d14d              BNE      |L6.248|
-;;;235    		{
-;;;236    			uip_arp_arpin();
+;;;181    		{
+;;;182    			uip_arp_arpin();
 00005c  f7fffffe          BL       uip_arp_arpin
-;;;237    			/*
-;;;238    				当上面的函数执行后，如果需要发送数据，则全局变量 uip_len > 0
-;;;239    				需要发送的数据在uip_buf, 长度是uip_len  (这是2个全局变量)
-;;;240    			*/
-;;;241    			if (uip_len > 0)
+;;;183    			/*
+;;;184    				当上面的函数执行后，如果需要发送数据，则全局变量 uip_len > 0
+;;;185    				需要发送的数据在uip_buf, 长度是uip_len  (这是2个全局变量)
+;;;186    			*/
+;;;187    			if (uip_len > 0)
 000060  8820              LDRH     r0,[r4,#0]  ; uip_len
 000062  2800              CMP      r0,#0
 000064  d048              BEQ      |L6.248|
                   |L6.102|
-;;;242    			{
-;;;243    				tapdev_send();
+;;;188    			{
+;;;189    				tapdev_send();
 000066  e8bd41f0          POP      {r4-r8,lr}
 00006a  f7ffbffe          B.W      tapdev_send
                   |L6.110|
-;;;244    			}
-;;;245    		}
-;;;246    	}
-;;;247    	else if(timer_expired(&periodic_timer))	/* 0.5秒定时器超时 */
+;;;190    			}
+;;;191    		}
+;;;192    	}
+;;;193    	else if(timer_expired(&periodic_timer))	/* 0.5秒定时器超时 */
 00006e  4823              LDR      r0,|L6.252|
 000070  3018              ADDS     r0,r0,#0x18
 000072  f7fffffe          BL       timer_expired
 000076  2800              CMP      r0,#0
 000078  d03e              BEQ      |L6.248|
-;;;248    	{
-;;;249    		timer_reset(&periodic_timer);	/* 复位0.5秒定时器 */
+;;;194    	{
+;;;195    		timer_reset(&periodic_timer);	/* 复位0.5秒定时器 */
 00007a  4820              LDR      r0,|L6.252|
 00007c  3018              ADDS     r0,r0,#0x18
 00007e  f7fffffe          BL       timer_reset
-;;;250    
-;;;251    		/* 轮流处理每个TCP连接, UIP_CONNS缺省是10个 */
-;;;252    		for(i = 0; i < UIP_CONNS; i++)
-;;;253    		{
-;;;254    			uip_periodic(i);	/* 处理TCP通信事件 */
+;;;196    
+;;;197    		/* 轮流处理每个TCP连接, UIP_CONNS缺省是10个 */
+;;;198    		for(i = 0; i < UIP_CONNS; i++)
+;;;199    		{
+;;;200    			uip_periodic(i);	/* 处理TCP通信事件 */
 000082  4e21              LDR      r6,|L6.264|
 000084  4f21              LDR      r7,|L6.268|
-000086  2500              MOVS     r5,#0                 ;252
+000086  2500              MOVS     r5,#0                 ;198
                   |L6.136|
 000088  eb050045          ADD      r0,r5,r5,LSL #1
 00008c  ebc01045          RSB      r0,r0,r5,LSL #5
@@ -454,34 +454,34 @@
 000094  6038              STR      r0,[r7,#0]  ; uip_conn
 000096  2002              MOVS     r0,#2
 000098  f7fffffe          BL       uip_process
-;;;255    			/*
-;;;256    				当上面的函数执行后，如果需要发送数据，则全局变量 uip_len > 0
-;;;257    				需要发送的数据在uip_buf, 长度是uip_len  (这是2个全局变量)
-;;;258    			*/
-;;;259    			if(uip_len > 0)
+;;;201    			/*
+;;;202    				当上面的函数执行后，如果需要发送数据，则全局变量 uip_len > 0
+;;;203    				需要发送的数据在uip_buf, 长度是uip_len  (这是2个全局变量)
+;;;204    			*/
+;;;205    			if(uip_len > 0)
 00009c  8820              LDRH     r0,[r4,#0]  ; uip_len
 00009e  b118              CBZ      r0,|L6.168|
-;;;260    			{
-;;;261    				uip_arp_out();
+;;;206    			{
+;;;207    				uip_arp_out();
 0000a0  f7fffffe          BL       uip_arp_out
-;;;262    				tapdev_send();
+;;;208    				tapdev_send();
 0000a4  f7fffffe          BL       tapdev_send
                   |L6.168|
-0000a8  1c6d              ADDS     r5,r5,#1              ;252
-0000aa  b2ed              UXTB     r5,r5                 ;252
-0000ac  2d28              CMP      r5,#0x28              ;252
+0000a8  1c6d              ADDS     r5,r5,#1              ;198
+0000aa  b2ed              UXTB     r5,r5                 ;198
+0000ac  2d28              CMP      r5,#0x28              ;198
 0000ae  d3eb              BCC      |L6.136|
-;;;263    			}
-;;;264    		}
-;;;265    
-;;;266    	#if UIP_UDP
-;;;267    		/* 轮流处理每个UDP连接, UIP_UDP_CONNS缺省是10个 */
-;;;268    		for(i = 0; i < UIP_UDP_CONNS; i++)
-;;;269    		{
-;;;270    			uip_udp_periodic(i);	/*处理UDP通信事件 */
+;;;209    			}
+;;;210    		}
+;;;211    
+;;;212    	#if UIP_UDP
+;;;213    		/* 轮流处理每个UDP连接, UIP_UDP_CONNS缺省是10个 */
+;;;214    		for(i = 0; i < UIP_UDP_CONNS; i++)
+;;;215    		{
+;;;216    			uip_udp_periodic(i);	/*处理UDP通信事件 */
 0000b0  4e17              LDR      r6,|L6.272|
 0000b2  4f18              LDR      r7,|L6.276|
-0000b4  2500              MOVS     r5,#0                 ;268
+0000b4  2500              MOVS     r5,#0                 ;214
 0000b6  bf00              NOP      
                   |L6.184|
 0000b8  eb050045          ADD      r0,r5,r5,LSL #1
@@ -489,47 +489,47 @@
 0000c0  6038              STR      r0,[r7,#0]  ; uip_udp_conn
 0000c2  2005              MOVS     r0,#5
 0000c4  f7fffffe          BL       uip_process
-;;;271    			/* If the above function invocation resulted in data that
-;;;272    			should be sent out on the network, the global variable
-;;;273    			uip_len is set to a value > 0. */
-;;;274    			if(uip_len > 0)
+;;;217    			/* If the above function invocation resulted in data that
+;;;218    			should be sent out on the network, the global variable
+;;;219    			uip_len is set to a value > 0. */
+;;;220    			if(uip_len > 0)
 0000c8  8820              LDRH     r0,[r4,#0]  ; uip_len
 0000ca  b118              CBZ      r0,|L6.212|
-;;;275    			{
-;;;276    			uip_arp_out();
+;;;221    			{
+;;;222    			uip_arp_out();
 0000cc  f7fffffe          BL       uip_arp_out
-;;;277    			tapdev_send();
+;;;223    			tapdev_send();
 0000d0  f7fffffe          BL       tapdev_send
                   |L6.212|
-0000d4  1c6d              ADDS     r5,r5,#1              ;268
-0000d6  b2ed              UXTB     r5,r5                 ;268
-0000d8  2d0a              CMP      r5,#0xa               ;268
+0000d4  1c6d              ADDS     r5,r5,#1              ;214
+0000d6  b2ed              UXTB     r5,r5                 ;214
+0000d8  2d0a              CMP      r5,#0xa               ;214
 0000da  d3ed              BCC      |L6.184|
-;;;278    			}
-;;;279    		}
-;;;280    	#endif /* UIP_UDP */
-;;;281    
-;;;282    		/* 每隔10秒调用1次ARP定时器函数 */
-;;;283    		if (timer_expired(&arp_timer))
+;;;224    			}
+;;;225    		}
+;;;226    	#endif /* UIP_UDP */
+;;;227    
+;;;228    		/* 每隔10秒调用1次ARP定时器函数 */
+;;;229    		if (timer_expired(&arp_timer))
 0000dc  4807              LDR      r0,|L6.252|
 0000de  3020              ADDS     r0,r0,#0x20
 0000e0  f7fffffe          BL       timer_expired
 0000e4  2800              CMP      r0,#0
 0000e6  d007              BEQ      |L6.248|
-;;;284    		{
-;;;285    			timer_reset(&arp_timer);
+;;;230    		{
+;;;231    			timer_reset(&arp_timer);
 0000e8  4804              LDR      r0,|L6.252|
 0000ea  3020              ADDS     r0,r0,#0x20
 0000ec  f7fffffe          BL       timer_reset
-;;;286    			uip_arp_timer();
+;;;232    			uip_arp_timer();
 0000f0  e8bd41f0          POP      {r4-r8,lr}
 0000f4  f7ffbffe          B.W      uip_arp_timer
                   |L6.248|
-;;;287    		}
-;;;288    	}
-;;;289    }
+;;;233    		}
+;;;234    	}
+;;;235    }
 0000f8  e8bd81f0          POP      {r4-r8,pc}
-;;;290    
+;;;236    
                           ENDP
 
                   |L6.252|
@@ -554,116 +554,116 @@
                           REQUIRE _printf_c
                           REQUIRE _printf_str
                   main PROC
-;;;112    */
-;;;113    int main(void)
+;;;58     */
+;;;59     int main(void)
 000000  f7fffffe          BL       InitBoard
-;;;114    {
-;;;115    	
-;;;116    
-;;;117    	InitBoard();	/* 为了是main函数看起来更简洁些，我们将初始化的代码封装到这个函数 */
+;;;60     {
+;;;61     	
+;;;62     
+;;;63     	InitBoard();	/* 为了是main函数看起来更简洁些，我们将初始化的代码封装到这个函数 */
 000004  a12d              ADR      r1,|L7.188|
 000006  a030              ADR      r0,|L7.200|
 000008  f7fffffe          BL       PrintfLogo
-;;;118    	DispLogo();		/* 显示例程Logo */
-;;;119    
-;;;120    	InitNet();		/* 初始化网络设备以及UIP协议栈，配置IP地址 */
+;;;64     	DispLogo();		/* 显示例程Logo */
+;;;65     
+;;;66     	InitNet();		/* 初始化网络设备以及UIP协议栈，配置IP地址 */
 00000c  f7fffffe          BL       InitNet
-;;;121    
-;;;122    	/* 创建一个TCP监听端口，端口号为1000 */
-;;;123    	//uip_listen(HTONS(1000));
-;;;124    
-;;;125    	printf("\n\rBuilding UDP connectiong to 192.168.20.156...\n\n\r");
+;;;67     
+;;;68     	/* 创建一个TCP监听端口，端口号为1000 */
+;;;69     	//uip_listen(HTONS(1000));
+;;;70     
+;;;71     	printf("\n\rBuilding UDP connectiong to 192.168.20.156...\n\n\r");
 000010  a032              ADR      r0,|L7.220|
 000012  f7fffffe          BL       __2printf
-;;;126    
-;;;127    	while(1)
-;;;128    	{
-;;;129    		 //InitNet();
-;;;130    		 if(i_ip==0)
+;;;72     
+;;;73     	while(1)
+;;;74     	{
+;;;75     		 //InitNet();
+;;;76     		 if(i_ip==0)
 000016  2500              MOVS     r5,#0
 000018  4c3d              LDR      r4,|L7.272|
-;;;131    		 {
-;;;132    		 	SetIP1();
-;;;133    			i_ip=1;
+;;;77     		 {
+;;;78     		 	SetIP1();
+;;;79     			i_ip=1;
 00001a  2601              MOVS     r6,#1
                   |L7.28|
-00001c  6960              LDR      r0,[r4,#0x14]         ;130  ; i_ip
+00001c  6960              LDR      r0,[r4,#0x14]         ;76  ; i_ip
 00001e  b140              CBZ      r0,|L7.50|
-;;;134    		 }
-;;;135    		 else
-;;;136    		 {
-;;;137    		 	SetIP2();
+;;;80     		 }
+;;;81     		 else
+;;;82     		 {
+;;;83     		 	SetIP2();
 000020  f7fffffe          BL       SetIP2
-;;;138    			i_ip=0;
+;;;84     			i_ip=0;
 000024  f8c45014          STR.W    r5,[r4,#0x14]
                   |L7.40|
-;;;139    		 }
-;;;140    
-;;;141    		uip_udp_init();
+;;;85     		 }
+;;;86     
+;;;87     		uip_udp_init();
 000028  f7fffffe          BL       uip_udp_init
-;;;142    
-;;;143    		if(circle_flag==0)
+;;;88     
+;;;89     		if(circle_flag==0)
 00002c  68e0              LDR      r0,[r4,#0xc]  ; circle_flag
 00002e  b120              CBZ      r0,|L7.58|
 000030  e03e              B        |L7.176|
                   |L7.50|
 000032  f7fffffe          BL       SetIP1
-000036  6166              STR      r6,[r4,#0x14]         ;133  ; i_ip
+000036  6166              STR      r6,[r4,#0x14]         ;79  ; i_ip
 000038  e7f6              B        |L7.40|
                   |L7.58|
-;;;144    		{
-;;;145    		//display main menu
-;;;146    		printf("\t\t<--Main Menu-->\t\t\n\n\r");
+;;;90     		{
+;;;91     		//display main menu
+;;;92     		printf("\t\t<--Main Menu-->\t\t\n\n\r");
 00003a  a036              ADR      r0,|L7.276|
 00003c  f7fffffe          BL       __2printf
-;;;147    		printf(" 1.	Get Status\n\r");
+;;;93     		printf(" 1.	Get Status\n\r");
 000040  a03a              ADR      r0,|L7.300|
 000042  f7fffffe          BL       __2printf
-;;;148    		printf(" 2.	Start SpeedTest\n\r");
+;;;94     		printf(" 2.	Start SpeedTest\n\r");
 000046  a03e              ADR      r0,|L7.320|
 000048  f7fffffe          BL       __2printf
-;;;149    		printf(" 3.	Get SpeedTestStatus\n\r");
+;;;95     		printf(" 3.	Get SpeedTestStatus\n\r");
 00004c  a042              ADR      r0,|L7.344|
 00004e  f7fffffe          BL       __2printf
-;;;150    		printf(" 4.	Get PhyRate\n\r");
+;;;96     		printf(" 4.	Get PhyRate\n\r");
 000052  a048              ADR      r0,|L7.372|
 000054  f7fffffe          BL       __2printf
-;;;151    		printf(" 5.	System Command\n\r");
+;;;97     		printf(" 5.	System Command\n\r");
 000058  a04b              ADR      r0,|L7.392|
 00005a  f7fffffe          BL       __2printf
-;;;152    		printf(" 6.	System GetPhyRate\n\r");
+;;;98     		printf(" 6.	System GetPhyRate\n\r");
 00005e  a050              ADR      r0,|L7.416|
 000060  f7fffffe          BL       __2printf
-;;;153    		printf(" 7.	Get All Messages\n\r");
+;;;99     		printf(" 7.	Get All Messages\n\r");
 000064  a054              ADR      r0,|L7.440|
 000066  f7fffffe          BL       __2printf
-;;;154    		printf(" 8.	Set Mac Address\n\r");
+;;;100    		printf(" 8.	Set Mac Address\n\r");
 00006a  a059              ADR      r0,|L7.464|
 00006c  f7fffffe          BL       __2printf
-;;;155    		printf(" 9.	Start ChannelEstimate\n\r");
+;;;101    		printf(" 9.	Start ChannelEstimate\n\r");
 000070  a05d              ADR      r0,|L7.488|
 000072  f7fffffe          BL       __2printf
-;;;156    		printf(" a.	Get CINR Map\n\r");
+;;;102    		printf(" a.	Get CINR Map\n\r");
 000076  a063              ADR      r0,|L7.516|
 000078  f7fffffe          BL       __2printf
-;;;157    		printf(" 0.	Exit\n\r");
+;;;103    		printf(" 0.	Exit\n\r");
 00007c  a066              ADR      r0,|L7.536|
 00007e  f7fffffe          BL       __2printf
-;;;158    		printf("\n\r	Input-->");
+;;;104    		printf("\n\r	Input-->");
 000082  a068              ADR      r0,|L7.548|
 000084  f7fffffe          BL       __2printf
-;;;159    
-;;;160    		//c_choice=getc(stdin);
-;;;161    		scanf("%s",inStr); 
+;;;105    
+;;;106    		//c_choice=getc(stdin);
+;;;107    		scanf("%s",inStr); 
 000088  4969              LDR      r1,|L7.560|
 00008a  a06a              ADR      r0,|L7.564|
 00008c  f7fffffe          BL       __0scanf
-;;;162    		c_choice=(unsigned char)inStr[0];	 		
+;;;108    		c_choice=(unsigned char)inStr[0];	 		
 000090  4867              LDR      r0,|L7.560|
 000092  7801              LDRB     r1,[r0,#0]  ; inStr
 000094  7061              STRB     r1,[r4,#1]
-;;;163    
-;;;164    		if(c_choice=='7'||c_choice=='8')
+;;;109    
+;;;110    		if(c_choice=='7'||c_choice=='8')
 000096  2937              CMP      r1,#0x37
 000098  d001              BEQ      |L7.158|
 00009a  2938              CMP      r1,#0x38
@@ -671,43 +671,43 @@
                   |L7.158|
 00009e  e9c46503          STRD     r6,r5,[r4,#0xc]
                   |L7.162|
-;;;165    		{
-;;;166    			circle_flag=1;
-;;;167    			circle_state=0;
-;;;168    		}
-;;;169    		send_flag=1;
-;;;170    		rec_flag=0;
-;;;171    		uip_len=0; 
+;;;111    		{
+;;;112    			circle_flag=1;
+;;;113    			circle_state=0;
+;;;114    		}
+;;;115    		send_flag=1;
+;;;116    		rec_flag=0;
+;;;117    		uip_len=0; 
 0000a2  4865              LDR      r0,|L7.568|
 0000a4  e9c46501          STRD     r6,r5,[r4,#4]
 0000a8  8005              STRH     r5,[r0,#0]
-;;;172    		printf(" %c\n\n\r",c_choice);
+;;;118    		printf(" %c\n\n\r",c_choice);
 0000aa  a064              ADR      r0,|L7.572|
 0000ac  f7fffffe          BL       __2printf
                   |L7.176|
-;;;173    
-;;;174    		}
-;;;175    
-;;;176    		while (1)
-;;;177    		{
-;;;178    			UipPro();		/* 处理uip事件，必须插入到用户程序的循环体中 */
+;;;119    
+;;;120    		}
+;;;121    
+;;;122    		while (1)
+;;;123    		{
+;;;124    			UipPro();		/* 处理uip事件，必须插入到用户程序的循环体中 */
 0000b0  f7fffffe          BL       UipPro
-;;;179    
-;;;180    			//uip_udp_init();	
-;;;181    
-;;;182    			if(rec_flag)break;		 
+;;;125    
+;;;126    			//uip_udp_init();	
+;;;127    
+;;;128    			if(rec_flag)break;		 
 0000b4  68a0              LDR      r0,[r4,#8]  ; rec_flag
 0000b6  2800              CMP      r0,#0
 0000b8  d0fa              BEQ      |L7.176|
 0000ba  e7af              B        |L7.28|
-;;;183    			
-;;;184    		}
-;;;185    
-;;;186    
-;;;187    
-;;;188    	}
-;;;189    }
-;;;190    
+;;;129    			
+;;;130    		}
+;;;131    
+;;;132    
+;;;133    
+;;;134    	}
+;;;135    }
+;;;136    
                           ENDP
 
                   |L7.188|

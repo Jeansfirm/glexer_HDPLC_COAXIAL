@@ -1,5 +1,5 @@
 Dependencies for Project 'project', Target 'Flash': (DO NOT MODIFY !)
-F (..\..\Source\src\main.c)(0x56385538)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections --asm --interleave -I..\..\Libraries\CMSIS\Core\CM3 -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Source\inc -I..\..\Libraries\uIP-1.0\apps\webserver -I..\..\Libraries\uIP-1.0\uip -I..\..\Source\src\uIP_DM9000 -I..\..\Libraries\uIP-1.0\apps\hello-world -I "D:\Keil4\ARM\INC" -I "D:\Keil4\ARM\INC\ST\STM32F10x" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\Obj\main.o" --depend ".\Obj\main.d")
+F (..\..\Source\src\main.c)(0x5641B372)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections --asm --interleave -I..\..\Libraries\CMSIS\Core\CM3 -I..\..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\..\Source\inc -I..\..\Libraries\uIP-1.0\apps\webserver -I..\..\Libraries\uIP-1.0\uip -I..\..\Source\src\uIP_DM9000 -I..\..\Libraries\uIP-1.0\apps\hello-world -I "D:\Keil4\ARM\INC" -I "D:\Keil4\ARM\INC\ST\STM32F10x" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\Obj\main.o" --depend ".\Obj\main.d")
 I (..\..\Libraries\CMSIS\Core\CM3\stm32f10x.h)(0x4AC0A34C)
 I (..\..\Libraries\CMSIS\Core\CM3\core_cm3.h)(0x4AC0A34A)
 I (D:\Keil4\ARM\RV31\INC\stdint.h)(0x4C3B7C42)
