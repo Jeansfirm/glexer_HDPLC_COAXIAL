@@ -8,200 +8,200 @@
                           REQUIRE _printf_s
                           REQUIRE _printf_str
                   udp_appcall PROC
-;;;65     
-;;;66     void udp_appcall(void) {
+;;;63     
+;;;64     void udp_appcall(void) {
 000000  e92d47f0          PUSH     {r4-r10,lr}
-;;;67     	struct udp_demo_appstate *s = (struct udp_demo_appstate *)&uip_udp_conn->appstate;
-;;;68     
-;;;69     	 if(uip_len==0)
+;;;65     	struct udp_demo_appstate *s = (struct udp_demo_appstate *)&uip_udp_conn->appstate;
+;;;66     
+;;;67     	 if(uip_len==0)
 000004  4846              LDR      r0,|L1.288|
-;;;70     	 //if(send_flag)
-;;;71     	 {
-;;;72     		switch(c_choice)
+;;;68     	 //if(send_flag)
+;;;69     	 {
+;;;70     		switch(c_choice)
 000006  4f47              LDR      r7,|L1.292|
-000008  2400              MOVS     r4,#0                 ;69
-00000a  8800              LDRH     r0,[r0,#0]            ;69  ; uip_len
-;;;73     		{
-;;;74     			case '0':
-;;;75     				printf("Return to Main Menu...\n\n\r");
-;;;76     				rec_flag=1;
+000008  2400              MOVS     r4,#0                 ;67
+00000a  8800              LDRH     r0,[r0,#0]            ;67  ; uip_len
+;;;71     		{
+;;;72     			case '0':
+;;;73     				printf("Return to Main Menu...\n\n\r");
+;;;74     				rec_flag=1;
 00000c  4e46              LDR      r6,|L1.296|
 00000e  2501              MOVS     r5,#1
-000010  2800              CMP      r0,#0                 ;69
+000010  2800              CMP      r0,#0                 ;67
 000012  d11d              BNE      |L1.80|
-;;;77     				break;
-;;;78     
-;;;79     			case '1':
-;;;80     				if(send_flag) 
+;;;75     				break;
+;;;76     
+;;;77     			case '1':
+;;;78     				if(send_flag) 
 000014  4945              LDR      r1,|L1.300|
-000016  783a              LDRB     r2,[r7,#0]            ;72  ; c_choice
-000018  6808              LDR      r0,[r1,#0]            ;72
-00001a  2a36              CMP      r2,#0x36              ;72
+000016  783a              LDRB     r2,[r7,#0]            ;70  ; c_choice
+000018  6808              LDR      r0,[r1,#0]            ;70
+00001a  2a36              CMP      r2,#0x36              ;70
 00001c  d064              BEQ      |L1.232|
 00001e  dc08              BGT      |L1.50|
-000020  f1a20230          SUB      r2,r2,#0x30           ;72
-000024  2a06              CMP      r2,#6                 ;72
+000020  f1a20230          SUB      r2,r2,#0x30           ;70
+000024  2a06              CMP      r2,#6                 ;70
 000026  d20c              BCS      |L1.66|
-000028  e8dff002          TBB      [pc,r2]               ;72
+000028  e8dff002          TBB      [pc,r2]               ;70
 00002c  0e13260b          DCB      0x0e,0x13,0x26,0x0b
 000030  3a4c              DCB      0x3a,0x4c
                   |L1.50|
-000032  2a37              CMP      r2,#0x37              ;72
+000032  2a37              CMP      r2,#0x37              ;70
 000034  d06a              BEQ      |L1.268|
-000036  2a38              CMP      r2,#0x38              ;72
+000036  2a38              CMP      r2,#0x38              ;70
 000038  d06e              BEQ      |L1.280|
-00003a  2a39              CMP      r2,#0x39              ;72
+00003a  2a39              CMP      r2,#0x39              ;70
 00003c  d06d              BEQ      |L1.282|
-00003e  2a61              CMP      r2,#0x61              ;72
+00003e  2a61              CMP      r2,#0x61              ;70
 000040  d06c              BEQ      |L1.284|
                   |L1.66|
-;;;81     				{	
-;;;82     					printf("Ready to run GetStatus...\n\r");
-;;;83     					if(run_GetStatus(&inPlc) == D_RETURN_SUCCESS)
-;;;84     					printf("GetStatus C_HDPLC_EXTCMD_IF initialize sucessfully!\n\r");
-;;;85     					else printf("GetStatus C_HDPLC_EXTCMD_IF initialize failed!\n\r");
-;;;86     					printf("Command GetStatus sent successfully!\n\n\r");
-;;;87     				}
-;;;88     
-;;;89     				EtherTx(&inPlc);
-;;;90     				send_flag=0;
-;;;91     
+;;;79     				{	
+;;;80     					printf("Ready to run GetStatus...\n\r");
+;;;81     					if(run_GetStatus(&inPlc) == D_RETURN_SUCCESS)
+;;;82     					printf("GetStatus C_HDPLC_EXTCMD_IF initialize sucessfully!\n\r");
+;;;83     					else printf("GetStatus C_HDPLC_EXTCMD_IF initialize failed!\n\r");
+;;;84     					printf("Command GetStatus sent successfully!\n\n\r");
+;;;85     				}
+;;;86     
+;;;87     				EtherTx(&inPlc);
+;;;88     				send_flag=0;
+;;;89     
+;;;90     
+;;;91     		   		break;
 ;;;92     
-;;;93     		   		break;
-;;;94     
-;;;95     			case '2':
-;;;96     				if(send_flag) 
-;;;97     				{	
-;;;98     					printf("Ready to run StartSpeedTest...\n\r");
-;;;99     					if(run_StartSpeedTest(&inPlc) == D_RETURN_SUCCESS)
-;;;100    					printf("StartSpeedTest C_HDPLC_EXTCMD_IF initialize sucessfully!\n\r");
-;;;101    					else printf("StartSpeedTest C_HDPLC_EXTCMD_IF initialize failed!\n\r");
-;;;102    					printf("Command StartSpeedTest sent successfully!\n\n\r");
-;;;103    				}
-;;;104    				
-;;;105    				EtherTx(&inPlc);
-;;;106    				send_flag=0;
-;;;107    
-;;;108    				break;
-;;;109    		  
-;;;110    		  	case '4':
-;;;111    				if(send_flag) 
-;;;112    				{	
-;;;113    					printf("Ready to run GetPhyRate...\n\r");
-;;;114    					if(run_GetPhyRate(&inPlc) == D_RETURN_SUCCESS)
-;;;115    					printf("GetPhyRate EXT_CMD_IF initialized successfully!\n\r");
-;;;116    					else printf("GetPhyRate C_HDPLC_EXTCMD_IF initialize failed!\n\r");
-;;;117    					printf("Command GetPhyRate sent successfully!\n\n\r");
-;;;118    				}
-;;;119    				
-;;;120    				EtherTx(&inPlc);   
-;;;121    				send_flag=0;
+;;;93     			case '2':
+;;;94     				if(send_flag) 
+;;;95     				{	
+;;;96     					printf("Ready to run StartSpeedTest...\n\r");
+;;;97     					if(run_StartSpeedTest(&inPlc) == D_RETURN_SUCCESS)
+;;;98     					printf("StartSpeedTest C_HDPLC_EXTCMD_IF initialize sucessfully!\n\r");
+;;;99     					else printf("StartSpeedTest C_HDPLC_EXTCMD_IF initialize failed!\n\r");
+;;;100    					printf("Command StartSpeedTest sent successfully!\n\n\r");
+;;;101    				}
+;;;102    				
+;;;103    				EtherTx(&inPlc);
+;;;104    				send_flag=0;
+;;;105    
+;;;106    				break;
+;;;107    		  
+;;;108    		  	case '4':
+;;;109    				if(send_flag) 
+;;;110    				{	
+;;;111    					printf("Ready to run GetPhyRate...\n\r");
+;;;112    					if(run_GetPhyRate(&inPlc) == D_RETURN_SUCCESS)
+;;;113    					printf("GetPhyRate EXT_CMD_IF initialized successfully!\n\r");
+;;;114    					else printf("GetPhyRate C_HDPLC_EXTCMD_IF initialize failed!\n\r");
+;;;115    					printf("Command GetPhyRate sent successfully!\n\n\r");
+;;;116    				}
+;;;117    				
+;;;118    				EtherTx(&inPlc);   
+;;;119    				send_flag=0;
+;;;120    
+;;;121    				break;
 ;;;122    
-;;;123    				break;
-;;;124    
-;;;125    			case '5':
-;;;126    				if(send_flag) 
-;;;127    				{	
-;;;128    					printf("Ready to run SystemCommand...\n\r");
-;;;129    					if(run_SystemCmd(&inPlc) == D_RETURN_SUCCESS)
-;;;130    					printf("SystemCmd EXT_CMD_IF initialized successfully!\n\r");
-;;;131    					else printf("Systemcmd C_HDPLC_EXTCMD_IF initialize failed!\n\r");
-;;;132    					printf("Command SystemCommand sent successfully!\n\n\r");
-;;;133    				}
-;;;134    				
-;;;135    				EtherTx(&inPlc);
-;;;136    				send_flag=0;
+;;;123    			case '5':
+;;;124    				if(send_flag) 
+;;;125    				{	
+;;;126    					printf("Ready to run SystemCommand...\n\r");
+;;;127    					if(run_SystemCmd(&inPlc) == D_RETURN_SUCCESS)
+;;;128    					printf("SystemCmd EXT_CMD_IF initialized successfully!\n\r");
+;;;129    					else printf("Systemcmd C_HDPLC_EXTCMD_IF initialize failed!\n\r");
+;;;130    					printf("Command SystemCommand sent successfully!\n\n\r");
+;;;131    				}
+;;;132    				
+;;;133    				EtherTx(&inPlc);
+;;;134    				send_flag=0;
+;;;135    
+;;;136    				break;
 ;;;137    
-;;;138    				break;
-;;;139    
-;;;140    			case '6':
-;;;141    				if(send_flag) 
-;;;142    				{	
-;;;143    					printf("Ready to run SysGetPhyRate...\n\r");
-;;;144    					if(run_SysGetPhyRate(&inPlc) == D_RETURN_SUCCESS)
-;;;145    					printf("SysGetPhyRate EXT_CMD_IF initialized successfully!\n\r");
-;;;146    					else printf("SysGetPhyRate C_HDPLC_EXTCMD_IF initialize failed!\n\r");
-;;;147    					printf("Command SysGetPhyRate sent successfully!\n\n\r");
-;;;148    				}
-;;;149    				
-;;;150    				EtherTx(&inPlc);
-;;;151    				send_flag=0;
+;;;138    			case '6':
+;;;139    				if(send_flag) 
+;;;140    				{	
+;;;141    					printf("Ready to run SysGetPhyRate...\n\r");
+;;;142    					if(run_SysGetPhyRate(&inPlc) == D_RETURN_SUCCESS)
+;;;143    					printf("SysGetPhyRate EXT_CMD_IF initialized successfully!\n\r");
+;;;144    					else printf("SysGetPhyRate C_HDPLC_EXTCMD_IF initialize failed!\n\r");
+;;;145    					printf("Command SysGetPhyRate sent successfully!\n\n\r");
+;;;146    				}
+;;;147    				
+;;;148    				EtherTx(&inPlc);
+;;;149    				send_flag=0;
+;;;150    
+;;;151    				break;
 ;;;152    
-;;;153    				break;
-;;;154    
-;;;155    			case '7':
-;;;156    				if(send_flag) 
-;;;157    				{
-;;;158    					 printf("Ready to run GetAllMessages...\n\r");
-;;;159    				}
-;;;160    
-;;;161    				run_GetAllMessages(&inPlc);
-;;;162    				EtherTx(&inPlc);
+;;;153    			case '7':
+;;;154    				if(send_flag) 
+;;;155    				{
+;;;156    					 printf("Ready to run GetAllMessages...\n\r");
+;;;157    				}
+;;;158    
+;;;159    				run_GetAllMessages(&inPlc);
+;;;160    				EtherTx(&inPlc);
+;;;161    
+;;;162    				send_flag=0;
 ;;;163    
-;;;164    				send_flag=0;
+;;;164    				break;
 ;;;165    
-;;;166    				break;
-;;;167    
-;;;168    			case '8':
-;;;169    				if(send_flag) 
-;;;170    				{
-;;;171    					 printf("Ready to run SetMacAddress...\n\r");
-;;;172    				}
-;;;173    
-;;;174    				run_SetMacAddress(&inPlc);
-;;;175    				EtherTx(&inPlc);
+;;;166    			case '8':
+;;;167    				if(send_flag) 
+;;;168    				{
+;;;169    					 printf("Ready to run SetMacAddress...\n\r");
+;;;170    				}
+;;;171    
+;;;172    				run_SetMacAddress(&inPlc);
+;;;173    				EtherTx(&inPlc);
+;;;174    
+;;;175    				send_flag=0;
 ;;;176    
-;;;177    				send_flag=0;
+;;;177    				break;
 ;;;178    
-;;;179    				break;
-;;;180    
-;;;181    			case '9':
-;;;182    				if(send_flag) 
-;;;183    				{	
-;;;184    					printf("Ready to run StartChannelEstimate...\n\r");
-;;;185    					run_StartChannelEstimate(&inPlc);
-;;;186    					printf("Command StartChannelEstimate sent successfully!\n\n\r");
-;;;187    				}
-;;;188    				
-;;;189    				EtherTx(&inPlc);
-;;;190    				send_flag=0;
+;;;179    			case '9':
+;;;180    				if(send_flag) 
+;;;181    				{	
+;;;182    					printf("Ready to run StartChannelEstimate...\n\r");
+;;;183    					run_StartChannelEstimate(&inPlc);
+;;;184    					printf("Command StartChannelEstimate sent successfully!\n\n\r");
+;;;185    				}
+;;;186    				
+;;;187    				EtherTx(&inPlc);
+;;;188    				send_flag=0;
+;;;189    
+;;;190    				break;
 ;;;191    
-;;;192    				break;
-;;;193    
-;;;194    			case 'a':
-;;;195    				if(send_flag) 
-;;;196    				{	
-;;;197    					printf("Ready to run GetCINRMap...\n\r");
-;;;198    					run_GetCINRMap2To28(&inPlc);
-;;;199    					printf("Command GetCINRMap2To28 sent successfully!\n\n\r");
-;;;200    				}
-;;;201    
-;;;202    				EtherTx(&inPlc);
-;;;203    				send_flag=0;
-;;;204    				
-;;;205    				break;
-;;;206    
-;;;207    			default:
-;;;208    				printf("Please input number correctly!\n\r");
+;;;192    			case 'a':
+;;;193    				if(send_flag) 
+;;;194    				{	
+;;;195    					printf("Ready to run GetCINRMap...\n\r");
+;;;196    					run_GetCINRMap2To28(&inPlc);
+;;;197    					printf("Command GetCINRMap2To28 sent successfully!\n\n\r");
+;;;198    				}
+;;;199    
+;;;200    				EtherTx(&inPlc);
+;;;201    				send_flag=0;
+;;;202    				
+;;;203    				break;
+;;;204    
+;;;205    			default:
+;;;206    				printf("Please input number correctly!\n\r");
 000042  a03b              ADR      r0,|L1.304|
 000044  f7fffffe          BL       __2printf
 000048  a042              ADR      r0,|L1.340|
 00004a  f7fffffe          BL       __2printf
-00004e  6035              STR      r5,[r6,#0]            ;77  ; rec_flag
+00004e  6035              STR      r5,[r6,#0]            ;75  ; rec_flag
                   |L1.80|
 000050  e297              B        |L1.1410|
-000052  4688              MOV      r8,r1                 ;80
-000054  2800              CMP      r0,#0                 ;80
+000052  4688              MOV      r8,r1                 ;78
+000054  2800              CMP      r0,#0                 ;78
                   |L1.86|
 000056  d020              BEQ      |L1.154|
 000058  a045              ADR      r0,|L1.368|
 00005a  f7fffffe          BL       __2printf
 00005e  484b              LDR      r0,|L1.396|
 000060  f7fffffe          BL       run_GetStatus
-000064  2801              CMP      r0,#1                 ;83
+000064  2801              CMP      r0,#1                 ;81
 000066  d005              BEQ      |L1.116|
 000068  a049              ADR      r0,|L1.400|
-00006a  bf00              NOP                            ;85
+00006a  bf00              NOP                            ;83
                   |L1.108|
 00006c  f7fffffe          BL       __2printf
 000070  a054              ADR      r0,|L1.452|
@@ -209,14 +209,14 @@
                   |L1.116|
 000074  a05d              ADR      r0,|L1.492|
 000076  e7f9              B        |L1.108|
-000078  4688              MOV      r8,r1                 ;96
-00007a  2800              CMP      r0,#0                 ;96
+000078  4688              MOV      r8,r1                 ;94
+00007a  2800              CMP      r0,#0                 ;94
 00007c  d0eb              BEQ      |L1.86|
 00007e  a069              ADR      r0,|L1.548|
 000080  f7fffffe          BL       __2printf
 000084  4841              LDR      r0,|L1.396|
 000086  f7fffffe          BL       run_StartSpeedTest
-00008a  2801              CMP      r0,#1                 ;99
+00008a  2801              CMP      r0,#1                 ;97
 00008c  d006              BEQ      |L1.156|
 00008e  a06e              ADR      r0,|L1.584|
                   |L1.144|
@@ -229,14 +229,14 @@
                   |L1.156|
 00009c  a084              ADR      r0,|L1.688|
 00009e  e7f7              B        |L1.144|
-0000a0  4688              MOV      r8,r1                 ;111
-0000a2  2800              CMP      r0,#0                 ;111
+0000a0  4688              MOV      r8,r1                 ;109
+0000a2  2800              CMP      r0,#0                 ;109
 0000a4  d0f9              BEQ      |L1.154|
 0000a6  a091              ADR      r0,|L1.748|
 0000a8  f7fffffe          BL       __2printf
 0000ac  4837              LDR      r0,|L1.396|
 0000ae  f7fffffe          BL       run_GetPhyRate
-0000b2  2801              CMP      r0,#1                 ;114
+0000b2  2801              CMP      r0,#1                 ;112
 0000b4  d004              BEQ      |L1.192|
 0000b6  a095              ADR      r0,|L1.780|
                   |L1.184|
@@ -246,14 +246,14 @@
                   |L1.192|
 0000c0  a0aa              ADR      r0,|L1.876|
 0000c2  e7f9              B        |L1.184|
-0000c4  4688              MOV      r8,r1                 ;126
-0000c6  2800              CMP      r0,#0                 ;126
+0000c4  4688              MOV      r8,r1                 ;124
+0000c6  2800              CMP      r0,#0                 ;124
 0000c8  d0e7              BEQ      |L1.154|
 0000ca  a0b5              ADR      r0,|L1.928|
 0000cc  f7fffffe          BL       __2printf
 0000d0  482e              LDR      r0,|L1.396|
 0000d2  f7fffffe          BL       run_SystemCmd
-0000d6  2801              CMP      r0,#1                 ;129
+0000d6  2801              CMP      r0,#1                 ;127
 0000d8  d004              BEQ      |L1.228|
 0000da  a0b9              ADR      r0,|L1.960|
                   |L1.220|
@@ -264,14 +264,14 @@
 0000e4  a0ce              ADR      r0,|L1.1056|
 0000e6  e7f9              B        |L1.220|
                   |L1.232|
-0000e8  4688              MOV      r8,r1                 ;141
-0000ea  2800              CMP      r0,#0                 ;141
+0000e8  4688              MOV      r8,r1                 ;139
+0000ea  2800              CMP      r0,#0                 ;139
 0000ec  d0d5              BEQ      |L1.154|
 0000ee  a0d9              ADR      r0,|L1.1108|
 0000f0  f7fffffe          BL       __2printf
 0000f4  4825              LDR      r0,|L1.396|
 0000f6  f7fffffe          BL       run_SysGetPhyRate
-0000fa  2801              CMP      r0,#1                 ;144
+0000fa  2801              CMP      r0,#1                 ;142
 0000fc  d004              BEQ      |L1.264|
 0000fe  a0dd              ADR      r0,|L1.1140|
                   |L1.256|
@@ -282,7 +282,7 @@
 000108  a0f3              ADR      r0,|L1.1240|
 00010a  e7f9              B        |L1.256|
                   |L1.268|
-00010c  4688              MOV      r8,r1                 ;156
+00010c  4688              MOV      r8,r1                 ;154
 00010e  b110              CBZ      r0,|L1.278|
 000110  a0ff              ADR      r0,|L1.1296|
 000112  f7fffffe          BL       __2printf
@@ -635,7 +635,7 @@
 000536  f7fffffe          BL       run_GetAllMessages
 00053a  e01d              B        |L1.1400|
                   |L1.1340|
-00053c  4688              MOV      r8,r1                 ;169
+00053c  4688              MOV      r8,r1                 ;167
 00053e  b110              CBZ      r0,|L1.1350|
 000540  a047              ADR      r0,|L1.1632|
 000542  f7fffffe          BL       __2printf
@@ -644,8 +644,8 @@
 000548  f7fffffe          BL       run_SetMacAddress
 00054c  e014              B        |L1.1400|
                   |L1.1358|
-00054e  4688              MOV      r8,r1                 ;182
-000550  2800              CMP      r0,#0                 ;182
+00054e  4688              MOV      r8,r1                 ;180
+000550  2800              CMP      r0,#0                 ;180
 000552  d011              BEQ      |L1.1400|
 000554  a04a              ADR      r0,|L1.1664|
 000556  f7fffffe          BL       __2printf
@@ -654,7 +654,7 @@
 000560  a051              ADR      r0,|L1.1704|
 000562  e598              B        |L1.150|
                   |L1.1380|
-000564  4688              MOV      r8,r1                 ;195
+000564  4688              MOV      r8,r1                 ;193
 000566  b138              CBZ      r0,|L1.1400|
 000568  a05c              ADR      r0,|L1.1756|
 00056a  f7fffffe          BL       __2printf
@@ -665,40 +665,40 @@
                   |L1.1400|
 000578  4838              LDR      r0,|L1.1628|
 00057a  f7fffffe          BL       EtherTx
-00057e  f8c84000          STR      r4,[r8,#0]            ;203  ; send_flag
+00057e  f8c84000          STR      r4,[r8,#0]            ;201  ; send_flag
                   |L1.1410|
-;;;209    				printf("Return to Main Menu...\n\n\r");
-;;;210    				rec_flag=1;
-;;;211    				break;
-;;;212    		}
+;;;207    				printf("Return to Main Menu...\n\n\r");
+;;;208    				rec_flag=1;
+;;;209    				break;
+;;;210    		}
+;;;211    
+;;;212    	}
 ;;;213    
-;;;214    	}
+;;;214    	//printf("waitting for new data!\n\r");	
 ;;;215    
-;;;216    	//printf("waitting for new data!\n\r");	
-;;;217    
-;;;218    	if(uip_newdata()) {
+;;;216    	if(uip_newdata()) {
 000582  486a              LDR      r0,|L1.1836|
 000584  7800              LDRB     r0,[r0,#0]  ; uip_flags
 000586  0780              LSLS     r0,r0,#30
 000588  d565              BPL      |L1.1622|
-;;;219    				
-;;;220    		//if(0 == (udp_sta&(1<<6)))
-;;;221    		//printf("new data arrives!\n\r"); 
-;;;222    		if(rec_flag==0)
+;;;217    				
+;;;218    		//if(0 == (udp_sta&(1<<6)))
+;;;219    		//printf("new data arrives!\n\r"); 
+;;;220    		if(rec_flag==0)
 00058a  6830              LDR      r0,[r6,#0]  ; rec_flag
 00058c  2800              CMP      r0,#0
 00058e  d162              BNE      |L1.1622|
-;;;223    		{
-;;;224    			/*	udp_len = uip_len;
-;;;225    			memset(udp_data_buf, 0, sizeof(udp_data_buf));
-;;;226    			memcpy(udp_data_buf, uip_appdata, udp_len);
-;;;227    			printf("processed: len %d\n\r", udp_len);	*/
-;;;228    
-;;;229    			EtherRx(&inPlc);
+;;;221    		{
+;;;222    			/*	udp_len = uip_len;
+;;;223    			memset(udp_data_buf, 0, sizeof(udp_data_buf));
+;;;224    			memcpy(udp_data_buf, uip_appdata, udp_len);
+;;;225    			printf("processed: len %d\n\r", udp_len);	*/
+;;;226    
+;;;227    			EtherRx(&inPlc);
 000590  4832              LDR      r0,|L1.1628|
 000592  f7fffffe          BL       EtherRx
-;;;230    
-;;;231    			switch(c_choice)
+;;;228    
+;;;229    			switch(c_choice)
 000596  7838              LDRB     r0,[r7,#0]  ; c_choice
 000598  2836              CMP      r0,#0x36
 00059a  d023              BEQ      |L1.1508|
@@ -713,46 +713,46 @@
 0005ac  d152              BNE      |L1.1620|
 0005ae  e019              B        |L1.1508|
                   |L1.1456|
-;;;232    			{
-;;;233    				case '1':
-;;;234    					print_GetStatus(&inPlc);
-;;;235    					break;
-;;;236    				case '2':
-;;;237    					print_StartSpeedTest(&inPlc);
-;;;238    					break;
-;;;239    				case '4':
-;;;240    					//printf("get phy rate response received!\n\r");
-;;;241    					print_GetPhyRate(&inPlc);
-;;;242    					break;
-;;;243    				case '5':
-;;;244    					//printf("system command response received!\n\r");
-;;;245    					print_SystemCmd(&inPlc);
-;;;246    					break;
-;;;247    				case '6':
-;;;248    					//printf("system command response received!\n\r");
-;;;249    					print_SystemCmd(&inPlc);
-;;;250    					break;
-;;;251    				case '7':
-;;;252    					if(circle_state==0)
-;;;253    					{
-;;;254    						print_GetStatus(&inPlc);
-;;;255    					}else
-;;;256    					{
-;;;257    						print_SystemCmd(&inPlc);
-;;;258    					}
-;;;259    					circle_state++;
-;;;260    					ini_flag=1;
+;;;230    			{
+;;;231    				case '1':
+;;;232    					print_GetStatus(&inPlc);
+;;;233    					break;
+;;;234    				case '2':
+;;;235    					print_StartSpeedTest(&inPlc);
+;;;236    					break;
+;;;237    				case '4':
+;;;238    					//printf("get phy rate response received!\n\r");
+;;;239    					print_GetPhyRate(&inPlc);
+;;;240    					break;
+;;;241    				case '5':
+;;;242    					//printf("system command response received!\n\r");
+;;;243    					print_SystemCmd(&inPlc);
+;;;244    					break;
+;;;245    				case '6':
+;;;246    					//printf("system command response received!\n\r");
+;;;247    					print_SystemCmd(&inPlc);
+;;;248    					break;
+;;;249    				case '7':
+;;;250    					if(circle_state==0)
+;;;251    					{
+;;;252    						print_GetStatus(&inPlc);
+;;;253    					}else
+;;;254    					{
+;;;255    						print_SystemCmd(&inPlc);
+;;;256    					}
+;;;257    					circle_state++;
+;;;258    					ini_flag=1;
 0005b0  f8df817c          LDR      r8,|L1.1840|
-;;;261    					if(circle_state==2)circle_flag=0;
+;;;259    					if(circle_state==2)circle_flag=0;
 0005b4  f8df917c          LDR      r9,|L1.1844|
 0005b8  4f5f              LDR      r7,|L1.1848|
-0005ba  2837              CMP      r0,#0x37              ;231
+0005ba  2837              CMP      r0,#0x37              ;229
 0005bc  d016              BEQ      |L1.1516|
-0005be  2838              CMP      r0,#0x38              ;231
+0005be  2838              CMP      r0,#0x38              ;229
 0005c0  d025              BEQ      |L1.1550|
-0005c2  2839              CMP      r0,#0x39              ;231
+0005c2  2839              CMP      r0,#0x39              ;229
 0005c4  d03f              BEQ      |L1.1606|
-0005c6  2861              CMP      r0,#0x61              ;231
+0005c6  2861              CMP      r0,#0x61              ;229
 0005c8  d144              BNE      |L1.1620|
 0005ca  e040              B        |L1.1614|
                   |L1.1484|
@@ -772,15 +772,15 @@
 0005e6  f7fffffe          BL       print_SystemCmd
 0005ea  e033              B        |L1.1620|
                   |L1.1516|
-0005ec  6838              LDR      r0,[r7,#0]            ;252  ; circle_state
-0005ee  2800              CMP      r0,#0                 ;252
+0005ec  6838              LDR      r0,[r7,#0]            ;250  ; circle_state
+0005ee  2800              CMP      r0,#0                 ;250
 0005f0  481a              LDR      r0,|L1.1628|
 0005f2  d009              BEQ      |L1.1544|
 0005f4  f7fffffe          BL       print_SystemCmd
                   |L1.1528|
-0005f8  6838              LDR      r0,[r7,#0]            ;259  ; circle_state
-0005fa  1c40              ADDS     r0,r0,#1              ;259
-0005fc  6038              STR      r0,[r7,#0]            ;260  ; circle_state
+0005f8  6838              LDR      r0,[r7,#0]            ;257  ; circle_state
+0005fa  1c40              ADDS     r0,r0,#1              ;257
+0005fc  6038              STR      r0,[r7,#0]            ;258  ; circle_state
 0005fe  f8c85004          STR      r5,[r8,#4]  ; ini_flag
 000602  2802              CMP      r0,#2
 000604  d01c              BEQ      |L1.1600|
@@ -789,38 +789,38 @@
 000608  f7fffffe          BL       print_GetStatus
 00060c  e7f4              B        |L1.1528|
                   |L1.1550|
-;;;262    					break;
-;;;263    				case '8': 				
-;;;264    					if(circle_state==0)
+;;;260    					break;
+;;;261    				case '8': 				
+;;;262    					if(circle_state==0)
 00060e  6838              LDR      r0,[r7,#0]  ; circle_state
 000610  b180              CBZ      r0,|L1.1588|
-;;;265    					{
-;;;266    						printf("Execute cmd: uf_factorypwd set newpassword 0123456789\n\r");
-;;;267    						print_SystemCmd(&inPlc);
-;;;268    					}else if(circle_state==1)
+;;;263    					{
+;;;264    						printf("Execute cmd: uf_factorypwd set newpassword 0123456789\n\r");
+;;;265    						print_SystemCmd(&inPlc);
+;;;266    					}else if(circle_state==1)
 000612  2801              CMP      r0,#1
 000614  d010              BEQ      |L1.1592|
-;;;269    					{
-;;;270    						printf("Execute cmd: uf_restoremac set 0123456789\n\r");
-;;;271    						print_SystemCmd(&inPlc);
-;;;272    					}else
-;;;273    					{
-;;;274    						printf("Execute cmd: uf_mac set %s\n\r",inMac);
+;;;267    					{
+;;;268    						printf("Execute cmd: uf_restoremac set 0123456789\n\r");
+;;;269    						print_SystemCmd(&inPlc);
+;;;270    					}else
+;;;271    					{
+;;;272    						printf("Execute cmd: uf_mac set %s\n\r",inMac);
 000616  4949              LDR      r1,|L1.1852|
 000618  a049              ADR      r0,|L1.1856|
 00061a  f7fffffe          BL       __2printf
                   |L1.1566|
 00061e  480f              LDR      r0,|L1.1628|
 000620  f7fffffe          BL       print_SystemCmd
-;;;275    						print_SystemCmd(&inPlc);
-;;;276    					}
-;;;277    				
-;;;278    					circle_state++;
+;;;273    						print_SystemCmd(&inPlc);
+;;;274    					}
+;;;275    				
+;;;276    					circle_state++;
 000624  6838              LDR      r0,[r7,#0]  ; circle_state
 000626  1c40              ADDS     r0,r0,#1
-;;;279    					ini_flag=1;
+;;;277    					ini_flag=1;
 000628  6038              STR      r0,[r7,#0]  ; circle_state
-;;;280    					if(circle_state==4)circle_flag=0;
+;;;278    					if(circle_state==4)circle_flag=0;
 00062a  f8c85004          STR      r5,[r8,#4]  ; ini_flag
 00062e  2804              CMP      r0,#4
 000630  d006              BEQ      |L1.1600|
@@ -837,45 +837,45 @@
 000640  f8c94000          STR      r4,[r9,#0]  ; circle_flag
 000644  e006              B        |L1.1620|
                   |L1.1606|
-;;;281    					break;
-;;;282    
-;;;283    				case '9':
-;;;284    					print_StartChannelEstimate(&inPlc);
+;;;279    					break;
+;;;280    
+;;;281    				case '9':
+;;;282    					print_StartChannelEstimate(&inPlc);
 000646  4805              LDR      r0,|L1.1628|
 000648  f7fffffe          BL       print_StartChannelEstimate
-;;;285    					break;
+;;;283    					break;
 00064c  e002              B        |L1.1620|
                   |L1.1614|
-;;;286    
-;;;287    				case 'a':
-;;;288    					print_GetCINRMap2To28(&inPlc);
+;;;284    
+;;;285    				case 'a':
+;;;286    					print_GetCINRMap2To28(&inPlc);
 00064e  4803              LDR      r0,|L1.1628|
 000650  f7fffffe          BL       print_GetCINRMap2To28
                   |L1.1620|
-;;;289    					break;
-;;;290    
-;;;291    				default:
-;;;292    					break;		
-;;;293    						
-;;;294    			}
-;;;295    
-;;;296    			rec_flag=1;
+;;;287    					break;
+;;;288    
+;;;289    				default:
+;;;290    					break;		
+;;;291    						
+;;;292    			}
+;;;293    
+;;;294    			rec_flag=1;
 000654  6035              STR      r5,[r6,#0]  ; rec_flag
                   |L1.1622|
-;;;297    
-;;;298    	   }
-;;;299    	}else if(1) 
-;;;300    		{
-;;;301    			/*	s->textptr = udp_data_buf;
-;;;302    			s->textlen = udp_len;
-;;;303    			udp_senddata();
-;;;304    			udp_sta &= ~(1<<5);	*/
-;;;305    			//printf("not new data!\n\r");
-;;;306    		}
-;;;307    	
-;;;308    }
+;;;295    
+;;;296    	   }
+;;;297    	}else if(1) 
+;;;298    		{
+;;;299    			/*	s->textptr = udp_data_buf;
+;;;300    			s->textlen = udp_len;
+;;;301    			udp_senddata();
+;;;302    			udp_sta &= ~(1<<5);	*/
+;;;303    			//printf("not new data!\n\r");
+;;;304    		}
+;;;305    	
+;;;306    }
 000656  e8bd87f0          POP      {r4-r10,pc}
-;;;309    
+;;;307    
                           ENDP
 
 00065a  0000              DCW      0x0000
@@ -998,27 +998,27 @@
                           AREA ||i.udp_demo_appcall||, CODE, READONLY, ALIGN=2
 
                   udp_demo_appcall PROC
-;;;36     
-;;;37     void udp_demo_appcall(void) {
+;;;33     
+;;;34     void udp_demo_appcall(void) {
 000000  4803              LDR      r0,|L2.16|
-;;;38     	switch(uip_udp_conn->lport) {
+;;;35     	switch(uip_udp_conn->lport) {
 000002  6800              LDR      r0,[r0,#0]  ; uip_udp_conn
 000004  8880              LDRH     r0,[r0,#4]
 000006  28c0              CMP      r0,#0xc0
 000008  d101              BNE      |L2.14|
-;;;39     		case HTONS(UDP_PORT):
-;;;40     			udp_appcall();
+;;;36     		case HTONS(UDP_PORT):
+;;;37     			udp_appcall();
 00000a  f7ffbffe          B.W      udp_appcall
                   |L2.14|
-;;;41     			break;
-;;;42     		
-;;;43     		default:
-;;;44     			//printf("uip_udp_conn->lport:%d\n\r",uip_udp_conn->lport);
-;;;45     			break;
-;;;46     	}
-;;;47     }
+;;;38     			break;
+;;;39     		
+;;;40     		default:
+;;;41     			//printf("uip_udp_conn->lport:%d\n\r",uip_udp_conn->lport);
+;;;42     			break;
+;;;43     	}
+;;;44     }
 00000e  4770              BX       lr
-;;;48     
+;;;45     
                           ENDP
 
                   |L2.16|
@@ -1065,55 +1065,54 @@
                           AREA ||i.uip_udp_init||, CODE, READONLY, ALIGN=2
 
                   uip_udp_init PROC
-;;;12     
-;;;13     void uip_udp_init(void) {
+;;;9      
+;;;10     void uip_udp_init(void) {
 000000  b538              PUSH     {r3-r5,lr}
-;;;14     	uip_ipaddr_t ipaddr;
-;;;15     	static struct uip_udp_conn *conn_udp = 0;
-;;;16     	
-;;;17     	//uip_ipaddr(ipaddr, 255,255,255,255);
-;;;18     	//uip_ipaddr(ipaddr, 192,168,1,243);
-;;;19     	uip_ipaddr(ipaddr, 192,168,20,156);
+;;;11     	uip_ipaddr_t ipaddr;
+;;;12     	static struct uip_udp_conn *conn_udp = 0;
+;;;13     	
+;;;14     	//uip_ipaddr(ipaddr, 192,168,1,243);
+;;;15     	uip_ipaddr(ipaddr, 192,168,20,156);
 000002  f64a00c0          MOV      r0,#0xa8c0
 000006  f8ad0000          STRH     r0,[sp,#0]
-;;;20     	//printf("initializing udp!!\n\r");
-;;;21     
-;;;22     	if(0 != conn_udp) {
+;;;16     	//printf("initializing udp!!\n\r");
+;;;17     
+;;;18     	if(0 != conn_udp) {
 00000a  4c0b              LDR      r4,|L4.56|
-00000c  f6494014          MOV      r0,#0x9c14            ;19
-000010  f8ad0002          STRH     r0,[sp,#2]            ;19
+00000c  f6494014          MOV      r0,#0x9c14            ;15
+000010  f8ad0002          STRH     r0,[sp,#2]            ;15
 000014  68a0              LDR      r0,[r4,#8]  ; conn_udp
 000016  b108              CBZ      r0,|L4.28|
-;;;23     		// 如果连接已经建立，则删除该连接
-;;;24     		uip_udp_remove(conn_udp);
+;;;19     		// 如果连接已经建立，则删除该连接
+;;;20     		uip_udp_remove(conn_udp);
 000018  2100              MOVS     r1,#0
 00001a  8081              STRH     r1,[r0,#4]
                   |L4.28|
-;;;25     		//printf("udp communication exists!!\n\r");
-;;;26     	}
-;;;27     	conn_udp = uip_udp_new(&ipaddr, HTONS(UDP_PORT));
+;;;21     		//printf("udp communication exists!!\n\r");
+;;;22     	}
+;;;23     	conn_udp = uip_udp_new(&ipaddr, HTONS(UDP_PORT));
 00001c  21c0              MOVS     r1,#0xc0
 00001e  4668              MOV      r0,sp
 000020  f7fffffe          BL       uip_udp_new
-;;;28     	if(0 != conn_udp) {
+;;;24     	if(0 != conn_udp) {
 000024  60a0              STR      r0,[r4,#8]  ; conn_udp
 000026  2800              CMP      r0,#0
 000028  d005              BEQ      |L4.54|
-;;;29     		// 绑定本地端口
-;;;30     		//conn_tftp->lport = HTONS(UDP_PORT);
-;;;31     		uip_udp_bind(conn_udp, HTONS(UDP_PORT));
+;;;25     		// 绑定本地端口
+;;;26     		//conn_tftp->lport = HTONS(UDP_PORT);
+;;;27     		uip_udp_bind(conn_udp, HTONS(UDP_PORT));
 00002a  21c0              MOVS     r1,#0xc0
 00002c  8081              STRH     r1,[r0,#4]
-;;;32     		udp_sta |= 1<<7;
+;;;28     		udp_sta |= 1<<7;
 00002e  7820              LDRB     r0,[r4,#0]  ; udp_sta
 000030  f0400080          ORR      r0,r0,#0x80
 000034  7020              STRB     r0,[r4,#0]
                   |L4.54|
-;;;33     		//printf("new udp conn udp_sta:%d!!\n\r",udp_sta);
-;;;34     	}
-;;;35     }
+;;;29     		//printf("new udp conn udp_sta:%d!!\n\r",udp_sta);
+;;;30     	}
+;;;31     }
 000036  bd38              POP      {r3-r5,pc}
-;;;36     
+;;;32     
                           ENDP
 
                   |L4.56|

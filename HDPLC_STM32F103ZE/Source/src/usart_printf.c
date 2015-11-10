@@ -30,8 +30,7 @@ void PrintfLogo(char *strName, char *strDate)
 	printf("* Update Date  : %s\r\n", strDate);
 	printf("* StdPeriph_Lib Version : V3.1.2\n\r");
 	printf("* \n\r");
-	printf("* Copyright GLEXER \r\n");
-	printf("* QQ    : 719296013 \r\n");
+	printf("* Copyright:  GLEXER \r\n");
 	printf("* Email : pengjunfeng@glexer.com \r\n");
 	printf("*************************************************************\n\r");
 }

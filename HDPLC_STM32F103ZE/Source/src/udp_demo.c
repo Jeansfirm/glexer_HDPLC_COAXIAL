@@ -1,20 +1,16 @@
-//#include "sys/sys.h"
-//#include "usart/usart.h"
-
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-
+#include <string.h>	
 
 #include "uip.h"
 #include "udp_demo.h"
 #include "hdplc_struct.h"
 
+
 void uip_udp_init(void) {
 	uip_ipaddr_t ipaddr;
 	static struct uip_udp_conn *conn_udp = 0;
 	
-	//uip_ipaddr(ipaddr, 255,255,255,255);
 	//uip_ipaddr(ipaddr, 192,168,1,243);
 	uip_ipaddr(ipaddr, 192,168,20,156);
 	//printf("initializing udp!!\n\r");
@@ -34,6 +30,7 @@ void uip_udp_init(void) {
 	}
 }
 
+
 void udp_demo_appcall(void) {
 	switch(uip_udp_conn->lport) {
 		case HTONS(UDP_PORT):
@@ -45,6 +42,7 @@ void udp_demo_appcall(void) {
 			break;
 	}
 }
+
 
 //u8_t udp_data_buf[512];
 u8_t udp_data_buf[4096];
@@ -306,6 +304,8 @@ void udp_appcall(void) {
 		}
 	
 }
+
+
 
 void udp_senddata(void) {
 	struct udp_demo_appstate *s = (struct udp_demo_appstate *)&uip_udp_conn->appstate;

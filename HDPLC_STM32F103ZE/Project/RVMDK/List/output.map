@@ -994,120 +994,120 @@ Image Symbol Table
     i.NMI_Handler                            0x08000fb2   Section        0  stm32f10x_it.o(i.NMI_Handler)
     i.PendSV_Handler                         0x08000fb4   Section        0  stm32f10x_it.o(i.PendSV_Handler)
     i.PrintfLogo                             0x08000fb8   Section        0  usart_printf.o(i.PrintfLogo)
-    i.PutKey                                 0x080010ec   Section        0  button.o(i.PutKey)
-    i.RCC_AHBPeriphClockCmd                  0x08001108   Section        0  stm32f10x_rcc.o(i.RCC_AHBPeriphClockCmd)
-    i.RCC_APB2PeriphClockCmd                 0x08001120   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    i.RCC_GetClocksFreq                      0x08001138   Section        0  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
-    i.SVC_Handler                            0x080011d0   Section        0  stm32f10x_it.o(i.SVC_Handler)
-    i.SetIP1                                 0x080011d4   Section        0  main.o(i.SetIP1)
-    i.SetIP2                                 0x08001210   Section        0  main.o(i.SetIP2)
-    i.SetSysClockTo72                        0x0800124c   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
-    SetSysClockTo72                          0x0800124d   Thumb Code   138  system_stm32f10x.o(i.SetSysClockTo72)
-    i.String2Hex                             0x080012e0   Section        0  hdplc_struct.o(i.String2Hex)
-    i.SysTick_Handler                        0x0800132c   Section        0  stm32f10x_it.o(i.SysTick_Handler)
-    i.SysTick_ISR                            0x08001330   Section        0  systick.o(i.SysTick_ISR)
-    i.SystemInit                             0x0800138c   Section        0  system_stm32f10x.o(i.SystemInit)
-    i.USART_ClearFlag                        0x080013cc   Section        0  stm32f10x_usart.o(i.USART_ClearFlag)
-    i.USART_Cmd                              0x080013d2   Section        0  stm32f10x_usart.o(i.USART_Cmd)
-    i.USART_Configuration                    0x080013e8   Section        0  usart_printf.o(i.USART_Configuration)
-    i.USART_GetFlagStatus                    0x0800147c   Section        0  stm32f10x_usart.o(i.USART_GetFlagStatus)
-    i.USART_Init                             0x0800148c   Section        0  stm32f10x_usart.o(i.USART_Init)
-    i.USART_ReceiveData                      0x08001518   Section        0  stm32f10x_usart.o(i.USART_ReceiveData)
-    i.USART_SendData                         0x08001520   Section        0  stm32f10x_usart.o(i.USART_SendData)
-    i.UipPro                                 0x08001528   Section        0  main.o(i.UipPro)
-    i.UsageFault_Handler                     0x08001640   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
-    i.__0printf$8                            0x08001644   Section        0  printf8.o(i.__0printf$8)
-    i.__aeabi_errno_addr                     0x08001664   Section        0  errno.o(i.__aeabi_errno_addr)
-    i.__scatterload_copy                     0x0800166c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800167a   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800167c   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x0800168c   Section        0  printf8.o(i._printf_core)
-    _printf_core                             0x0800168d   Thumb Code  1064  printf8.o(i._printf_core)
-    i._printf_post_padding                   0x08001ab4   Section        0  printf8.o(i._printf_post_padding)
-    _printf_post_padding                     0x08001ab5   Thumb Code    38  printf8.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x08001ada   Section        0  printf8.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x08001adb   Thumb Code    46  printf8.o(i._printf_pre_padding)
-    i.chksum                                 0x08001b08   Section        0  uip.o(i.chksum)
-    chksum                                   0x08001b09   Thumb Code    58  uip.o(i.chksum)
-    i.clock_time                             0x08001b42   Section        0  clock-arch.o(i.clock_time)
-    i.data_acked                             0x08001b48   Section        0  psock.o(i.data_acked)
-    data_acked                               0x08001b49   Thumb Code    66  psock.o(i.data_acked)
-    i.dm9k_ReadID                            0x08001b94   Section        0  dm9k_uip.o(i.dm9k_ReadID)
-    i.dm9k_hash_table                        0x08001bdc   Section        0  dm9k_uip.o(i.dm9k_hash_table)
-    i.dm9k_initnic                           0x08001c34   Section        0  dm9k_uip.o(i.dm9k_initnic)
-    i.dm9k_phy_write                         0x08001c7c   Section        0  dm9k_uip.o(i.dm9k_phy_write)
-    i.dm9k_receive_packet                    0x08001cb8   Section        0  dm9k_uip.o(i.dm9k_receive_packet)
-    i.dm9k_reset                             0x08001d68   Section        0  dm9k_uip.o(i.dm9k_reset)
-    i.dm9k_send_packet                       0x08001dc4   Section        0  dm9k_uip.o(i.dm9k_send_packet)
-    i.dm9k_udelay                            0x08001e2c   Section        0  dm9k_uip.o(i.dm9k_udelay)
-    i.etherdev_init                          0x08001e50   Section        0  dm9k_uip.o(i.etherdev_init)
-    i.etherdev_send                          0x08001e6c   Section        0  dm9k_uip.o(i.etherdev_send)
-    i.fgetc                                  0x08001e70   Section        0  usart_printf.o(i.fgetc)
-    i.fputc                                  0x08001e90   Section        0  usart_printf.o(i.fputc)
-    i.getc                                   0x08001eb4   Section        0  getc.o(i.getc)
-    i.handle_connection                      0x08001eb8   Section        0  hello-world.o(i.handle_connection)
-    handle_connection                        0x08001eb9   Thumb Code   136  hello-world.o(i.handle_connection)
-    i.hello_world_appcall                    0x08001f68   Section        0  hello-world.o(i.hello_world_appcall)
-    i.htons                                  0x08001f98   Section        0  uip.o(i.htons)
-    i.ior                                    0x08001fa4   Section        0  dm9k_uip.o(i.ior)
-    i.iow                                    0x08001fb4   Section        0  dm9k_uip.o(i.iow)
-    i.main                                   0x08001fc0   Section        0  main.o(i.main)
-    i.print_GetCINRMap2To28                  0x08002204   Section        0  hdplc_struct.o(i.print_GetCINRMap2To28)
-    i.print_GetPhyRate                       0x080022a0   Section        0  hdplc_struct.o(i.print_GetPhyRate)
-    i.print_GetStatus                        0x0800239c   Section        0  hdplc_struct.o(i.print_GetStatus)
-    i.print_StartChannelEstimate             0x080026b8   Section        0  hdplc_struct.o(i.print_StartChannelEstimate)
-    i.print_StartSpeedTest                   0x08002738   Section        0  hdplc_struct.o(i.print_StartSpeedTest)
-    i.print_SystemCmd                        0x080027a8   Section        0  hdplc_struct.o(i.print_SystemCmd)
-    i.psock_init                             0x08002824   Section        0  psock.o(i.psock_init)
-    i.psock_newdata                          0x0800283c   Section        0  psock.o(i.psock_newdata)
-    i.psock_readto                           0x08002864   Section        0  psock.o(i.psock_readto)
-    i.psock_send                             0x08002948   Section        0  psock.o(i.psock_send)
-    i.run_GetAllMessages                     0x08002994   Section        0  hdplc_struct.o(i.run_GetAllMessages)
-    i.run_GetCINRMap2To28                    0x08002a60   Section        0  hdplc_struct.o(i.run_GetCINRMap2To28)
-    i.run_GetPhyRate                         0x08002a6a   Section        0  hdplc_struct.o(i.run_GetPhyRate)
-    i.run_GetStatus                          0x08002a7e   Section        0  hdplc_struct.o(i.run_GetStatus)
-    i.run_SetMacAddress                      0x08002a94   Section        0  hdplc_struct.o(i.run_SetMacAddress)
-    i.run_SetMacAddressSub                   0x08002ba8   Section        0  hdplc_struct.o(i.run_SetMacAddressSub)
-    i.run_StartChannelEstimate               0x08002c34   Section        0  hdplc_struct.o(i.run_StartChannelEstimate)
-    i.run_StartSpeedTest                     0x08002c70   Section        0  hdplc_struct.o(i.run_StartSpeedTest)
-    i.run_SysGetPhyRate                      0x08002cfc   Section        0  hdplc_struct.o(i.run_SysGetPhyRate)
-    i.run_SystemCmd                          0x08002dec   Section        0  hdplc_struct.o(i.run_SystemCmd)
-    i.send_data                              0x08002ea0   Section        0  psock.o(i.send_data)
-    send_data                                0x08002ea1   Thumb Code    60  psock.o(i.send_data)
-    i.tapdev_init                            0x08002ee4   Section        0  tapdev.o(i.tapdev_init)
-    i.tapdev_read                            0x08002ee8   Section        0  tapdev.o(i.tapdev_read)
-    i.tapdev_send                            0x08002ef8   Section        0  tapdev.o(i.tapdev_send)
-    i.timer_expired                          0x08002f0c   Section        0  timer.o(i.timer_expired)
-    i.timer_reset                            0x08002f26   Section        0  timer.o(i.timer_reset)
-    i.timer_set                              0x08002f30   Section        0  timer.o(i.timer_set)
-    i.udp_appcall                            0x08002f40   Section        0  udp_demo.o(i.udp_appcall)
-    i.udp_demo_appcall                       0x08003704   Section        0  udp_demo.o(i.udp_demo_appcall)
-    i.udp_senddata                           0x08003718   Section        0  udp_demo.o(i.udp_senddata)
-    i.uip_add32                              0x08003730   Section        0  uip.o(i.uip_add32)
-    i.uip_add_rcv_nxt                        0x0800378c   Section        0  uip.o(i.uip_add_rcv_nxt)
-    uip_add_rcv_nxt                          0x0800378d   Thumb Code    38  uip.o(i.uip_add_rcv_nxt)
-    i.uip_arp_arpin                          0x080037b8   Section        0  uip_arp.o(i.uip_arp_arpin)
-    i.uip_arp_out                            0x08003884   Section        0  uip_arp.o(i.uip_arp_out)
-    i.uip_arp_timer                          0x080039e0   Section        0  uip_arp.o(i.uip_arp_timer)
-    i.uip_arp_update                         0x08003a24   Section        0  uip_arp.o(i.uip_arp_update)
-    uip_arp_update                           0x08003a25   Thumb Code   178  uip_arp.o(i.uip_arp_update)
-    i.uip_init                               0x08003ae0   Section        0  uip.o(i.uip_init)
-    i.uip_ipchksum                           0x08003b48   Section        0  uip.o(i.uip_ipchksum)
-    i.uip_log                                0x08003b6c   Section        0  hello-world.o(i.uip_log)
-    i.uip_process                            0x08003b8c   Section        0  uip.o(i.uip_process)
-    i.uip_send                               0x0800470c   Section        0  uip.o(i.uip_send)
-    i.uip_tcpchksum                          0x0800472c   Section        0  uip.o(i.uip_tcpchksum)
-    i.uip_udp_init                           0x08004734   Section        0  udp_demo.o(i.uip_udp_init)
-    i.uip_udp_new                            0x08004770   Section        0  uip.o(i.uip_udp_new)
-    i.uip_udpchksum                          0x08004814   Section        0  uip.o(i.uip_udpchksum)
-    i.upper_layer_chksum                     0x0800481c   Section        0  uip.o(i.upper_layer_chksum)
-    upper_layer_chksum                       0x0800481d   Thumb Code    62  uip.o(i.upper_layer_chksum)
-    .constdata                               0x08004860   Section        4  system_stm32f10x.o(.constdata)
-    .constdata                               0x08004864   Section        6  uip_arp.o(.constdata)
-    broadcast_ethaddr                        0x08004864   Data           6  uip_arp.o(.constdata)
-    .constdata                               0x0800486a   Section      129  ctype_o.o(.constdata)
-    .constdata                               0x080048ec   Section        4  ctype_o.o(.constdata)
-    table                                    0x080048ec   Data           4  ctype_o.o(.constdata)
+    i.PutKey                                 0x080010d0   Section        0  button.o(i.PutKey)
+    i.RCC_AHBPeriphClockCmd                  0x080010ec   Section        0  stm32f10x_rcc.o(i.RCC_AHBPeriphClockCmd)
+    i.RCC_APB2PeriphClockCmd                 0x08001104   Section        0  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    i.RCC_GetClocksFreq                      0x0800111c   Section        0  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
+    i.SVC_Handler                            0x080011b4   Section        0  stm32f10x_it.o(i.SVC_Handler)
+    i.SetIP1                                 0x080011b8   Section        0  main.o(i.SetIP1)
+    i.SetIP2                                 0x080011f4   Section        0  main.o(i.SetIP2)
+    i.SetSysClockTo72                        0x08001230   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
+    SetSysClockTo72                          0x08001231   Thumb Code   138  system_stm32f10x.o(i.SetSysClockTo72)
+    i.String2Hex                             0x080012c4   Section        0  hdplc_struct.o(i.String2Hex)
+    i.SysTick_Handler                        0x08001310   Section        0  stm32f10x_it.o(i.SysTick_Handler)
+    i.SysTick_ISR                            0x08001314   Section        0  systick.o(i.SysTick_ISR)
+    i.SystemInit                             0x08001370   Section        0  system_stm32f10x.o(i.SystemInit)
+    i.USART_ClearFlag                        0x080013b0   Section        0  stm32f10x_usart.o(i.USART_ClearFlag)
+    i.USART_Cmd                              0x080013b6   Section        0  stm32f10x_usart.o(i.USART_Cmd)
+    i.USART_Configuration                    0x080013cc   Section        0  usart_printf.o(i.USART_Configuration)
+    i.USART_GetFlagStatus                    0x08001460   Section        0  stm32f10x_usart.o(i.USART_GetFlagStatus)
+    i.USART_Init                             0x08001470   Section        0  stm32f10x_usart.o(i.USART_Init)
+    i.USART_ReceiveData                      0x080014fc   Section        0  stm32f10x_usart.o(i.USART_ReceiveData)
+    i.USART_SendData                         0x08001504   Section        0  stm32f10x_usart.o(i.USART_SendData)
+    i.UipPro                                 0x0800150c   Section        0  main.o(i.UipPro)
+    i.UsageFault_Handler                     0x08001624   Section        0  stm32f10x_it.o(i.UsageFault_Handler)
+    i.__0printf$8                            0x08001628   Section        0  printf8.o(i.__0printf$8)
+    i.__aeabi_errno_addr                     0x08001648   Section        0  errno.o(i.__aeabi_errno_addr)
+    i.__scatterload_copy                     0x08001650   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800165e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08001660   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x08001670   Section        0  printf8.o(i._printf_core)
+    _printf_core                             0x08001671   Thumb Code  1064  printf8.o(i._printf_core)
+    i._printf_post_padding                   0x08001a98   Section        0  printf8.o(i._printf_post_padding)
+    _printf_post_padding                     0x08001a99   Thumb Code    38  printf8.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x08001abe   Section        0  printf8.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x08001abf   Thumb Code    46  printf8.o(i._printf_pre_padding)
+    i.chksum                                 0x08001aec   Section        0  uip.o(i.chksum)
+    chksum                                   0x08001aed   Thumb Code    58  uip.o(i.chksum)
+    i.clock_time                             0x08001b26   Section        0  clock-arch.o(i.clock_time)
+    i.data_acked                             0x08001b2c   Section        0  psock.o(i.data_acked)
+    data_acked                               0x08001b2d   Thumb Code    66  psock.o(i.data_acked)
+    i.dm9k_ReadID                            0x08001b78   Section        0  dm9k_uip.o(i.dm9k_ReadID)
+    i.dm9k_hash_table                        0x08001bc0   Section        0  dm9k_uip.o(i.dm9k_hash_table)
+    i.dm9k_initnic                           0x08001c18   Section        0  dm9k_uip.o(i.dm9k_initnic)
+    i.dm9k_phy_write                         0x08001c60   Section        0  dm9k_uip.o(i.dm9k_phy_write)
+    i.dm9k_receive_packet                    0x08001c9c   Section        0  dm9k_uip.o(i.dm9k_receive_packet)
+    i.dm9k_reset                             0x08001d4c   Section        0  dm9k_uip.o(i.dm9k_reset)
+    i.dm9k_send_packet                       0x08001da8   Section        0  dm9k_uip.o(i.dm9k_send_packet)
+    i.dm9k_udelay                            0x08001e10   Section        0  dm9k_uip.o(i.dm9k_udelay)
+    i.etherdev_init                          0x08001e34   Section        0  dm9k_uip.o(i.etherdev_init)
+    i.etherdev_send                          0x08001e50   Section        0  dm9k_uip.o(i.etherdev_send)
+    i.fgetc                                  0x08001e54   Section        0  usart_printf.o(i.fgetc)
+    i.fputc                                  0x08001e74   Section        0  usart_printf.o(i.fputc)
+    i.getc                                   0x08001e98   Section        0  getc.o(i.getc)
+    i.handle_connection                      0x08001e9c   Section        0  hello-world.o(i.handle_connection)
+    handle_connection                        0x08001e9d   Thumb Code   136  hello-world.o(i.handle_connection)
+    i.hello_world_appcall                    0x08001f4c   Section        0  hello-world.o(i.hello_world_appcall)
+    i.htons                                  0x08001f7c   Section        0  uip.o(i.htons)
+    i.ior                                    0x08001f88   Section        0  dm9k_uip.o(i.ior)
+    i.iow                                    0x08001f98   Section        0  dm9k_uip.o(i.iow)
+    i.main                                   0x08001fa4   Section        0  main.o(i.main)
+    i.print_GetCINRMap2To28                  0x080021e8   Section        0  hdplc_struct.o(i.print_GetCINRMap2To28)
+    i.print_GetPhyRate                       0x08002284   Section        0  hdplc_struct.o(i.print_GetPhyRate)
+    i.print_GetStatus                        0x08002380   Section        0  hdplc_struct.o(i.print_GetStatus)
+    i.print_StartChannelEstimate             0x0800269c   Section        0  hdplc_struct.o(i.print_StartChannelEstimate)
+    i.print_StartSpeedTest                   0x0800271c   Section        0  hdplc_struct.o(i.print_StartSpeedTest)
+    i.print_SystemCmd                        0x0800278c   Section        0  hdplc_struct.o(i.print_SystemCmd)
+    i.psock_init                             0x08002808   Section        0  psock.o(i.psock_init)
+    i.psock_newdata                          0x08002820   Section        0  psock.o(i.psock_newdata)
+    i.psock_readto                           0x08002848   Section        0  psock.o(i.psock_readto)
+    i.psock_send                             0x0800292c   Section        0  psock.o(i.psock_send)
+    i.run_GetAllMessages                     0x08002978   Section        0  hdplc_struct.o(i.run_GetAllMessages)
+    i.run_GetCINRMap2To28                    0x08002a44   Section        0  hdplc_struct.o(i.run_GetCINRMap2To28)
+    i.run_GetPhyRate                         0x08002a4e   Section        0  hdplc_struct.o(i.run_GetPhyRate)
+    i.run_GetStatus                          0x08002a62   Section        0  hdplc_struct.o(i.run_GetStatus)
+    i.run_SetMacAddress                      0x08002a78   Section        0  hdplc_struct.o(i.run_SetMacAddress)
+    i.run_SetMacAddressSub                   0x08002b8c   Section        0  hdplc_struct.o(i.run_SetMacAddressSub)
+    i.run_StartChannelEstimate               0x08002c18   Section        0  hdplc_struct.o(i.run_StartChannelEstimate)
+    i.run_StartSpeedTest                     0x08002c54   Section        0  hdplc_struct.o(i.run_StartSpeedTest)
+    i.run_SysGetPhyRate                      0x08002ce0   Section        0  hdplc_struct.o(i.run_SysGetPhyRate)
+    i.run_SystemCmd                          0x08002dd0   Section        0  hdplc_struct.o(i.run_SystemCmd)
+    i.send_data                              0x08002e84   Section        0  psock.o(i.send_data)
+    send_data                                0x08002e85   Thumb Code    60  psock.o(i.send_data)
+    i.tapdev_init                            0x08002ec8   Section        0  tapdev.o(i.tapdev_init)
+    i.tapdev_read                            0x08002ecc   Section        0  tapdev.o(i.tapdev_read)
+    i.tapdev_send                            0x08002edc   Section        0  tapdev.o(i.tapdev_send)
+    i.timer_expired                          0x08002ef0   Section        0  timer.o(i.timer_expired)
+    i.timer_reset                            0x08002f0a   Section        0  timer.o(i.timer_reset)
+    i.timer_set                              0x08002f14   Section        0  timer.o(i.timer_set)
+    i.udp_appcall                            0x08002f24   Section        0  udp_demo.o(i.udp_appcall)
+    i.udp_demo_appcall                       0x080036e8   Section        0  udp_demo.o(i.udp_demo_appcall)
+    i.udp_senddata                           0x080036fc   Section        0  udp_demo.o(i.udp_senddata)
+    i.uip_add32                              0x08003714   Section        0  uip.o(i.uip_add32)
+    i.uip_add_rcv_nxt                        0x08003770   Section        0  uip.o(i.uip_add_rcv_nxt)
+    uip_add_rcv_nxt                          0x08003771   Thumb Code    38  uip.o(i.uip_add_rcv_nxt)
+    i.uip_arp_arpin                          0x0800379c   Section        0  uip_arp.o(i.uip_arp_arpin)
+    i.uip_arp_out                            0x08003868   Section        0  uip_arp.o(i.uip_arp_out)
+    i.uip_arp_timer                          0x080039c4   Section        0  uip_arp.o(i.uip_arp_timer)
+    i.uip_arp_update                         0x08003a08   Section        0  uip_arp.o(i.uip_arp_update)
+    uip_arp_update                           0x08003a09   Thumb Code   178  uip_arp.o(i.uip_arp_update)
+    i.uip_init                               0x08003ac4   Section        0  uip.o(i.uip_init)
+    i.uip_ipchksum                           0x08003b2c   Section        0  uip.o(i.uip_ipchksum)
+    i.uip_log                                0x08003b50   Section        0  hello-world.o(i.uip_log)
+    i.uip_process                            0x08003b70   Section        0  uip.o(i.uip_process)
+    i.uip_send                               0x080046f0   Section        0  uip.o(i.uip_send)
+    i.uip_tcpchksum                          0x08004710   Section        0  uip.o(i.uip_tcpchksum)
+    i.uip_udp_init                           0x08004718   Section        0  udp_demo.o(i.uip_udp_init)
+    i.uip_udp_new                            0x08004754   Section        0  uip.o(i.uip_udp_new)
+    i.uip_udpchksum                          0x080047f8   Section        0  uip.o(i.uip_udpchksum)
+    i.upper_layer_chksum                     0x08004800   Section        0  uip.o(i.upper_layer_chksum)
+    upper_layer_chksum                       0x08004801   Thumb Code    62  uip.o(i.upper_layer_chksum)
+    .constdata                               0x08004844   Section        4  system_stm32f10x.o(.constdata)
+    .constdata                               0x08004848   Section        6  uip_arp.o(.constdata)
+    broadcast_ethaddr                        0x08004848   Data           6  uip_arp.o(.constdata)
+    .constdata                               0x0800484e   Section      129  ctype_o.o(.constdata)
+    .constdata                               0x080048d0   Section        4  ctype_o.o(.constdata)
+    table                                    0x080048d0   Data           4  ctype_o.o(.constdata)
     .data                                    0x20000000   Section       40  main.o(.data)
     timer_ok                                 0x20000000   Data           1  main.o(.data)
     periodic_timer                           0x20000018   Data           8  main.o(.data)
@@ -1337,100 +1337,100 @@ Image Symbol Table
     MemManage_Handler                        0x08000fb1   Thumb Code     2  stm32f10x_it.o(i.MemManage_Handler)
     NMI_Handler                              0x08000fb3   Thumb Code     2  stm32f10x_it.o(i.NMI_Handler)
     PendSV_Handler                           0x08000fb5   Thumb Code     2  stm32f10x_it.o(i.PendSV_Handler)
-    PrintfLogo                               0x08000fb9   Thumb Code    68  usart_printf.o(i.PrintfLogo)
-    PutKey                                   0x080010ed   Thumb Code    24  button.o(i.PutKey)
-    RCC_AHBPeriphClockCmd                    0x08001109   Thumb Code    18  stm32f10x_rcc.o(i.RCC_AHBPeriphClockCmd)
-    RCC_APB2PeriphClockCmd                   0x08001121   Thumb Code    18  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
-    RCC_GetClocksFreq                        0x08001139   Thumb Code   136  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
-    SVC_Handler                              0x080011d1   Thumb Code     2  stm32f10x_it.o(i.SVC_Handler)
-    SetIP1                                   0x080011d5   Thumb Code    48  main.o(i.SetIP1)
-    SetIP2                                   0x08001211   Thumb Code    48  main.o(i.SetIP2)
-    String2Hex                               0x080012e1   Thumb Code    76  hdplc_struct.o(i.String2Hex)
-    SysTick_Handler                          0x0800132d   Thumb Code     4  stm32f10x_it.o(i.SysTick_Handler)
-    SysTick_ISR                              0x08001331   Thumb Code    82  systick.o(i.SysTick_ISR)
-    SystemInit                               0x0800138d   Thumb Code    52  system_stm32f10x.o(i.SystemInit)
-    USART_ClearFlag                          0x080013cd   Thumb Code     6  stm32f10x_usart.o(i.USART_ClearFlag)
-    USART_Cmd                                0x080013d3   Thumb Code    20  stm32f10x_usart.o(i.USART_Cmd)
-    USART_Configuration                      0x080013e9   Thumb Code   138  usart_printf.o(i.USART_Configuration)
-    USART_GetFlagStatus                      0x0800147d   Thumb Code    14  stm32f10x_usart.o(i.USART_GetFlagStatus)
-    USART_Init                               0x0800148d   Thumb Code   134  stm32f10x_usart.o(i.USART_Init)
-    USART_ReceiveData                        0x08001519   Thumb Code     8  stm32f10x_usart.o(i.USART_ReceiveData)
-    USART_SendData                           0x08001521   Thumb Code     8  stm32f10x_usart.o(i.USART_SendData)
-    UipPro                                   0x08001529   Thumb Code   252  main.o(i.UipPro)
-    UsageFault_Handler                       0x08001641   Thumb Code     2  stm32f10x_it.o(i.UsageFault_Handler)
-    __0printf$8                              0x08001645   Thumb Code    22  printf8.o(i.__0printf$8)
-    __1printf$8                              0x08001645   Thumb Code     0  printf8.o(i.__0printf$8)
-    __2printf                                0x08001645   Thumb Code     0  printf8.o(i.__0printf$8)
-    __aeabi_errno_addr                       0x08001665   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
-    __rt_errno_addr                          0x08001665   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
-    __scatterload_copy                       0x0800166d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800167b   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800167d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    clock_time                               0x08001b43   Thumb Code     4  clock-arch.o(i.clock_time)
-    dm9k_ReadID                              0x08001b95   Thumb Code    66  dm9k_uip.o(i.dm9k_ReadID)
-    dm9k_hash_table                          0x08001bdd   Thumb Code    76  dm9k_uip.o(i.dm9k_hash_table)
-    dm9k_initnic                             0x08001c35   Thumb Code    68  dm9k_uip.o(i.dm9k_initnic)
-    dm9k_phy_write                           0x08001c7d   Thumb Code    56  dm9k_uip.o(i.dm9k_phy_write)
-    dm9k_receive_packet                      0x08001cb9   Thumb Code   172  dm9k_uip.o(i.dm9k_receive_packet)
-    dm9k_reset                               0x08001d69   Thumb Code    82  dm9k_uip.o(i.dm9k_reset)
-    dm9k_send_packet                         0x08001dc5   Thumb Code    96  dm9k_uip.o(i.dm9k_send_packet)
-    dm9k_udelay                              0x08001e2d   Thumb Code    34  dm9k_uip.o(i.dm9k_udelay)
-    etherdev_init                            0x08001e51   Thumb Code    24  dm9k_uip.o(i.etherdev_init)
-    etherdev_send                            0x08001e6d   Thumb Code     4  dm9k_uip.o(i.etherdev_send)
-    fgetc                                    0x08001e71   Thumb Code    26  usart_printf.o(i.fgetc)
-    fputc                                    0x08001e91   Thumb Code    30  usart_printf.o(i.fputc)
-    getc                                     0x08001eb5   Thumb Code     4  getc.o(i.getc)
-    hello_world_appcall                      0x08001f69   Thumb Code    40  hello-world.o(i.hello_world_appcall)
-    htons                                    0x08001f99   Thumb Code    10  uip.o(i.htons)
-    ior                                      0x08001fa5   Thumb Code    10  dm9k_uip.o(i.ior)
-    iow                                      0x08001fb5   Thumb Code     8  dm9k_uip.o(i.iow)
-    main                                     0x08001fc1   Thumb Code   188  main.o(i.main)
-    print_GetCINRMap2To28                    0x08002205   Thumb Code    54  hdplc_struct.o(i.print_GetCINRMap2To28)
-    print_GetPhyRate                         0x080022a1   Thumb Code    74  hdplc_struct.o(i.print_GetPhyRate)
-    print_GetStatus                          0x0800239d   Thumb Code   238  hdplc_struct.o(i.print_GetStatus)
-    print_StartChannelEstimate               0x080026b9   Thumb Code    28  hdplc_struct.o(i.print_StartChannelEstimate)
-    print_StartSpeedTest                     0x08002739   Thumb Code    28  hdplc_struct.o(i.print_StartSpeedTest)
-    print_SystemCmd                          0x080027a9   Thumb Code    46  hdplc_struct.o(i.print_SystemCmd)
-    psock_init                               0x08002825   Thumb Code    24  psock.o(i.psock_init)
-    psock_newdata                            0x0800283d   Thumb Code    34  psock.o(i.psock_newdata)
-    psock_readto                             0x08002865   Thumb Code   218  psock.o(i.psock_readto)
-    psock_send                               0x08002949   Thumb Code    74  psock.o(i.psock_send)
-    run_GetAllMessages                       0x08002995   Thumb Code   136  hdplc_struct.o(i.run_GetAllMessages)
-    run_GetCINRMap2To28                      0x08002a61   Thumb Code    10  hdplc_struct.o(i.run_GetCINRMap2To28)
-    run_GetPhyRate                           0x08002a6b   Thumb Code    20  hdplc_struct.o(i.run_GetPhyRate)
-    run_GetStatus                            0x08002a7f   Thumb Code    20  hdplc_struct.o(i.run_GetStatus)
-    run_SetMacAddress                        0x08002a95   Thumb Code   152  hdplc_struct.o(i.run_SetMacAddress)
-    run_SetMacAddressSub                     0x08002ba9   Thumb Code   116  hdplc_struct.o(i.run_SetMacAddressSub)
-    run_StartChannelEstimate                 0x08002c35   Thumb Code    52  hdplc_struct.o(i.run_StartChannelEstimate)
-    run_StartSpeedTest                       0x08002c71   Thumb Code    86  hdplc_struct.o(i.run_StartSpeedTest)
-    run_SysGetPhyRate                        0x08002cfd   Thumb Code   182  hdplc_struct.o(i.run_SysGetPhyRate)
-    run_SystemCmd                            0x08002ded   Thumb Code   134  hdplc_struct.o(i.run_SystemCmd)
-    tapdev_init                              0x08002ee5   Thumb Code     4  tapdev.o(i.tapdev_init)
-    tapdev_read                              0x08002ee9   Thumb Code    12  tapdev.o(i.tapdev_read)
-    tapdev_send                              0x08002ef9   Thumb Code    10  tapdev.o(i.tapdev_send)
-    timer_expired                            0x08002f0d   Thumb Code    26  timer.o(i.timer_expired)
-    timer_reset                              0x08002f27   Thumb Code    10  timer.o(i.timer_reset)
-    timer_set                                0x08002f31   Thumb Code    14  timer.o(i.timer_set)
-    udp_appcall                              0x08002f41   Thumb Code  1626  udp_demo.o(i.udp_appcall)
-    udp_demo_appcall                         0x08003705   Thumb Code    16  udp_demo.o(i.udp_demo_appcall)
-    udp_senddata                             0x08003719   Thumb Code    20  udp_demo.o(i.udp_senddata)
-    uip_add32                                0x08003731   Thumb Code    86  uip.o(i.uip_add32)
-    uip_arp_arpin                            0x080037b9   Thumb Code   186  uip_arp.o(i.uip_arp_arpin)
-    uip_arp_out                              0x08003885   Thumb Code   306  uip_arp.o(i.uip_arp_out)
-    uip_arp_timer                            0x080039e1   Thumb Code    58  uip_arp.o(i.uip_arp_timer)
-    uip_init                                 0x08003ae1   Thumb Code    92  uip.o(i.uip_init)
-    uip_ipchksum                             0x08003b49   Thumb Code    30  uip.o(i.uip_ipchksum)
-    uip_log                                  0x08003b6d   Thumb Code     8  hello-world.o(i.uip_log)
-    uip_process                              0x08003b8d   Thumb Code  2940  uip.o(i.uip_process)
-    uip_send                                 0x0800470d   Thumb Code    26  uip.o(i.uip_send)
-    uip_tcpchksum                            0x0800472d   Thumb Code     6  uip.o(i.uip_tcpchksum)
-    uip_udp_init                             0x08004735   Thumb Code    56  udp_demo.o(i.uip_udp_init)
-    uip_udp_new                              0x08004771   Thumb Code   154  uip.o(i.uip_udp_new)
-    uip_udpchksum                            0x08004815   Thumb Code     6  uip.o(i.uip_udpchksum)
-    SystemFrequency                          0x08004860   Data           4  system_stm32f10x.o(.constdata)
-    __ctype_table                            0x0800486a   Data         129  ctype_o.o(.constdata)
-    Region$$Table$$Base                      0x080048f0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08004910   Number         0  anon$$obj.o(Region$$Table)
+    PrintfLogo                               0x08000fb9   Thumb Code    62  usart_printf.o(i.PrintfLogo)
+    PutKey                                   0x080010d1   Thumb Code    24  button.o(i.PutKey)
+    RCC_AHBPeriphClockCmd                    0x080010ed   Thumb Code    18  stm32f10x_rcc.o(i.RCC_AHBPeriphClockCmd)
+    RCC_APB2PeriphClockCmd                   0x08001105   Thumb Code    18  stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd)
+    RCC_GetClocksFreq                        0x0800111d   Thumb Code   136  stm32f10x_rcc.o(i.RCC_GetClocksFreq)
+    SVC_Handler                              0x080011b5   Thumb Code     2  stm32f10x_it.o(i.SVC_Handler)
+    SetIP1                                   0x080011b9   Thumb Code    48  main.o(i.SetIP1)
+    SetIP2                                   0x080011f5   Thumb Code    48  main.o(i.SetIP2)
+    String2Hex                               0x080012c5   Thumb Code    76  hdplc_struct.o(i.String2Hex)
+    SysTick_Handler                          0x08001311   Thumb Code     4  stm32f10x_it.o(i.SysTick_Handler)
+    SysTick_ISR                              0x08001315   Thumb Code    82  systick.o(i.SysTick_ISR)
+    SystemInit                               0x08001371   Thumb Code    52  system_stm32f10x.o(i.SystemInit)
+    USART_ClearFlag                          0x080013b1   Thumb Code     6  stm32f10x_usart.o(i.USART_ClearFlag)
+    USART_Cmd                                0x080013b7   Thumb Code    20  stm32f10x_usart.o(i.USART_Cmd)
+    USART_Configuration                      0x080013cd   Thumb Code   138  usart_printf.o(i.USART_Configuration)
+    USART_GetFlagStatus                      0x08001461   Thumb Code    14  stm32f10x_usart.o(i.USART_GetFlagStatus)
+    USART_Init                               0x08001471   Thumb Code   134  stm32f10x_usart.o(i.USART_Init)
+    USART_ReceiveData                        0x080014fd   Thumb Code     8  stm32f10x_usart.o(i.USART_ReceiveData)
+    USART_SendData                           0x08001505   Thumb Code     8  stm32f10x_usart.o(i.USART_SendData)
+    UipPro                                   0x0800150d   Thumb Code   252  main.o(i.UipPro)
+    UsageFault_Handler                       0x08001625   Thumb Code     2  stm32f10x_it.o(i.UsageFault_Handler)
+    __0printf$8                              0x08001629   Thumb Code    22  printf8.o(i.__0printf$8)
+    __1printf$8                              0x08001629   Thumb Code     0  printf8.o(i.__0printf$8)
+    __2printf                                0x08001629   Thumb Code     0  printf8.o(i.__0printf$8)
+    __aeabi_errno_addr                       0x08001649   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
+    __rt_errno_addr                          0x08001649   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
+    __scatterload_copy                       0x08001651   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800165f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08001661   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    clock_time                               0x08001b27   Thumb Code     4  clock-arch.o(i.clock_time)
+    dm9k_ReadID                              0x08001b79   Thumb Code    66  dm9k_uip.o(i.dm9k_ReadID)
+    dm9k_hash_table                          0x08001bc1   Thumb Code    76  dm9k_uip.o(i.dm9k_hash_table)
+    dm9k_initnic                             0x08001c19   Thumb Code    68  dm9k_uip.o(i.dm9k_initnic)
+    dm9k_phy_write                           0x08001c61   Thumb Code    56  dm9k_uip.o(i.dm9k_phy_write)
+    dm9k_receive_packet                      0x08001c9d   Thumb Code   172  dm9k_uip.o(i.dm9k_receive_packet)
+    dm9k_reset                               0x08001d4d   Thumb Code    82  dm9k_uip.o(i.dm9k_reset)
+    dm9k_send_packet                         0x08001da9   Thumb Code    96  dm9k_uip.o(i.dm9k_send_packet)
+    dm9k_udelay                              0x08001e11   Thumb Code    34  dm9k_uip.o(i.dm9k_udelay)
+    etherdev_init                            0x08001e35   Thumb Code    24  dm9k_uip.o(i.etherdev_init)
+    etherdev_send                            0x08001e51   Thumb Code     4  dm9k_uip.o(i.etherdev_send)
+    fgetc                                    0x08001e55   Thumb Code    26  usart_printf.o(i.fgetc)
+    fputc                                    0x08001e75   Thumb Code    30  usart_printf.o(i.fputc)
+    getc                                     0x08001e99   Thumb Code     4  getc.o(i.getc)
+    hello_world_appcall                      0x08001f4d   Thumb Code    40  hello-world.o(i.hello_world_appcall)
+    htons                                    0x08001f7d   Thumb Code    10  uip.o(i.htons)
+    ior                                      0x08001f89   Thumb Code    10  dm9k_uip.o(i.ior)
+    iow                                      0x08001f99   Thumb Code     8  dm9k_uip.o(i.iow)
+    main                                     0x08001fa5   Thumb Code   188  main.o(i.main)
+    print_GetCINRMap2To28                    0x080021e9   Thumb Code    54  hdplc_struct.o(i.print_GetCINRMap2To28)
+    print_GetPhyRate                         0x08002285   Thumb Code    74  hdplc_struct.o(i.print_GetPhyRate)
+    print_GetStatus                          0x08002381   Thumb Code   238  hdplc_struct.o(i.print_GetStatus)
+    print_StartChannelEstimate               0x0800269d   Thumb Code    28  hdplc_struct.o(i.print_StartChannelEstimate)
+    print_StartSpeedTest                     0x0800271d   Thumb Code    28  hdplc_struct.o(i.print_StartSpeedTest)
+    print_SystemCmd                          0x0800278d   Thumb Code    46  hdplc_struct.o(i.print_SystemCmd)
+    psock_init                               0x08002809   Thumb Code    24  psock.o(i.psock_init)
+    psock_newdata                            0x08002821   Thumb Code    34  psock.o(i.psock_newdata)
+    psock_readto                             0x08002849   Thumb Code   218  psock.o(i.psock_readto)
+    psock_send                               0x0800292d   Thumb Code    74  psock.o(i.psock_send)
+    run_GetAllMessages                       0x08002979   Thumb Code   136  hdplc_struct.o(i.run_GetAllMessages)
+    run_GetCINRMap2To28                      0x08002a45   Thumb Code    10  hdplc_struct.o(i.run_GetCINRMap2To28)
+    run_GetPhyRate                           0x08002a4f   Thumb Code    20  hdplc_struct.o(i.run_GetPhyRate)
+    run_GetStatus                            0x08002a63   Thumb Code    20  hdplc_struct.o(i.run_GetStatus)
+    run_SetMacAddress                        0x08002a79   Thumb Code   152  hdplc_struct.o(i.run_SetMacAddress)
+    run_SetMacAddressSub                     0x08002b8d   Thumb Code   116  hdplc_struct.o(i.run_SetMacAddressSub)
+    run_StartChannelEstimate                 0x08002c19   Thumb Code    52  hdplc_struct.o(i.run_StartChannelEstimate)
+    run_StartSpeedTest                       0x08002c55   Thumb Code    86  hdplc_struct.o(i.run_StartSpeedTest)
+    run_SysGetPhyRate                        0x08002ce1   Thumb Code   182  hdplc_struct.o(i.run_SysGetPhyRate)
+    run_SystemCmd                            0x08002dd1   Thumb Code   134  hdplc_struct.o(i.run_SystemCmd)
+    tapdev_init                              0x08002ec9   Thumb Code     4  tapdev.o(i.tapdev_init)
+    tapdev_read                              0x08002ecd   Thumb Code    12  tapdev.o(i.tapdev_read)
+    tapdev_send                              0x08002edd   Thumb Code    10  tapdev.o(i.tapdev_send)
+    timer_expired                            0x08002ef1   Thumb Code    26  timer.o(i.timer_expired)
+    timer_reset                              0x08002f0b   Thumb Code    10  timer.o(i.timer_reset)
+    timer_set                                0x08002f15   Thumb Code    14  timer.o(i.timer_set)
+    udp_appcall                              0x08002f25   Thumb Code  1626  udp_demo.o(i.udp_appcall)
+    udp_demo_appcall                         0x080036e9   Thumb Code    16  udp_demo.o(i.udp_demo_appcall)
+    udp_senddata                             0x080036fd   Thumb Code    20  udp_demo.o(i.udp_senddata)
+    uip_add32                                0x08003715   Thumb Code    86  uip.o(i.uip_add32)
+    uip_arp_arpin                            0x0800379d   Thumb Code   186  uip_arp.o(i.uip_arp_arpin)
+    uip_arp_out                              0x08003869   Thumb Code   306  uip_arp.o(i.uip_arp_out)
+    uip_arp_timer                            0x080039c5   Thumb Code    58  uip_arp.o(i.uip_arp_timer)
+    uip_init                                 0x08003ac5   Thumb Code    92  uip.o(i.uip_init)
+    uip_ipchksum                             0x08003b2d   Thumb Code    30  uip.o(i.uip_ipchksum)
+    uip_log                                  0x08003b51   Thumb Code     8  hello-world.o(i.uip_log)
+    uip_process                              0x08003b71   Thumb Code  2940  uip.o(i.uip_process)
+    uip_send                                 0x080046f1   Thumb Code    26  uip.o(i.uip_send)
+    uip_tcpchksum                            0x08004711   Thumb Code     6  uip.o(i.uip_tcpchksum)
+    uip_udp_init                             0x08004719   Thumb Code    56  udp_demo.o(i.uip_udp_init)
+    uip_udp_new                              0x08004755   Thumb Code   154  uip.o(i.uip_udp_new)
+    uip_udpchksum                            0x080047f9   Thumb Code     6  uip.o(i.uip_udpchksum)
+    SystemFrequency                          0x08004844   Data           4  system_stm32f10x.o(.constdata)
+    __ctype_table                            0x0800484e   Data         129  ctype_o.o(.constdata)
+    Region$$Table$$Base                      0x080048d4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x080048f4   Number         0  anon$$obj.o(Region$$Table)
     c_choice                                 0x20000001   Data           1  main.o(.data)
     send_flag                                0x20000004   Data           4  main.o(.data)
     rec_flag                                 0x20000008   Data           4  main.o(.data)
@@ -1476,9 +1476,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000049bc, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000049a0, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00004910, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x000048f4, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1548,123 +1548,123 @@ Memory Map of the image
     0x08000fb2   0x00000002   Code   RO          206    i.NMI_Handler       stm32f10x_it.o
     0x08000fb4   0x00000002   Code   RO          207    i.PendSV_Handler    stm32f10x_it.o
     0x08000fb6   0x00000002   PAD
-    0x08000fb8   0x00000134   Code   RO          268    i.PrintfLogo        usart_printf.o
-    0x080010ec   0x0000001c   Code   RO          310    i.PutKey            button.o
-    0x08001108   0x00000018   Code   RO          572    i.RCC_AHBPeriphClockCmd  stm32f10x_rcc.o
-    0x08001120   0x00000018   Code   RO          575    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
-    0x08001138   0x00000098   Code   RO          583    i.RCC_GetClocksFreq  stm32f10x_rcc.o
-    0x080011d0   0x00000002   Code   RO          208    i.SVC_Handler       stm32f10x_it.o
-    0x080011d2   0x00000002   PAD
-    0x080011d4   0x0000003c   Code   RO            4    i.SetIP1            main.o
-    0x08001210   0x0000003c   Code   RO            5    i.SetIP2            main.o
-    0x0800124c   0x00000094   Code   RO         1219    i.SetSysClockTo72   system_stm32f10x.o
-    0x080012e0   0x0000004c   Code   RO          422    i.String2Hex        hdplc_struct.o
-    0x0800132c   0x00000004   Code   RO          209    i.SysTick_Handler   stm32f10x_it.o
-    0x08001330   0x0000005c   Code   RO          379    i.SysTick_ISR       systick.o
-    0x0800138c   0x00000040   Code   RO         1220    i.SystemInit        system_stm32f10x.o
-    0x080013cc   0x00000006   Code   RO          807    i.USART_ClearFlag   stm32f10x_usart.o
-    0x080013d2   0x00000014   Code   RO          811    i.USART_Cmd         stm32f10x_usart.o
-    0x080013e6   0x00000002   PAD
-    0x080013e8   0x00000094   Code   RO          269    i.USART_Configuration  usart_printf.o
-    0x0800147c   0x0000000e   Code   RO          814    i.USART_GetFlagStatus  stm32f10x_usart.o
-    0x0800148a   0x00000002   PAD
-    0x0800148c   0x0000008c   Code   RO          818    i.USART_Init        stm32f10x_usart.o
-    0x08001518   0x00000008   Code   RO          823    i.USART_ReceiveData  stm32f10x_usart.o
-    0x08001520   0x00000008   Code   RO          826    i.USART_SendData    stm32f10x_usart.o
-    0x08001528   0x00000118   Code   RO            6    i.UipPro            main.o
-    0x08001640   0x00000002   Code   RO          210    i.UsageFault_Handler  stm32f10x_it.o
-    0x08001642   0x00000002   PAD
-    0x08001644   0x00000020   Code   RO         2112    i.__0printf$8       mc_w.l(printf8.o)
-    0x08001664   0x00000008   Code   RO         2210    i.__aeabi_errno_addr  mc_w.l(errno.o)
-    0x0800166c   0x0000000e   Code   RO         2259    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800167a   0x00000002   Code   RO         2260    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800167c   0x0000000e   Code   RO         2261    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800168a   0x00000002   PAD
-    0x0800168c   0x00000428   Code   RO         2119    i._printf_core      mc_w.l(printf8.o)
-    0x08001ab4   0x00000026   Code   RO         2120    i._printf_post_padding  mc_w.l(printf8.o)
-    0x08001ada   0x0000002e   Code   RO         2121    i._printf_pre_padding  mc_w.l(printf8.o)
-    0x08001b08   0x0000003a   Code   RO         1342    i.chksum            uip.o
-    0x08001b42   0x00000004   Code   RO         1641    i.clock_time        clock-arch.o
-    0x08001b46   0x00000002   PAD
-    0x08001b48   0x0000004c   Code   RO         1247    i.data_acked        psock.o
-    0x08001b94   0x00000048   Code   RO         1655    i.dm9k_ReadID       dm9k_uip.o
-    0x08001bdc   0x00000058   Code   RO         1657    i.dm9k_hash_table   dm9k_uip.o
-    0x08001c34   0x00000048   Code   RO         1658    i.dm9k_initnic      dm9k_uip.o
-    0x08001c7c   0x0000003c   Code   RO         1660    i.dm9k_phy_write    dm9k_uip.o
-    0x08001cb8   0x000000b0   Code   RO         1661    i.dm9k_receive_packet  dm9k_uip.o
-    0x08001d68   0x0000005c   Code   RO         1662    i.dm9k_reset        dm9k_uip.o
-    0x08001dc4   0x00000068   Code   RO         1663    i.dm9k_send_packet  dm9k_uip.o
-    0x08001e2c   0x00000022   Code   RO         1664    i.dm9k_udelay       dm9k_uip.o
-    0x08001e4e   0x00000002   PAD
-    0x08001e50   0x0000001c   Code   RO         1666    i.etherdev_init     dm9k_uip.o
-    0x08001e6c   0x00000004   Code   RO         1669    i.etherdev_send     dm9k_uip.o
-    0x08001e70   0x00000020   Code   RO          270    i.fgetc             usart_printf.o
-    0x08001e90   0x00000024   Code   RO          271    i.fputc             usart_printf.o
-    0x08001eb4   0x00000004   Code   RO         1888    i.getc              mc_w.l(getc.o)
-    0x08001eb8   0x000000b0   Code   RO         1799    i.handle_connection  hello-world.o
-    0x08001f68   0x00000030   Code   RO         1800    i.hello_world_appcall  hello-world.o
-    0x08001f98   0x0000000a   Code   RO         1343    i.htons             uip.o
-    0x08001fa2   0x00000002   PAD
-    0x08001fa4   0x00000010   Code   RO         1670    i.ior               dm9k_uip.o
-    0x08001fb4   0x0000000c   Code   RO         1671    i.iow               dm9k_uip.o
-    0x08001fc0   0x00000244   Code   RO            7    i.main              main.o
-    0x08002204   0x0000009c   Code   RO          423    i.print_GetCINRMap2To28  hdplc_struct.o
-    0x080022a0   0x000000fc   Code   RO          424    i.print_GetPhyRate  hdplc_struct.o
-    0x0800239c   0x0000031c   Code   RO          425    i.print_GetStatus   hdplc_struct.o
-    0x080026b8   0x00000080   Code   RO          426    i.print_StartChannelEstimate  hdplc_struct.o
-    0x08002738   0x00000070   Code   RO          427    i.print_StartSpeedTest  hdplc_struct.o
-    0x080027a8   0x0000007c   Code   RO          428    i.print_SystemCmd   hdplc_struct.o
-    0x08002824   0x00000018   Code   RO         1250    i.psock_init        psock.o
-    0x0800283c   0x00000028   Code   RO         1251    i.psock_newdata     psock.o
-    0x08002864   0x000000e4   Code   RO         1253    i.psock_readto      psock.o
-    0x08002948   0x0000004a   Code   RO         1254    i.psock_send        psock.o
-    0x08002992   0x00000002   PAD
-    0x08002994   0x000000cc   Code   RO          430    i.run_GetAllMessages  hdplc_struct.o
-    0x08002a60   0x0000000a   Code   RO          431    i.run_GetCINRMap2To28  hdplc_struct.o
-    0x08002a6a   0x00000014   Code   RO          432    i.run_GetPhyRate    hdplc_struct.o
-    0x08002a7e   0x00000014   Code   RO          433    i.run_GetStatus     hdplc_struct.o
-    0x08002a92   0x00000002   PAD
-    0x08002a94   0x00000114   Code   RO          434    i.run_SetMacAddress  hdplc_struct.o
-    0x08002ba8   0x0000008c   Code   RO          435    i.run_SetMacAddressSub  hdplc_struct.o
-    0x08002c34   0x0000003c   Code   RO          436    i.run_StartChannelEstimate  hdplc_struct.o
-    0x08002c70   0x0000008c   Code   RO          437    i.run_StartSpeedTest  hdplc_struct.o
-    0x08002cfc   0x000000f0   Code   RO          438    i.run_SysGetPhyRate  hdplc_struct.o
-    0x08002dec   0x000000b4   Code   RO          439    i.run_SystemCmd     hdplc_struct.o
-    0x08002ea0   0x00000044   Code   RO         1255    i.send_data         psock.o
-    0x08002ee4   0x00000004   Code   RO         1772    i.tapdev_init       tapdev.o
-    0x08002ee8   0x00000010   Code   RO         1773    i.tapdev_read       tapdev.o
-    0x08002ef8   0x00000014   Code   RO         1774    i.tapdev_send       tapdev.o
-    0x08002f0c   0x0000001a   Code   RO         1312    i.timer_expired     timer.o
-    0x08002f26   0x0000000a   Code   RO         1313    i.timer_reset       timer.o
-    0x08002f30   0x0000000e   Code   RO         1315    i.timer_set         timer.o
-    0x08002f3e   0x00000002   PAD
-    0x08002f40   0x000007c4   Code   RO         1828    i.udp_appcall       udp_demo.o
-    0x08003704   0x00000014   Code   RO         1829    i.udp_demo_appcall  udp_demo.o
-    0x08003718   0x00000018   Code   RO         1830    i.udp_senddata      udp_demo.o
-    0x08003730   0x0000005c   Code   RO         1344    i.uip_add32         uip.o
-    0x0800378c   0x0000002c   Code   RO         1345    i.uip_add_rcv_nxt   uip.o
-    0x080037b8   0x000000cc   Code   RO         1466    i.uip_arp_arpin     uip_arp.o
-    0x08003884   0x0000015c   Code   RO         1468    i.uip_arp_out       uip_arp.o
-    0x080039e0   0x00000044   Code   RO         1469    i.uip_arp_timer     uip_arp.o
-    0x08003a24   0x000000bc   Code   RO         1470    i.uip_arp_update    uip_arp.o
-    0x08003ae0   0x00000068   Code   RO         1348    i.uip_init          uip.o
-    0x08003b48   0x00000024   Code   RO         1349    i.uip_ipchksum      uip.o
-    0x08003b6c   0x00000020   Code   RO         1802    i.uip_log           hello-world.o
-    0x08003b8c   0x00000b80   Code   RO         1351    i.uip_process       uip.o
-    0x0800470c   0x00000020   Code   RO         1352    i.uip_send          uip.o
-    0x0800472c   0x00000006   Code   RO         1354    i.uip_tcpchksum     uip.o
-    0x08004732   0x00000002   PAD
-    0x08004734   0x0000003c   Code   RO         1831    i.uip_udp_init      udp_demo.o
-    0x08004770   0x000000a4   Code   RO         1355    i.uip_udp_new       uip.o
-    0x08004814   0x00000006   Code   RO         1356    i.uip_udpchksum     uip.o
-    0x0800481a   0x00000002   PAD
-    0x0800481c   0x00000044   Code   RO         1358    i.upper_layer_chksum  uip.o
-    0x08004860   0x00000004   Data   RO         1221    .constdata          system_stm32f10x.o
-    0x08004864   0x00000006   Data   RO         1472    .constdata          uip_arp.o
-    0x0800486a   0x00000081   Data   RO         2183    .constdata          mc_w.l(ctype_o.o)
-    0x080048eb   0x00000001   PAD
-    0x080048ec   0x00000004   Data   RO         2184    .constdata          mc_w.l(ctype_o.o)
-    0x080048f0   0x00000020   Data   RO         2257    Region$$Table       anon$$obj.o
+    0x08000fb8   0x00000118   Code   RO          268    i.PrintfLogo        usart_printf.o
+    0x080010d0   0x0000001c   Code   RO          310    i.PutKey            button.o
+    0x080010ec   0x00000018   Code   RO          572    i.RCC_AHBPeriphClockCmd  stm32f10x_rcc.o
+    0x08001104   0x00000018   Code   RO          575    i.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
+    0x0800111c   0x00000098   Code   RO          583    i.RCC_GetClocksFreq  stm32f10x_rcc.o
+    0x080011b4   0x00000002   Code   RO          208    i.SVC_Handler       stm32f10x_it.o
+    0x080011b6   0x00000002   PAD
+    0x080011b8   0x0000003c   Code   RO            4    i.SetIP1            main.o
+    0x080011f4   0x0000003c   Code   RO            5    i.SetIP2            main.o
+    0x08001230   0x00000094   Code   RO         1219    i.SetSysClockTo72   system_stm32f10x.o
+    0x080012c4   0x0000004c   Code   RO          422    i.String2Hex        hdplc_struct.o
+    0x08001310   0x00000004   Code   RO          209    i.SysTick_Handler   stm32f10x_it.o
+    0x08001314   0x0000005c   Code   RO          379    i.SysTick_ISR       systick.o
+    0x08001370   0x00000040   Code   RO         1220    i.SystemInit        system_stm32f10x.o
+    0x080013b0   0x00000006   Code   RO          807    i.USART_ClearFlag   stm32f10x_usart.o
+    0x080013b6   0x00000014   Code   RO          811    i.USART_Cmd         stm32f10x_usart.o
+    0x080013ca   0x00000002   PAD
+    0x080013cc   0x00000094   Code   RO          269    i.USART_Configuration  usart_printf.o
+    0x08001460   0x0000000e   Code   RO          814    i.USART_GetFlagStatus  stm32f10x_usart.o
+    0x0800146e   0x00000002   PAD
+    0x08001470   0x0000008c   Code   RO          818    i.USART_Init        stm32f10x_usart.o
+    0x080014fc   0x00000008   Code   RO          823    i.USART_ReceiveData  stm32f10x_usart.o
+    0x08001504   0x00000008   Code   RO          826    i.USART_SendData    stm32f10x_usart.o
+    0x0800150c   0x00000118   Code   RO            6    i.UipPro            main.o
+    0x08001624   0x00000002   Code   RO          210    i.UsageFault_Handler  stm32f10x_it.o
+    0x08001626   0x00000002   PAD
+    0x08001628   0x00000020   Code   RO         2112    i.__0printf$8       mc_w.l(printf8.o)
+    0x08001648   0x00000008   Code   RO         2210    i.__aeabi_errno_addr  mc_w.l(errno.o)
+    0x08001650   0x0000000e   Code   RO         2259    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800165e   0x00000002   Code   RO         2260    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08001660   0x0000000e   Code   RO         2261    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800166e   0x00000002   PAD
+    0x08001670   0x00000428   Code   RO         2119    i._printf_core      mc_w.l(printf8.o)
+    0x08001a98   0x00000026   Code   RO         2120    i._printf_post_padding  mc_w.l(printf8.o)
+    0x08001abe   0x0000002e   Code   RO         2121    i._printf_pre_padding  mc_w.l(printf8.o)
+    0x08001aec   0x0000003a   Code   RO         1342    i.chksum            uip.o
+    0x08001b26   0x00000004   Code   RO         1641    i.clock_time        clock-arch.o
+    0x08001b2a   0x00000002   PAD
+    0x08001b2c   0x0000004c   Code   RO         1247    i.data_acked        psock.o
+    0x08001b78   0x00000048   Code   RO         1655    i.dm9k_ReadID       dm9k_uip.o
+    0x08001bc0   0x00000058   Code   RO         1657    i.dm9k_hash_table   dm9k_uip.o
+    0x08001c18   0x00000048   Code   RO         1658    i.dm9k_initnic      dm9k_uip.o
+    0x08001c60   0x0000003c   Code   RO         1660    i.dm9k_phy_write    dm9k_uip.o
+    0x08001c9c   0x000000b0   Code   RO         1661    i.dm9k_receive_packet  dm9k_uip.o
+    0x08001d4c   0x0000005c   Code   RO         1662    i.dm9k_reset        dm9k_uip.o
+    0x08001da8   0x00000068   Code   RO         1663    i.dm9k_send_packet  dm9k_uip.o
+    0x08001e10   0x00000022   Code   RO         1664    i.dm9k_udelay       dm9k_uip.o
+    0x08001e32   0x00000002   PAD
+    0x08001e34   0x0000001c   Code   RO         1666    i.etherdev_init     dm9k_uip.o
+    0x08001e50   0x00000004   Code   RO         1669    i.etherdev_send     dm9k_uip.o
+    0x08001e54   0x00000020   Code   RO          270    i.fgetc             usart_printf.o
+    0x08001e74   0x00000024   Code   RO          271    i.fputc             usart_printf.o
+    0x08001e98   0x00000004   Code   RO         1888    i.getc              mc_w.l(getc.o)
+    0x08001e9c   0x000000b0   Code   RO         1799    i.handle_connection  hello-world.o
+    0x08001f4c   0x00000030   Code   RO         1800    i.hello_world_appcall  hello-world.o
+    0x08001f7c   0x0000000a   Code   RO         1343    i.htons             uip.o
+    0x08001f86   0x00000002   PAD
+    0x08001f88   0x00000010   Code   RO         1670    i.ior               dm9k_uip.o
+    0x08001f98   0x0000000c   Code   RO         1671    i.iow               dm9k_uip.o
+    0x08001fa4   0x00000244   Code   RO            7    i.main              main.o
+    0x080021e8   0x0000009c   Code   RO          423    i.print_GetCINRMap2To28  hdplc_struct.o
+    0x08002284   0x000000fc   Code   RO          424    i.print_GetPhyRate  hdplc_struct.o
+    0x08002380   0x0000031c   Code   RO          425    i.print_GetStatus   hdplc_struct.o
+    0x0800269c   0x00000080   Code   RO          426    i.print_StartChannelEstimate  hdplc_struct.o
+    0x0800271c   0x00000070   Code   RO          427    i.print_StartSpeedTest  hdplc_struct.o
+    0x0800278c   0x0000007c   Code   RO          428    i.print_SystemCmd   hdplc_struct.o
+    0x08002808   0x00000018   Code   RO         1250    i.psock_init        psock.o
+    0x08002820   0x00000028   Code   RO         1251    i.psock_newdata     psock.o
+    0x08002848   0x000000e4   Code   RO         1253    i.psock_readto      psock.o
+    0x0800292c   0x0000004a   Code   RO         1254    i.psock_send        psock.o
+    0x08002976   0x00000002   PAD
+    0x08002978   0x000000cc   Code   RO          430    i.run_GetAllMessages  hdplc_struct.o
+    0x08002a44   0x0000000a   Code   RO          431    i.run_GetCINRMap2To28  hdplc_struct.o
+    0x08002a4e   0x00000014   Code   RO          432    i.run_GetPhyRate    hdplc_struct.o
+    0x08002a62   0x00000014   Code   RO          433    i.run_GetStatus     hdplc_struct.o
+    0x08002a76   0x00000002   PAD
+    0x08002a78   0x00000114   Code   RO          434    i.run_SetMacAddress  hdplc_struct.o
+    0x08002b8c   0x0000008c   Code   RO          435    i.run_SetMacAddressSub  hdplc_struct.o
+    0x08002c18   0x0000003c   Code   RO          436    i.run_StartChannelEstimate  hdplc_struct.o
+    0x08002c54   0x0000008c   Code   RO          437    i.run_StartSpeedTest  hdplc_struct.o
+    0x08002ce0   0x000000f0   Code   RO          438    i.run_SysGetPhyRate  hdplc_struct.o
+    0x08002dd0   0x000000b4   Code   RO          439    i.run_SystemCmd     hdplc_struct.o
+    0x08002e84   0x00000044   Code   RO         1255    i.send_data         psock.o
+    0x08002ec8   0x00000004   Code   RO         1772    i.tapdev_init       tapdev.o
+    0x08002ecc   0x00000010   Code   RO         1773    i.tapdev_read       tapdev.o
+    0x08002edc   0x00000014   Code   RO         1774    i.tapdev_send       tapdev.o
+    0x08002ef0   0x0000001a   Code   RO         1312    i.timer_expired     timer.o
+    0x08002f0a   0x0000000a   Code   RO         1313    i.timer_reset       timer.o
+    0x08002f14   0x0000000e   Code   RO         1315    i.timer_set         timer.o
+    0x08002f22   0x00000002   PAD
+    0x08002f24   0x000007c4   Code   RO         1828    i.udp_appcall       udp_demo.o
+    0x080036e8   0x00000014   Code   RO         1829    i.udp_demo_appcall  udp_demo.o
+    0x080036fc   0x00000018   Code   RO         1830    i.udp_senddata      udp_demo.o
+    0x08003714   0x0000005c   Code   RO         1344    i.uip_add32         uip.o
+    0x08003770   0x0000002c   Code   RO         1345    i.uip_add_rcv_nxt   uip.o
+    0x0800379c   0x000000cc   Code   RO         1466    i.uip_arp_arpin     uip_arp.o
+    0x08003868   0x0000015c   Code   RO         1468    i.uip_arp_out       uip_arp.o
+    0x080039c4   0x00000044   Code   RO         1469    i.uip_arp_timer     uip_arp.o
+    0x08003a08   0x000000bc   Code   RO         1470    i.uip_arp_update    uip_arp.o
+    0x08003ac4   0x00000068   Code   RO         1348    i.uip_init          uip.o
+    0x08003b2c   0x00000024   Code   RO         1349    i.uip_ipchksum      uip.o
+    0x08003b50   0x00000020   Code   RO         1802    i.uip_log           hello-world.o
+    0x08003b70   0x00000b80   Code   RO         1351    i.uip_process       uip.o
+    0x080046f0   0x00000020   Code   RO         1352    i.uip_send          uip.o
+    0x08004710   0x00000006   Code   RO         1354    i.uip_tcpchksum     uip.o
+    0x08004716   0x00000002   PAD
+    0x08004718   0x0000003c   Code   RO         1831    i.uip_udp_init      udp_demo.o
+    0x08004754   0x000000a4   Code   RO         1355    i.uip_udp_new       uip.o
+    0x080047f8   0x00000006   Code   RO         1356    i.uip_udpchksum     uip.o
+    0x080047fe   0x00000002   PAD
+    0x08004800   0x00000044   Code   RO         1358    i.upper_layer_chksum  uip.o
+    0x08004844   0x00000004   Data   RO         1221    .constdata          system_stm32f10x.o
+    0x08004848   0x00000006   Data   RO         1472    .constdata          uip_arp.o
+    0x0800484e   0x00000081   Data   RO         2183    .constdata          mc_w.l(ctype_o.o)
+    0x080048cf   0x00000001   PAD
+    0x080048d0   0x00000004   Data   RO         2184    .constdata          mc_w.l(ctype_o.o)
+    0x080048d4   0x00000020   Data   RO         2257    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00003a40, Max: 0x00010000, ABSOLUTE)
@@ -1723,13 +1723,13 @@ Image component sizes
        116         16          0          8         32       6761   systick.o
         40         14          0          0          0       1402   tapdev.o
         50          0          0          0          0       1974   timer.o
-      2092       1426          0         12       4100      11131   udp_demo.o
+      2092       1426          0         12       4100      11127   udp_demo.o
       3564        440          0         58       9112      18258   uip.o
        808         80          6          8         96       4218   uip_arp.o
-       524        262          0          0          0       2403   usart_printf.o
+       496        240          0          0          0       2399   usart_printf.o
 
     ----------------------------------------------------------------------
-     15108       4608        346        156      14740     372473   Object Totals
+     15080       4586        346        156      14740     372465   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         32          0          0          2          6          3   (incl. Padding)
 
@@ -1790,15 +1790,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     18224       4722        480        172      14740     367304   Grand Totals
-     18224       4722        480        172      14740     367304   ELF Image Totals
-     18224       4722        480        172          0          0   ROM Totals
+     18196       4700        480        172      14740     367296   Grand Totals
+     18196       4700        480        172      14740     367296   ELF Image Totals
+     18196       4700        480        172          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                18704 (  18.27kB)
+    Total RO  Size (Code + RO Data)                18676 (  18.24kB)
     Total RW  Size (RW Data + ZI Data)             14912 (  14.56kB)
-    Total ROM Size (Code + RO Data + RW Data)      18876 (  18.43kB)
+    Total ROM Size (Code + RO Data + RW Data)      18848 (  18.41kB)
 
 ==============================================================================
 
