@@ -1,0 +1,14 @@
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\uiplib.c
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\uip.h
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\uipopt.h
+.\Obj\uiplib.o: ..\..\Source\src\uIP_DM9000\uip-conf.h
+.\Obj\uiplib.o: D:\Keil4\ARM\RV31\INC\inttypes.h
+.\Obj\uiplib.o: D:\Keil4\ARM\RV31\INC\stdint.h
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\apps\hello-world\hello-world.h
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\uipopt.h
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\psock.h
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\pt.h
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\lc.h
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\lc-switch.h
+.\Obj\uiplib.o: ..\..\Source\inc\udp_demo.h
+.\Obj\uiplib.o: ..\..\Libraries\uIP-1.0\uip\uiplib.h

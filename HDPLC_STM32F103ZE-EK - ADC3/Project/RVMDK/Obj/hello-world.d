@@ -1,0 +1,14 @@
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\apps\hello-world\hello-world.c
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\apps\hello-world\hello-world.h
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\uip\uipopt.h
+.\Obj\hello-world.o: ..\..\Source\src\uIP_DM9000\uip-conf.h
+.\Obj\hello-world.o: D:\Keil4\ARM\RV31\INC\inttypes.h
+.\Obj\hello-world.o: D:\Keil4\ARM\RV31\INC\stdint.h
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\apps\hello-world\hello-world.h
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\uip\psock.h
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\uip\pt.h
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\uip\lc.h
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\uip\lc-switch.h
+.\Obj\hello-world.o: ..\..\Libraries\uIP-1.0\uip\uip.h
+.\Obj\hello-world.o: ..\..\Source\inc\udp_demo.h
+.\Obj\hello-world.o: D:\Keil4\ARM\RV31\INC\string.h

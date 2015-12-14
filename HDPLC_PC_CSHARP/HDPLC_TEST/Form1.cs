@@ -21,11 +21,22 @@ namespace HDPLC_TEST
     public partial class HDPLC_Information_Collector : Form
     {
         String MacAddr;
-        StringBuilder refMac = new StringBuilder(25);
-        StringBuilder stdPhyrate = new StringBuilder(15); 
+        public StringBuilder refMac = new StringBuilder(25);
+        public StringBuilder stdPhyrate = new StringBuilder(15);
+        public StringBuilder stdVoltage1 = new StringBuilder(15);
+        public StringBuilder stdVoltage2 = new StringBuilder(15);
+        public StringBuilder stdCurrent = new StringBuilder(15);
+        public StringBuilder stdVoltage1_deviation = new StringBuilder(15);
+        public StringBuilder stdVoltage2_deviation = new StringBuilder(15);
+        public StringBuilder stdCurrent_deviation = new StringBuilder(15);
         string phyrate;
+        string voltage1;
+        string voltage2;
+        string current;
+        string more_info;
         int getRef = -1;
         int getPhy = 0;
+        int getAll = 0;
         static int last_lab_RxBytes = 0;
         static int new_lab_RxBytes = 0;
         Byte[] buff=new Byte[20000];    //buffer to read bytes from serialport
@@ -41,7 +52,7 @@ namespace HDPLC_TEST
             
         }
 
-
+       
         private void HDPLC_Information_Collector_Load(object sender, EventArgs e)
         {
             btn_OpenSer.Text = "打开串口";
@@ -52,8 +63,17 @@ namespace HDPLC_TEST
             tb_DutMac.ReadOnly = true;
             tb_PhyRate.ReadOnly = true;
             richTextBox1.ReadOnly = true;
+            richTextBox1.Text = "";
             dataGridView1.ReadOnly = true;
+            tb_current.ReadOnly = true;
+            tb_voltage1.ReadOnly = true;
+            tb_voltage2.ReadOnly = true;
             btn_judge.Visible = false;
+
+
+            tb_MacToBeSet.Focus();
+            tb_MacToBeSet.Select();
+            //this.IsMdiContainer = true;
 
             lab_phyrate_res.Text = "";
             lab_result.Text = "";
@@ -64,6 +84,12 @@ namespace HDPLC_TEST
             {
                 GetPrivateProfileString("ADDRESS", "REFMAC", "No preset address", refMac, 25, ".\\HDPLC_TEST.ini");
                 GetPrivateProfileString("STANDARD", "PHYRATE", "100", stdPhyrate, 25, ".\\HDPLC_TEST.ini");
+                GetPrivateProfileString("STANDARD", "VOLTAGE1", "3300", stdVoltage1, 15, ".\\HDPLC_TEST.ini");
+                GetPrivateProfileString("STANDARD", "VOLTAGE2", "1200", stdVoltage2, 15, ".\\HDPLC_TEST.ini");
+                GetPrivateProfileString("STANDARD", "VOLTAGE1_DEV", "20", stdVoltage1_deviation, 15, ".\\HDPLC_TEST.ini");
+                GetPrivateProfileString("STANDARD", "VOLTAGE2_DEV", "20", stdVoltage2_deviation, 15, ".\\HDPLC_TEST.ini");
+                GetPrivateProfileString("STANDARD", "CURRENT", "600", stdCurrent, 15, ".\\HDPLC_TEST.ini");
+                GetPrivateProfileString("STANDARD", "CURRENT_DEV", "10", stdCurrent_deviation, 15, ".\\HDPLC_TEST.ini");
                 tb_RefMac.Text = refMac.ToString();
             }
             catch (Exception ex)
@@ -182,6 +208,10 @@ namespace HDPLC_TEST
         //通信协议：串口打印，$开头为设备参数，检测到$，置flag=1
         //$1 flag=2     MAC Address
         //$2 flag=3     PhyRate
+        //$4 flag=4     额定3.3V      PA4
+        //$5 flag=5     额定1.2V      PA5
+        //$5 flag=6     整板电流      PA6
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -189,6 +219,7 @@ namespace HDPLC_TEST
             int i = 0;
 
             last_lab_RxBytes = 0;
+
 
             int count = Convert.ToInt32(l_RxBytes.Text);
             string str = "";
@@ -202,7 +233,11 @@ namespace HDPLC_TEST
             {
                 str = str + Convert.ToChar(b);
 
-                if (b == '$') flag = 1;
+                if (b == '$')
+                {
+                    flag = 1;
+                    continue;
+                }
                 if (flag == 1 && b == '1')
                 {
                     flag = 2;
@@ -213,6 +248,24 @@ namespace HDPLC_TEST
                 {
                     flag = 3;
                     phyrate = "";
+                    continue;
+                }
+                if (flag == 1 && b == '4')
+                {
+                    flag = 4;
+                    voltage1 = "";
+                    continue;
+                }
+                if (flag == 1 && b == '5')
+                {
+                    flag = 5;
+                    voltage2 = "";
+                    continue;
+                }
+                if (flag == 1 && b == '6')
+                {
+                    flag = 6;
+                    current = "";
                     continue;
                 }
                 if (flag == 2)
@@ -240,6 +293,39 @@ namespace HDPLC_TEST
                         flag = 0;
                     }
                 }
+                if (flag == 4)
+                {
+                    if (b <='9' && b>='0')
+                    {
+                        voltage1 = voltage1 + Convert.ToChar(b);
+                    }
+                    else
+                    {
+                        flag = 0;
+                    }
+                }
+                if (flag == 5)
+                {
+                    if (b <= '9' && b >= '0')
+                    {
+                        voltage2 = voltage2 + Convert.ToChar(b);
+                    }
+                    else
+                    {
+                        flag = 0;
+                    }
+                }
+                if (flag == 6)
+                {
+                    if (b <= '9' && b >= '0')
+                    {
+                        current = current + Convert.ToChar(b);
+                    }
+                    else
+                    {
+                        flag = 0;
+                    }
+                }
             }
 
             richTextBox1.Text = richTextBox1.Text+str;
@@ -257,6 +343,10 @@ namespace HDPLC_TEST
             {
                 tb_PhyRate.Text = phyrate;
             }
+
+            tb_current.Text = current;
+            tb_voltage1.Text = voltage1;
+            tb_voltage2.Text = voltage2;
 
 
             btn_judge_Click(sender, e);
@@ -317,6 +407,7 @@ namespace HDPLC_TEST
         {
             getRef = 0;
             getPhy = 1;
+            getAll = 1;
 
             if (serialPort1.IsOpen)
             {
@@ -339,8 +430,19 @@ namespace HDPLC_TEST
             tb_PhyRate.Text = "";
             lab_result.Text = "";
             lab_phyrate_res.Text = "";
+            tb_voltage2.Text = "";
+            tb_voltage1.Text = "";
+            tb_current.Text = "";
+            lab_cur_res.Text = "";
+            lab_vol1_res.Text = "";
+            lab_vol2_res.Text = "";
+
             MacAddr = "";
             phyrate = "";
+
+            voltage1 = "";
+            voltage2 = "";
+            current = "";
         }
 
 
@@ -389,8 +491,12 @@ namespace HDPLC_TEST
             dataGridView1.Rows[index].Cells[2].Value = tb_RefMac.Text;
             dataGridView1.Rows[index].Cells[1].Value = tb_DutMac.Text;
             dataGridView1.Rows[index].Cells[3].Value = tb_PhyRate.Text;
-            dataGridView1.Rows[index].Cells[4].Value = lab_result.Text;
-            dataGridView1.Rows[index].Cells[5].Value = DateTime.Now.ToString();
+            dataGridView1.Rows[index].Cells[4].Value = tb_voltage1.Text;
+            dataGridView1.Rows[index].Cells[5].Value = tb_voltage2.Text;
+            dataGridView1.Rows[index].Cells[6].Value = tb_current.Text;
+            dataGridView1.Rows[index].Cells[7].Value = lab_result.Text;
+            dataGridView1.Rows[index].Cells[8].Value = more_info;
+            dataGridView1.Rows[index].Cells[9].Value = DateTime.Now.ToString();
         }
 
 
@@ -482,8 +588,15 @@ namespace HDPLC_TEST
         {
             lab_phyrate_res.Text = "";
             lab_result.Text = "";
-            string result = "";
-            string str_phy="";
+            lab_cur_res.Text = "";
+            lab_vol1_res.Text = "";
+            lab_vol2_res.Text = "";
+            string str_phy = "";
+            more_info = "";
+            int judge_res = 0;
+            int judge_null = 0;
+            int low=0;
+            int high=0;
 
             Byte[] ba_phy=System.Text.Encoding.Default.GetBytes(tb_PhyRate.Text);
             foreach(Byte b in ba_phy)
@@ -499,18 +612,127 @@ namespace HDPLC_TEST
                 if (Convert.ToInt32(str_phy) < Convert.ToInt32(stdPhyrate.ToString()))
                 {
 
-                    result = "FAILED";
-                    lab_phyrate_res.Text = "小于基准  " + stdPhyrate.ToString() + " -mbps";
+                    judge_res --;
+                    lab_phyrate_res.Text = "小于  " + stdPhyrate.ToString() + " mbps";
+                    more_info = more_info + "PHY速度偏小;";
                 }
                 else
                 {
-                    result = "PASS";
-                    lab_phyrate_res.Text = "大于基准  " + stdPhyrate.ToString() + " -mbps";
+                    judge_res ++;
+                    lab_phyrate_res.Text = "正常";
                 }
             }
+            else
+            {
+                judge_null ++;
+            }
 
-            lab_result.Text = result;
+            if (tb_voltage1.Text != "")
+            {
+                low=Convert.ToInt32(stdVoltage1.ToString())-Convert.ToInt32(stdVoltage1_deviation.ToString());
+                high=Convert.ToInt32(stdVoltage1.ToString())+Convert.ToInt32(stdVoltage1_deviation.ToString());
 
+                if (low <= Convert.ToInt32(tb_voltage1.Text) && Convert.ToInt32(tb_voltage1.Text)<=high)
+                {
+                    judge_res ++;
+                    lab_vol1_res.Text = "正常";
+                }
+                else
+                {
+                    judge_res --;
+                    if (Convert.ToInt32(tb_voltage1.Text)<low)
+                    {
+                        lab_vol1_res.Text = "额定电压1 偏小";
+                        more_info = more_info + "额定电压1 偏小;";
+                    }
+                    else
+                    {
+                        lab_vol1_res.Text = "额定电压1 偏大";
+                        more_info = more_info + "额定电压1 偏大;";
+                    }
+                    
+                }
+            }
+            else
+            {
+                judge_null ++;
+            }
+
+
+            if (tb_voltage2.Text != "")
+            {
+                low = Convert.ToInt32(stdVoltage2.ToString()) - Convert.ToInt32(stdVoltage2_deviation.ToString());
+                high = Convert.ToInt32(stdVoltage2.ToString()) + Convert.ToInt32(stdVoltage2_deviation.ToString());
+
+                if (low <= Convert.ToInt32(tb_voltage2.Text) && Convert.ToInt32(tb_voltage2.Text) <= high)
+                {
+                    judge_res ++;
+                    lab_vol2_res.Text = "正常";
+                }
+                else
+                {
+                    judge_res --;
+                    if (Convert.ToInt32(tb_voltage2.Text) < low)
+                    {
+                        lab_vol2_res.Text = "额定电压2 偏小";
+                        more_info = more_info + "额定电压2 偏小;";
+                    }
+                    else
+                    {
+                        lab_vol2_res.Text = "额定电压2 偏大";
+                        more_info = more_info + "额定电压2 偏大;";
+                    }
+
+                }
+            }
+            else
+            {
+                judge_null ++;
+            }
+
+            if (tb_current.Text != "")
+            {
+                low = Convert.ToInt32(stdCurrent.ToString()) - Convert.ToInt32(stdCurrent_deviation.ToString());
+                high = Convert.ToInt32(stdCurrent.ToString()) + Convert.ToInt32(stdCurrent_deviation.ToString());
+
+                if (low <= Convert.ToInt32(tb_current.Text) && Convert.ToInt32(tb_current.Text) <= high)
+                {
+                    judge_res ++;
+                    lab_cur_res.Text = "正常";
+                }
+                else
+                {
+                    judge_res --;
+                    if (Convert.ToInt32(tb_current.Text) < low)
+                    {
+                        lab_cur_res.Text = "整板电流 偏小";
+                        more_info = more_info + "整板电流 偏小;";
+                    }
+                    else
+                    {
+                        lab_cur_res.Text = "整板电流 偏大";
+                        more_info = more_info + "整板电流 偏大;";
+                    }
+
+                }
+            }
+            else
+            {
+                judge_null ++;
+            }
+
+            if (judge_res == 4)
+            {
+                lab_result.Text = "PASS";           // 四项参数均正常，judge_res==4
+            }
+            else
+            {
+                if (judge_res < (4-judge_null))
+                {
+                    lab_result.Text = "FAILURE";    // 排除采集结果为空的情况，有一项参数不正常，设备不合格
+                }
+                
+            }
             
         }
 
@@ -523,9 +745,16 @@ namespace HDPLC_TEST
             {
                 if(last_lab_RxBytes==new_lab_RxBytes)
                 {
-                    if(new_lab_RxBytes!=0)
+                    
+                    if (Convert.ToInt32(l_RxBytes.Text) != 0)
                     {
                         button1_Click(null, null);
+                        if(getAll==1 && lab_result.Text!="")
+                        {
+                            btn_AddRecord_Click(null,null);
+                            getAll = 0;
+                        }
+                        
                     }                    
                 } 
                 
@@ -535,8 +764,83 @@ namespace HDPLC_TEST
               
             }            
         }
-       
 
+
+        /*主窗体退出事件*/
+
+        private void HDPLC_Information_Collector_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("退出程序前，请保存用户数据!\n(按“确定”继续退出)", "系统提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if(result==DialogResult.OK)
+            {
+                Application.ExitThread();
+                Application.Exit();
+                
+            }else
+            {
+                e.Cancel = true;
+            }
+        }
+
+
+        /*菜单栏相关操作*/
+
+        private void 导出数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btn_ExportData_Click(sender,e);
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void 设置门限值ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Threshold ts = new Threshold(this);
+            
+            ts.StartPosition = FormStartPosition.Manual;
+            ts.Location = new Point(this.Location.X + 250, this.Location.Y + 150);
+
+            DialogResult r=ts.ShowDialog();
+
+            if (r == System.Windows.Forms.DialogResult.Cancel) return;
+
+            refMac = new StringBuilder(ts.getRefMac);
+            tb_RefMac.Text = ts.getRefMac;
+            stdPhyrate = new StringBuilder(ts.getStdPhyRate);
+            stdCurrent = new StringBuilder(ts.getCur);
+            stdCurrent_deviation = new StringBuilder(ts.getCur_dev);
+            stdVoltage1 = new StringBuilder(ts.getVol1);
+            stdVoltage1_deviation = new StringBuilder(ts.getVol1_dev);
+            stdVoltage2 = new StringBuilder(ts.getVol2);
+            stdVoltage2_deviation = new StringBuilder(ts.getVol2_dev);
+
+
+        }
+       
+        public void setRefMac(string str)
+        {
+            tb_RefMac.Text = str;
+        }
+
+        private void 发送串口命令ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sendSerCmd ssc = new sendSerCmd(this);
+
+            ssc.StartPosition = FormStartPosition.Manual;
+            ssc.Location = new Point(this.Location.X + 250, this.Location.Y + 150);
+
+            ssc.Show();
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+     
 
     }
 }

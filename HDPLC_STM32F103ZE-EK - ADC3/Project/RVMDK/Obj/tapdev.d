@@ -1,0 +1,15 @@
+.\Obj\tapdev.o: ..\..\Source\src\uIP_DM9000\tapdev.c
+.\Obj\tapdev.o: ..\..\Source\src\uIP_DM9000\Tapdev.h
+.\Obj\tapdev.o: D:\Keil4\ARM\RV31\INC\stdint.h
+.\Obj\tapdev.o: ..\..\Libraries\uIP-1.0\uip\uip.h
+.\Obj\tapdev.o: ..\..\Libraries\uIP-1.0\uip\uipopt.h
+.\Obj\tapdev.o: ..\..\Source\src\uIP_DM9000\uip-conf.h
+.\Obj\tapdev.o: D:\Keil4\ARM\RV31\INC\inttypes.h
+.\Obj\tapdev.o: ..\..\Libraries\uIP-1.0\apps\hello-world\hello-world.h
+.\Obj\tapdev.o: ..\..\Libraries\uIP-1.0\uip\uipopt.h
+.\Obj\tapdev.o: ..\..\Libraries\uIP-1.0\uip\psock.h
+.\Obj\tapdev.o: ..\..\Libraries\uIP-1.0\uip\pt.h
+.\Obj\tapdev.o: ..\..\Libraries\uIP-1.0\uip\lc.h
+.\Obj\tapdev.o: ..\..\Libraries\uIP-1.0\uip\lc-switch.h
+.\Obj\tapdev.o: ..\..\Source\inc\udp_demo.h
+.\Obj\tapdev.o: ..\..\Source\src\uIP_DM9000\dm9k_uip.h

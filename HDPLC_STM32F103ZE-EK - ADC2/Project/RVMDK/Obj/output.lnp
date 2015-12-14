@@ -1,0 +1,4 @@
+--cpu Cortex-M3 ".\obj\main.o" ".\obj\stm32f10x_it.o" ".\obj\usart_printf.o" ".\obj\systick.o" ".\obj\hdplc_struct.o" ".\obj\startup_stm32f10x_hd.o" ".\obj\stm32f10x_rcc.o" ".\obj\misc.o" ".\obj\stm32f10x_usart.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_fsmc.o" ".\obj\core_cm3.o" ".\obj\system_stm32f10x.o" ".\obj\psock.o" ".\obj\timer.o" ".\obj\uip.o" ".\obj\uip_arp.o" ".\obj\uip-fw.o" ".\obj\uiplib.o" ".\obj\uip-neighbor.o" ".\obj\uip-split.o" ".\obj\clock-arch.o" ".\obj\dm9k_uip.o" ".\obj\tapdev.o" ".\obj\udp_demo.o" ".\obj\hello-world.o" --library_type=microlib --strict --scatter ".\Obj\output.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\List\output.map" -o ".\Obj\output.axf"
