@@ -1,0 +1,14 @@
+d:\用户目录\documents\visual studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\bin\Debug\HDPLC_TEST.exe.config
+d:\用户目录\documents\visual studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\HDPLC_TEST.HDPLC_Information_Collector.resources
+d:\用户目录\documents\visual studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\HDPLC_TEST.Properties.Resources.resources
+d:\用户目录\documents\visual studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\HDPLC_TEST.csproj.GenerateResource.Cache
+d:\用户目录\documents\visual studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\bin\Debug\HDPLC_TEST.exe
+d:\用户目录\documents\visual studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\bin\Debug\HDPLC_TEST.pdb
+d:\用户目录\documents\visual studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\HDPLC_TEST.exe
+d:\用户目录\documents\visual studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\HDPLC_TEST.pdb
+D:\用户目录\Documents\Visual Studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\Interop.ACTIVEXLib.dll
+D:\用户目录\Documents\Visual Studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\Interop.Microsoft.Office.Interop.MSProject.dll
+D:\用户目录\Documents\Visual Studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\Interop.TASKLAUNCHLib.dll
+D:\用户目录\Documents\Visual Studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\HDPLC_TEST.csproj.ResolveComReference.cache
+D:\用户目录\Documents\Visual Studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\HDPLC_TEST.csprojResolveAssemblyReference.cache
+D:\用户目录\Documents\Visual Studio 2013\Projects\HDPLC_TEST\HDPLC_TEST\obj\Debug\HDPLC_TEST.SerialConfig.resources

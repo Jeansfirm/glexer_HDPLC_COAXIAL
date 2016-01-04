@@ -91,6 +91,7 @@ int main(void)
      if(circle_flag==0)
 	 {
 		//display main menu
+		printf("$8\n\r");
 		printf("\t\t<--Main Menu-->\t\t\n\n\r");
 		printf(" 1.	Get Status\n\r");
 		printf(" 2.	Start SpeedTest\n\r");

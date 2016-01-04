@@ -39,8 +39,14 @@
             this.tb_RefMac = new System.Windows.Forms.TextBox();
             this.btn_getRefMac = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_cleardev = new System.Windows.Forms.Button();
+            this.lab_teststatus = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lab_FailureRate = new System.Windows.Forms.Label();
+            this.lab_FailureCount = new System.Windows.Forms.Label();
+            this.lab_testmodel = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.lab_date = new System.Windows.Forms.Label();
+            this.btn_cleardev = new System.Windows.Forms.Button();
             this.btn_getAll = new System.Windows.Forms.Button();
             this.cb_Port = new System.Windows.Forms.ComboBox();
             this.cb_BaudRate = new System.Windows.Forms.ComboBox();
@@ -108,6 +114,10 @@
             this.手动测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.窗口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.串口配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.串口信息ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.显示串口信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.隐藏串口信息ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.串口命令ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_ser = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lab_preset_cur = new System.Windows.Forms.Label();
@@ -118,14 +128,8 @@
             this.label27 = new System.Windows.Forms.Label();
             this.lab_preset_phyrate = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lab_testmodel = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.lab_FailureCount = new System.Windows.Forms.Label();
-            this.lab_FailureRate = new System.Windows.Forms.Label();
-            this.串口信息ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.显示串口信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.隐藏串口信息ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.串口命令ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.单片机复位ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -164,7 +168,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(12, 114);
+            this.label3.Location = new System.Drawing.Point(12, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 14);
             this.label3.TabIndex = 4;
@@ -174,7 +178,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(13, 151);
+            this.label4.Location = new System.Drawing.Point(13, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 14);
             this.label4.TabIndex = 5;
@@ -211,51 +215,112 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lab_teststatus);
+            this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.lab_FailureRate);
             this.groupBox1.Controls.Add(this.lab_FailureCount);
             this.groupBox1.Controls.Add(this.lab_testmodel);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.btn_cleardev);
             this.groupBox1.Controls.Add(this.lab_date);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.btn_getAll);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(643, 143);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(316, 260);
+            this.groupBox1.Size = new System.Drawing.Size(316, 208);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "信息统计";
             // 
-            // btn_cleardev
+            // lab_teststatus
             // 
-            this.btn_cleardev.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_cleardev.Location = new System.Drawing.Point(100, 219);
-            this.btn_cleardev.Name = "btn_cleardev";
-            this.btn_cleardev.Size = new System.Drawing.Size(86, 33);
-            this.btn_cleardev.TabIndex = 32;
-            this.btn_cleardev.Text = "清空";
-            this.btn_cleardev.UseVisualStyleBackColor = true;
-            this.btn_cleardev.Click += new System.EventHandler(this.btn_ClearDevice_Click);
+            this.lab_teststatus.AutoSize = true;
+            this.lab_teststatus.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lab_teststatus.Location = new System.Drawing.Point(123, 110);
+            this.lab_teststatus.Name = "lab_teststatus";
+            this.lab_teststatus.Size = new System.Drawing.Size(49, 14);
+            this.lab_teststatus.TabIndex = 38;
+            this.lab_teststatus.Text = "未开始";
+            this.lab_teststatus.TextChanged += new System.EventHandler(this.lab_teststatus_TextChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label25.Location = new System.Drawing.Point(13, 106);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(70, 14);
+            this.label25.TabIndex = 37;
+            this.label25.Text = "测试状态:";
+            // 
+            // lab_FailureRate
+            // 
+            this.lab_FailureRate.AutoSize = true;
+            this.lab_FailureRate.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lab_FailureRate.Location = new System.Drawing.Point(122, 177);
+            this.lab_FailureRate.Name = "lab_FailureRate";
+            this.lab_FailureRate.Size = new System.Drawing.Size(14, 14);
+            this.lab_FailureRate.TabIndex = 36;
+            this.lab_FailureRate.Text = "0";
+            // 
+            // lab_FailureCount
+            // 
+            this.lab_FailureCount.AutoSize = true;
+            this.lab_FailureCount.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lab_FailureCount.Location = new System.Drawing.Point(122, 144);
+            this.lab_FailureCount.Name = "lab_FailureCount";
+            this.lab_FailureCount.Size = new System.Drawing.Size(14, 14);
+            this.lab_FailureCount.TabIndex = 35;
+            this.lab_FailureCount.Text = "0";
+            // 
+            // lab_testmodel
+            // 
+            this.lab_testmodel.AutoSize = true;
+            this.lab_testmodel.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lab_testmodel.Location = new System.Drawing.Point(122, 74);
+            this.lab_testmodel.Name = "lab_testmodel";
+            this.lab_testmodel.Size = new System.Drawing.Size(67, 14);
+            this.lab_testmodel.TabIndex = 34;
+            this.lab_testmodel.Text = "手动测试";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label23.Location = new System.Drawing.Point(13, 73);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(70, 14);
+            this.label23.TabIndex = 33;
+            this.label23.Text = "测试模式:";
             // 
             // lab_date
             // 
             this.lab_date.AutoSize = true;
             this.lab_date.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_date.Location = new System.Drawing.Point(122, 39);
+            this.lab_date.Location = new System.Drawing.Point(122, 41);
             this.lab_date.Name = "lab_date";
             this.lab_date.Size = new System.Drawing.Size(77, 14);
             this.lab_date.TabIndex = 30;
             this.lab_date.Text = "2015/10/28";
             // 
+            // btn_cleardev
+            // 
+            this.btn_cleardev.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_cleardev.Location = new System.Drawing.Point(703, 365);
+            this.btn_cleardev.Name = "btn_cleardev";
+            this.btn_cleardev.Size = new System.Drawing.Size(90, 42);
+            this.btn_cleardev.TabIndex = 32;
+            this.btn_cleardev.Text = "清空";
+            this.btn_cleardev.UseVisualStyleBackColor = true;
+            this.btn_cleardev.Click += new System.EventHandler(this.btn_ClearDevice_Click);
+            // 
             // btn_getAll
             // 
             this.btn_getAll.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_getAll.Location = new System.Drawing.Point(217, 219);
+            this.btn_getAll.Location = new System.Drawing.Point(820, 365);
             this.btn_getAll.Name = "btn_getAll";
-            this.btn_getAll.Size = new System.Drawing.Size(86, 33);
+            this.btn_getAll.Size = new System.Drawing.Size(90, 42);
             this.btn_getAll.TabIndex = 31;
             this.btn_getAll.Text = "开始";
             this.btn_getAll.UseVisualStyleBackColor = true;
@@ -692,7 +757,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(347, 143);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(290, 260);
+            this.groupBox3.Size = new System.Drawing.Size(290, 263);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "测试结果";
@@ -701,7 +766,7 @@
             // 
             this.lab_cur_res.AutoSize = true;
             this.lab_cur_res.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_cur_res.Location = new System.Drawing.Point(130, 206);
+            this.lab_cur_res.Location = new System.Drawing.Point(130, 207);
             this.lab_cur_res.Name = "lab_cur_res";
             this.lab_cur_res.Size = new System.Drawing.Size(63, 14);
             this.lab_cur_res.TabIndex = 47;
@@ -721,7 +786,7 @@
             // 
             this.lab_vol2_res.AutoSize = true;
             this.lab_vol2_res.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_vol2_res.Location = new System.Drawing.Point(131, 162);
+            this.lab_vol2_res.Location = new System.Drawing.Point(131, 163);
             this.lab_vol2_res.Name = "lab_vol2_res";
             this.lab_vol2_res.Size = new System.Drawing.Size(63, 14);
             this.lab_vol2_res.TabIndex = 45;
@@ -741,7 +806,7 @@
             // 
             this.lab_vol1_res.AutoSize = true;
             this.lab_vol1_res.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_vol1_res.Location = new System.Drawing.Point(131, 117);
+            this.lab_vol1_res.Location = new System.Drawing.Point(131, 118);
             this.lab_vol1_res.Name = "lab_vol1_res";
             this.lab_vol1_res.Size = new System.Drawing.Size(63, 14);
             this.lab_vol1_res.TabIndex = 43;
@@ -760,10 +825,10 @@
             // lab_result
             // 
             this.lab_result.AutoSize = true;
-            this.lab_result.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_result.Location = new System.Drawing.Point(131, 41);
+            this.lab_result.Font = new System.Drawing.Font("NSimSun", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lab_result.Location = new System.Drawing.Point(131, 38);
             this.lab_result.Name = "lab_result";
-            this.lab_result.Size = new System.Drawing.Size(55, 14);
+            this.lab_result.Size = new System.Drawing.Size(82, 21);
             this.lab_result.TabIndex = 41;
             this.lab_result.Text = "FAILED";
             // 
@@ -771,7 +836,7 @@
             // 
             this.lab_phyrate_res.AutoSize = true;
             this.lab_phyrate_res.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_phyrate_res.Location = new System.Drawing.Point(131, 77);
+            this.lab_phyrate_res.Location = new System.Drawing.Point(131, 78);
             this.lab_phyrate_res.Name = "lab_phyrate_res";
             this.lab_phyrate_res.Size = new System.Drawing.Size(84, 14);
             this.lab_phyrate_res.TabIndex = 40;
@@ -805,7 +870,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件ToolStripMenuItem,
             this.编辑ToolStripMenuItem,
-            this.窗口ToolStripMenuItem});
+            this.窗口ToolStripMenuItem,
+            this.关于ToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -866,14 +932,14 @@
             // 自动测试ToolStripMenuItem
             // 
             this.自动测试ToolStripMenuItem.Name = "自动测试ToolStripMenuItem";
-            this.自动测试ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.自动测试ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.自动测试ToolStripMenuItem.Text = "自动测试";
             this.自动测试ToolStripMenuItem.Click += new System.EventHandler(this.自动测试ToolStripMenuItem_Click);
             // 
             // 手动测试ToolStripMenuItem
             // 
             this.手动测试ToolStripMenuItem.Name = "手动测试ToolStripMenuItem";
-            this.手动测试ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.手动测试ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.手动测试ToolStripMenuItem.Text = "手动测试";
             this.手动测试ToolStripMenuItem.Click += new System.EventHandler(this.手动测试ToolStripMenuItem_Click);
             // 
@@ -882,7 +948,8 @@
             this.窗口ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.串口配置ToolStripMenuItem,
             this.串口信息ToolStripMenuItem1,
-            this.串口命令ToolStripMenuItem});
+            this.串口命令ToolStripMenuItem,
+            this.单片机复位ToolStripMenuItem});
             this.窗口ToolStripMenuItem.Name = "窗口ToolStripMenuItem";
             this.窗口ToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.窗口ToolStripMenuItem.Text = "调试";
@@ -893,6 +960,36 @@
             this.串口配置ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.串口配置ToolStripMenuItem.Text = "串口配置";
             this.串口配置ToolStripMenuItem.Click += new System.EventHandler(this.串口配置ToolStripMenuItem_Click);
+            // 
+            // 串口信息ToolStripMenuItem1
+            // 
+            this.串口信息ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.显示串口信息ToolStripMenuItem,
+            this.隐藏串口信息ToolStripMenuItem1});
+            this.串口信息ToolStripMenuItem1.Name = "串口信息ToolStripMenuItem1";
+            this.串口信息ToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.串口信息ToolStripMenuItem1.Text = "串口信息";
+            // 
+            // 显示串口信息ToolStripMenuItem
+            // 
+            this.显示串口信息ToolStripMenuItem.Name = "显示串口信息ToolStripMenuItem";
+            this.显示串口信息ToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.显示串口信息ToolStripMenuItem.Text = "显示串口信息";
+            this.显示串口信息ToolStripMenuItem.Click += new System.EventHandler(this.串口信息ToolStripMenuItem_Click);
+            // 
+            // 隐藏串口信息ToolStripMenuItem1
+            // 
+            this.隐藏串口信息ToolStripMenuItem1.Name = "隐藏串口信息ToolStripMenuItem1";
+            this.隐藏串口信息ToolStripMenuItem1.Size = new System.Drawing.Size(162, 24);
+            this.隐藏串口信息ToolStripMenuItem1.Text = "隐藏串口信息";
+            this.隐藏串口信息ToolStripMenuItem1.Click += new System.EventHandler(this.隐藏串口信息ToolStripMenuItem_Click);
+            // 
+            // 串口命令ToolStripMenuItem
+            // 
+            this.串口命令ToolStripMenuItem.Name = "串口命令ToolStripMenuItem";
+            this.串口命令ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.串口命令ToolStripMenuItem.Text = "串口命令";
+            this.串口命令ToolStripMenuItem.Click += new System.EventHandler(this.发送串口命令ToolStripMenuItem_Click);
             // 
             // panel_ser
             // 
@@ -1005,75 +1102,18 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "PHY速度：";
             // 
-            // lab_testmodel
+            // 关于ToolStripMenuItem1
             // 
-            this.lab_testmodel.AutoSize = true;
-            this.lab_testmodel.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_testmodel.Location = new System.Drawing.Point(122, 76);
-            this.lab_testmodel.Name = "lab_testmodel";
-            this.lab_testmodel.Size = new System.Drawing.Size(63, 14);
-            this.lab_testmodel.TabIndex = 34;
-            this.lab_testmodel.Text = "手动测试";
+            this.关于ToolStripMenuItem1.Name = "关于ToolStripMenuItem1";
+            this.关于ToolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
+            this.关于ToolStripMenuItem1.Text = "关于";
+            this.关于ToolStripMenuItem1.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
-            // label23
+            // 单片机复位ToolStripMenuItem
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(13, 77);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(70, 14);
-            this.label23.TabIndex = 33;
-            this.label23.Text = "测试模式:";
-            // 
-            // lab_FailureCount
-            // 
-            this.lab_FailureCount.AutoSize = true;
-            this.lab_FailureCount.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_FailureCount.Location = new System.Drawing.Point(122, 117);
-            this.lab_FailureCount.Name = "lab_FailureCount";
-            this.lab_FailureCount.Size = new System.Drawing.Size(14, 14);
-            this.lab_FailureCount.TabIndex = 35;
-            this.lab_FailureCount.Text = "0";
-            // 
-            // lab_FailureRate
-            // 
-            this.lab_FailureRate.AutoSize = true;
-            this.lab_FailureRate.Font = new System.Drawing.Font("NSimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lab_FailureRate.Location = new System.Drawing.Point(122, 153);
-            this.lab_FailureRate.Name = "lab_FailureRate";
-            this.lab_FailureRate.Size = new System.Drawing.Size(14, 14);
-            this.lab_FailureRate.TabIndex = 36;
-            this.lab_FailureRate.Text = "0";
-            // 
-            // 串口信息ToolStripMenuItem1
-            // 
-            this.串口信息ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.显示串口信息ToolStripMenuItem,
-            this.隐藏串口信息ToolStripMenuItem1});
-            this.串口信息ToolStripMenuItem1.Name = "串口信息ToolStripMenuItem1";
-            this.串口信息ToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
-            this.串口信息ToolStripMenuItem1.Text = "串口信息";
-            // 
-            // 显示串口信息ToolStripMenuItem
-            // 
-            this.显示串口信息ToolStripMenuItem.Name = "显示串口信息ToolStripMenuItem";
-            this.显示串口信息ToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
-            this.显示串口信息ToolStripMenuItem.Text = "显示串口信息";
-            this.显示串口信息ToolStripMenuItem.Click += new System.EventHandler(this.串口信息ToolStripMenuItem_Click);
-            // 
-            // 隐藏串口信息ToolStripMenuItem1
-            // 
-            this.隐藏串口信息ToolStripMenuItem1.Name = "隐藏串口信息ToolStripMenuItem1";
-            this.隐藏串口信息ToolStripMenuItem1.Size = new System.Drawing.Size(162, 24);
-            this.隐藏串口信息ToolStripMenuItem1.Text = "隐藏串口信息";
-            this.隐藏串口信息ToolStripMenuItem1.Click += new System.EventHandler(this.隐藏串口信息ToolStripMenuItem_Click);
-            // 
-            // 串口命令ToolStripMenuItem
-            // 
-            this.串口命令ToolStripMenuItem.Name = "串口命令ToolStripMenuItem";
-            this.串口命令ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.串口命令ToolStripMenuItem.Text = "串口命令";
-            this.串口命令ToolStripMenuItem.Click += new System.EventHandler(this.发送串口命令ToolStripMenuItem_Click);
+            this.单片机复位ToolStripMenuItem.Name = "单片机复位ToolStripMenuItem";
+            this.单片机复位ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.单片机复位ToolStripMenuItem.Text = "单片机复位";
             // 
             // HDPLC_Information_Collector
             // 
@@ -1086,10 +1126,12 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cb_Port);
+            this.Controls.Add(this.btn_cleardev);
             this.Controls.Add(this.panel_ser);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_AddRecord);
+            this.Controls.Add(this.btn_getAll);
             this.Controls.Add(this.btn_ExportData);
             this.Controls.Add(this.btn_DeleteRecord);
             this.Controls.Add(this.btn_SetMac);
@@ -1221,6 +1263,10 @@
         private System.Windows.Forms.ToolStripMenuItem 显示串口信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 隐藏串口信息ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 串口命令ToolStripMenuItem;
+        private System.Windows.Forms.Label lab_teststatus;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 单片机复位ToolStripMenuItem;
     }
 }
 

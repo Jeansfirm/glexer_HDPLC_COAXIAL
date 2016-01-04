@@ -38,6 +38,9 @@ namespace HDPLC_TEST
         int getRef = -1;
         int getPhy = 0;
         int getAll = 0;
+        int setMac = 0;
+        int setmac_finished = 0;
+        int reset_finished = 0;
         int i = 0;
         int test_model = 0;    //0手动测试，1自动测试
         static int last_lab_RxBytes = 0;
@@ -55,8 +58,7 @@ namespace HDPLC_TEST
         public HDPLC_Information_Collector()
         {
             InitializeComponent();
-            Control.CheckForIllegalCrossThreadCalls = false;
-            
+            Control.CheckForIllegalCrossThreadCalls = false;            
             
         }
 
@@ -65,6 +67,7 @@ namespace HDPLC_TEST
         {
             btn_OpenSer.Text = "打开串口";
             lab_testmodel.Text = "手动测试";
+            lab_teststatus.Text = "未开始";
             lab_date.Text = DateTime.Now.ToShortDateString().ToString();
             //lab_date.Text = DateTime.Now.ToString();
             btn_showprint.Enabled = false;
@@ -77,8 +80,8 @@ namespace HDPLC_TEST
             tb_current.ReadOnly = true;
             tb_voltage1.ReadOnly = true;
             tb_voltage2.ReadOnly = true;
-            
-            
+
+            btn_ClearDevice_Click(null, null);
             panel_ser.Visible = false;
 
 
@@ -225,7 +228,9 @@ namespace HDPLC_TEST
         //$2 flag=3     PhyRate
         //$4 flag=4     额定3.3V      PA4
         //$5 flag=5     额定1.2V      PA5
-        //$5 flag=6     整板电流      PA6
+        //$6 flag=6     整板电流      PA6
+        //$7            MAC设置完成
+        //$8            reset完成
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -281,6 +286,25 @@ namespace HDPLC_TEST
                 {
                     flag = 6;
                     current = "";
+                    continue;
+                }
+                if (flag == 1 && b == '7')
+                {
+                    
+                    setmac_finished = 1;
+                    lab_teststatus.Text = "MAC地址设置程序复位中...";
+                    flag = 0;
+                    continue;
+                }
+                if (flag == 1 && b == '8')
+                {
+                    if (setMac == 1)
+                    {
+                        reset_finished = 1;
+                        lab_teststatus.Text = "MAC地址设置完成";
+                        setMac = 0;
+                    }                    
+                    flag = 0;
                     continue;
                 }
                 if (flag == 2)
@@ -429,6 +453,7 @@ namespace HDPLC_TEST
 
                 btn_ClearDevice_Click(null, null);
                 serialPort1.WriteLine("7"+tb_RefMac.Text);
+                lab_teststatus.Text = "获取设备参数中...";
                 
             }
             else
@@ -468,6 +493,7 @@ namespace HDPLC_TEST
         private void btn_SetMac_Click(object sender, EventArgs e)
         {
             getPhy = 0;
+            setMac = 1;
             
 
             if (serialPort1.IsOpen)
@@ -480,6 +506,7 @@ namespace HDPLC_TEST
                 }
 
                 serialPort1.WriteLine("8" + tb_MacToBeSet.Text);
+                lab_teststatus.Text = "MAC地址设置中...";
 
             }
             else
@@ -517,6 +544,7 @@ namespace HDPLC_TEST
             dataGridView1.Rows[index].Cells[9].Value = DateTime.Now.ToString();
 
             updateStatistics();
+            lab_teststatus.Text = "结束";
             
         }
 
@@ -587,6 +615,15 @@ namespace HDPLC_TEST
                     }
                     sw.WriteLine(tempStr);
                 }
+
+                /*sw.WriteLine("");
+                string sta_info = "";
+                sta_info = "不良品数：" + "\t" + lab_FailureCount.Text;
+                sw.WriteLine(sta_info);
+                sta_info = "不良品率：" + "\t" + lab_FailureRate.Text;
+                sw.WriteLine(sta_info);
+                */
+
                 sw.Close();
                 myStream.Close();
             }
@@ -792,8 +829,8 @@ namespace HDPLC_TEST
                 
                 last_lab_RxBytes = new_lab_RxBytes;                
 
-                System.Threading.Thread.Sleep(650);
-              
+                System.Threading.Thread.Sleep(650);                
+                            
             }            
         }
 
@@ -915,6 +952,12 @@ namespace HDPLC_TEST
         private void 自动测试ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tb_MacToBeSet.ReadOnly = true;
+            tb_MacToBeSet.Focus();
+            btn_getAll.Enabled = false;
+            btn_cleardev.Enabled = false;
+            btn_SetMac.Enabled = false;
+            setmac_finished = 0;
+            reset_finished = 0;
             test_model = 1;
             lab_testmodel.Text = "自动测试";
             BarCode = new BarCodeHook();
@@ -925,6 +968,10 @@ namespace HDPLC_TEST
         private void 手动测试ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tb_MacToBeSet.ReadOnly = false;
+            tb_MacToBeSet.Focus();
+            btn_getAll.Enabled = true;
+            btn_cleardev.Enabled = true;
+            btn_SetMac.Enabled = true;
             test_model = 0;
             lab_testmodel.Text = "手动测试";            
             BarCode.Stop();
@@ -963,8 +1010,9 @@ namespace HDPLC_TEST
                 this.BeginInvoke(new ShowInfoDelegate(ShowInfo), new object[] { barCode });
             }
             else
-            {
-                tb_MacToBeSet.Text = barCode.IsValid ? barCode.BarCode : "";                            
+            {                  
+                string pre_barcode = barCode.IsValid ? barCode.BarCode : "";
+                tb_MacToBeSet.Text = Regex.Replace(pre_barcode, @"\s", "");
             }
         }
 
@@ -975,12 +1023,35 @@ namespace HDPLC_TEST
 
         private void tb_MacToBeSet_TextChanged(object sender, EventArgs e)
         {
-            i++;
-            tb_DutMac.Text = i.ToString();
+                        
             if(test_model==1)
             {
-                //btn_SetMac_Click(null, null);
+                btn_ClearDevice_Click(null, null);
+                if (tb_MacToBeSet.Text == "") return;                
+                btn_SetMac_Click(null, null);
             }
+        }
+
+        private void lab_teststatus_TextChanged(object sender, EventArgs e)
+        {
+            //检测测试模式和是否完成MAC设置，如果是，开始下一轮信息采集
+            if (test_model == 1 && setmac_finished == 1 && reset_finished == 1)
+            {
+                setmac_finished = 0;                
+                reset_finished = 0;
+
+                btn_getAll_Click(null, null);
+            }
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About ab = new About();
+
+            ab.StartPosition = FormStartPosition.Manual;
+            ab.Location = new Point(this.Location.X + 250, this.Location.Y + 150);
+
+            DialogResult r = ab.ShowDialog();
         }
 
   
